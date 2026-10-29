@@ -12,6 +12,14 @@
 
 ## 一、快速开始
 
+### 方式 0：在线访问（已部署 GitHub Pages）
+
+手机 / iPad / 电脑浏览器直接打开（无需安装任何东西，支持添加到主屏幕离线使用）：
+
+**https://cny170501-svg.github.io/yilin-english/**
+
+仓库地址：https://github.com/cny170501-svg/yilin-english （更新代码推送到 main 分支后约 1 分钟自动上线）
+
 ### 方式 1：双击启动（Windows）
 
 双击 `启动学习工具.bat`，会自动：
