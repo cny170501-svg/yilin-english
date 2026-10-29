@@ -1,0 +1,17 @@
+{
+  "name": "译林英语复习 · 四年级上册",
+  "short_name": "译林英语",
+  "description": "译林版小学英语四年级上册互动复习工具：单词点读、句型跟读、练习判分、错题本与学习进度",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f2f6fc",
+  "theme_color": "#2f6fed",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

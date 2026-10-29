@@ -1,0 +1,5 @@
+/* 只引入 utilities（base 的 preflight 已在配置中关闭）；
+   prose 相关规则由 @tailwindcss/typography 插件注入 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

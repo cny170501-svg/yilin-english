@@ -1,0 +1,11 @@
+# 便携工具链（体积大，不属于网站资源，不入库）
+tools/node20/
+tools/mingit/
+tools/gh/
+tools/mingit.zip
+tools/gh.zip
+
+# 依赖与临时产物
+tw/node_modules/
+*.log
+.DS_Store
