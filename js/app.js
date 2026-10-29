@@ -52,6 +52,12 @@
       window.addEventListener('hashchange', function () { App.rerender(); });
       document.addEventListener('click', onGlobalClick);
 
+      /* 防抖保存兜底：页面切后台/关闭前立即落盘，避免最后 500ms 内的记录丢失 */
+      window.addEventListener('pagehide', function () { Store.saveNow(); });
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'hidden') Store.saveNow();
+      });
+
       /* PWA Service Worker（file:// 打开时自动跳过） */
       if ('serviceWorker' in navigator &&
           (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {

@@ -58,7 +58,7 @@
 
   function defaultSettings() {
     return {
-      rate: 0.85,
+      rate: 0.9,
       showZh: true,
       fontSize: 'm',          // s | m | l
       zhMode: 'hide',         // hide | show | sentence 阅读页默认中文显示
@@ -123,6 +123,8 @@
           Object.keys(def).forEach(function (k) {
             if (parsed.settings[k] === undefined) parsed.settings[k] = def[k];
           });
+          /* 旧默认语速 0.85 迁移到 0.9（非标准速率会让本地引擎拉伸音质）；用户显式选择的 0.65 / 1.1 档不受影响 */
+          if (parsed.settings.rate === 0.85) parsed.settings.rate = 0.9;
           if (!parsed.reading) parsed.reading = base.reading;
           if (!parsed.grammar) parsed.grammar = base.grammar;
           sanitize(parsed);
@@ -134,7 +136,19 @@
       }
     },
 
+    /* 防抖保存：连续点读/计时等高频写入合并为每 500ms 一次；离开页面前用 saveNow 兜底 */
     save: function () {
+      if (!this.available) return;
+      var self = this;
+      if (this._saveTimer) return;
+      this._saveTimer = setTimeout(function () {
+        self._saveTimer = null;
+        self.saveNow();
+      }, 500);
+    },
+
+    saveNow: function () {
+      if (this._saveTimer) { clearTimeout(this._saveTimer); this._saveTimer = null; }
       if (!this.available) return;
       try {
         localStorage.setItem(KEY, JSON.stringify(this.data));
@@ -542,7 +556,7 @@
 
     resetProgress: function () {
       this.data = defaults();
-      this.save();
+      this.saveNow();
     }
   };
 

@@ -154,7 +154,7 @@
         '<span class="rd-m">' + esc((READING_CONTENT.categories.filter(function (c) { return c.key === a.category; })[0] || {}).name || '') + '</span>' +
         '</div>' +
         '<div class="source-tip">📄 来源：' + esc(a.sourceNote) +
-        (a.sourceUrl ? '（<a href="' + esc(a.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看原始出处 ↗</a>）' : '') +
+        (a.sourceUrl && /^https?:\/\//i.test(a.sourceUrl) ? '（<a href="' + esc(a.sourceUrl) + '" target="_blank" rel="noopener noreferrer">查看原始出处 ↗</a>）' : '') +
         '　中文翻译：本工具整理</div>' +
 
         '<div class="cat-tabs read-ctrl">' + zhTabs + '</div>' +

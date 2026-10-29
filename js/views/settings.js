@@ -66,7 +66,7 @@
             '<div class="rate-row">' +
             '<span class="muted small">语速：</span>' +
             chip('settings:rate', 0.65, rate <= 0.7, '🐢 慢速') +
-            chip('settings:rate', 0.85, rate > 0.7 && rate < 1.05, '🚶 正常') +
+            chip('settings:rate', 0.9, rate > 0.7 && rate < 1.05, '🚶 正常') +
             chip('settings:rate', 1.1, rate >= 1.05, '🐇 快速') +
             '</div>' +
             '<div class="rate-row">' +

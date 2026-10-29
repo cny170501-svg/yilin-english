@@ -8,13 +8,24 @@
   var synth = window.speechSynthesis;
 
   var PREFERRED_VOICES = [
-    'Google US English', 'Samantha', 'Microsoft Aria', 'Microsoft Jenny',
+    /* 高清神经语音优先（Edge/Win11 的 Online (Natural) 系列，远比传统 SAPI 语音清晰） */
+    'Microsoft Aria Online (Natural)', 'Microsoft Jenny Online (Natural)',
+    'Microsoft Ana Online (Natural)', 'Microsoft Guy Online (Natural)',
+    'Microsoft Michelle Online (Natural)', 'Microsoft Ryan Online (Natural)',
+    'Google US English',
+    'Samantha', 'Microsoft Aria', 'Microsoft Jenny',
     'Microsoft Zira', 'Google UK English Female', 'Karen', 'Daniel', 'Microsoft Guy'
   ];
 
   function pickVoice(voices) {
     var en = voices.filter(function (v) { return /^en[-_]/i.test(v.lang) || v.lang === 'en'; });
     if (!en.length) return null;
+    /* 命名里带 Natural 的在线神经语音优先（覆盖未来新增命名） */
+    var natural = en.filter(function (v) { return /natural/i.test(v.name); });
+    if (natural.length) {
+      var usNat = natural.filter(function (v) { return /^en[-_]US/i.test(v.lang); })[0];
+      return usNat || natural[0];
+    }
     for (var i = 0; i < PREFERRED_VOICES.length; i++) {
       var name = PREFERRED_VOICES[i];
       for (var j = 0; j < en.length; j++) {
@@ -53,18 +64,33 @@
       var self = this;
       if (this._unlocked) return;
       var unlock = function () {
+        if (self._unlocked) return;
         self._unlocked = true;
         try {
+          /* volume=0 的静音合成在部分 iOS 版本不解锁，用近无声的 0.01 */
           var u = new window.SpeechSynthesisUtterance(' ');
-          u.volume = 0;
-          u.rate = 2;
+          u.volume = 0.01;
+          u.rate = 1;
+          u.onend = function () { self._unlockingAt = 0; };
+          self._keep(u);
+          self._unlockingAt = Date.now();
           synth.speak(u);
         } catch (e) { /* 忽略 */ }
+        document.removeEventListener('pointerdown', unlock);
         document.removeEventListener('touchend', unlock);
         document.removeEventListener('click', unlock);
       };
+      /* pointerdown 在同一次点击链里最早触发，保证后续点读 click 前已完成解锁 */
+      document.addEventListener('pointerdown', unlock, false);
       document.addEventListener('touchend', unlock, false);
       document.addEventListener('click', unlock, false);
+    },
+
+    /* 持有 utterance 引用，防止回调触发前被垃圾回收（iOS 常见无声原因之一） */
+    _keep: function (u) {
+      if (!this._alive) this._alive = [];
+      this._alive.push(u);
+      if (this._alive.length > 24) this._alive.splice(0, 12);
     },
 
     /* 朗读一段文本。返回 false 表示不可用 */
@@ -85,7 +111,13 @@
         if (opts.onend) opts.onend();
         return true;
       }
-      try { synth.cancel(); } catch (e) { /* 忽略 */ }
+      /* iOS 长时间停留后合成器可能停在 paused 状态，先恢复 */
+      try { if (synth.paused) synth.resume(); } catch (e) { /* 忽略 */ }
+      /* 刚解锁 800ms 内不 cancel（会把 iOS 解锁音掐断、把合成器卡进静音状态），让朗读排队 */
+      var justUnlocked = this._unlockingAt && (Date.now() - this._unlockingAt < 800);
+      if (!justUnlocked) {
+        try { synth.cancel(); } catch (e) { /* 忽略 */ }
+      }
       var u = new window.SpeechSynthesisUtterance(text);
       if (this.voice) {
         u.voice = this.voice;
@@ -93,7 +125,7 @@
       } else {
         u.lang = 'en-US';
       }
-      u.rate = opts.rate || (global.Store && Store.data.settings.rate) || 0.85;
+      u.rate = opts.rate || (global.Store && Store.data.settings.rate) || 0.9;
       u.pitch = opts.pitch != null ? opts.pitch : 1;
 
       var finished = false;
@@ -115,6 +147,7 @@
       };
       /* 保底：如果 12 秒内没有任何回调（个别浏览器偶发），放行 */
       setTimeout(function () { finish(false); }, 12000);
+      this._keep(u);
       try {
         synth.speak(u);
       } catch (e) {
