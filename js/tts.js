@@ -42,6 +42,7 @@
     voice: null,
     _token: 0,
     _queueStopped: true,
+    _queueRetry: null,
 
     init: function () {
       if (!this.supported) return;
@@ -145,8 +146,16 @@
         var t = e && e.error;
         finish(t !== 'interrupted' && t !== 'canceled');
       };
-      /* 保底：如果 12 秒内没有任何回调（个别浏览器偶发），放行 */
-      setTimeout(function () { finish(false); }, 12000);
+      /* 保底：长时间无任何回调（个别浏览器偶发）时放行 onend；
+         若合成器仍在播/排队/暂停则顺延重查，绝不掐断正在播的长句 */
+      var fallback = function () {
+        if (finished || token !== Speaker._token) return;
+        var busy = false;
+        try { busy = synth.speaking || synth.pending || synth.paused; } catch (e) { /* 忽略 */ }
+        if (busy) { setTimeout(fallback, 3000); return; }
+        finish(false);
+      };
+      setTimeout(fallback, 12000);
       this._keep(u);
       try {
         synth.speak(u);
@@ -161,6 +170,7 @@
     stop: function () {
       this._token++;
       this._queueStopped = true;
+      this._queueRetry = null;
       if (this.supported) {
         try { synth.cancel(); } catch (e) { /* 忽略 */ }
       }
@@ -174,7 +184,19 @@
 
     resume: function () {
       if (!this.supported) return false;
-      try { synth.resume(); return true; } catch (e) { return false; }
+      try { synth.resume(); } catch (e) { return false; }
+      /* 个别引擎（尤其 iOS Safari）resume 后仍卡在 paused：1.5 秒后仍无恢复迹象，
+         则取消死态并从队列当前句重播，避免“既不暂停也不出声” */
+      var self = this;
+      setTimeout(function () {
+        var stuck = false;
+        try { stuck = synth.paused && !synth.speaking; } catch (e) { return; }
+        if (!stuck) return;
+        try { synth.cancel(); } catch (e) { /* 忽略 */ }
+        var r = self._queueRetry;
+        if (r && r.token === self._token) r.run();
+      }, 1500);
+      return true;
     },
 
     /* 连续播放：texts 数组逐个朗读，中间停顿 gap 毫秒
@@ -193,15 +215,15 @@
       var i = 0;
 
       var step = function () {
-        if (self._queueStopped || token !== self._token) return;
+        if (self._queueStopped || token !== self._token) { self._queueRetry = null; return; }
         if (i >= texts.length) {
           self._queueStopped = true;
+          self._queueRetry = null;
           if (opts.onDone) opts.onDone();
           return;
         }
         var idx = i;
         if (opts.onItem) opts.onItem(idx);
-        /* 句级兜底：个别引擎偶发不回调，4 秒无响应则强制推进下一句 */
         var advanced = false;
         var advance = function () {
           if (advanced) return;
@@ -212,18 +234,47 @@
             step();
           }, opts.gap != null ? opts.gap : 400);
         };
-        self._speakWithToken(token, texts[idx], {
-          pitch: opts.pitchFn ? opts.pitchFn(idx) : undefined,
-          onend: advance
-        });
-        setTimeout(advance, 4000);
+        var speakCurrent = function () {
+          if (self._queueStopped || token !== self._token) return;
+          /* 记录当前句，供 resume() 自愈时从本句重播 */
+          self._queueRetry = { token: token, run: speakCurrent };
+          self._speakWithToken(token, texts[idx], {
+            pitch: opts.pitchFn ? opts.pitchFn(idx) : undefined,
+            onend: advance
+          });
+        };
+        speakCurrent();
+        /* 句级看门狗：只兜底“引擎不回调”的死句——连续 4 秒确认空闲（不在播、
+           不在排队、未暂停）才强制推进；仍在播的长句与暂停状态永不触发 */
+        var idleTicks = 0;
+        var watchdog = function () {
+          if (advanced) return;
+          if (self._queueStopped || token !== self._token) return;
+          var busy = false;
+          try { busy = synth.speaking || synth.pending || synth.paused; } catch (e) { /* 忽略 */ }
+          if (busy) idleTicks = 0; else idleTicks++;
+          if (idleTicks >= 4) { advance(); return; }
+          setTimeout(watchdog, 1000);
+        };
+        setTimeout(watchdog, 1000);
       };
       step();
       return true;
     },
 
     voiceName: function () {
-      return this.voice ? this.voice.name : (this.supported ? '默认英语语音' : '不可用');
+      if (!this.supported) return '不可用';
+      var v = this.voice;
+      if (!v) {
+        try { v = pickVoice(synth.getVoices() || []); } catch (e) { /* 忽略 */ }
+      }
+      return v ? v.name : '未找到英语语音（将用系统默认语音朗读）';
+    },
+
+    /* 设备是否装有英语语音：无英语语音时点读/听力发音可能不标准，设置页据此提醒 */
+    hasEnglishVoice: function () {
+      if (!this.supported) return false;
+      try { return !!pickVoice(synth.getVoices() || []); } catch (e) { return false; }
     }
   };
 

@@ -308,7 +308,7 @@
       if (q && q.display && q.display.indexOf('listen') === 0 && !q._played && Store.data.settings.listenAutoplay !== false) {
         q._played = true;
         setTimeout(function () {
-          if (App.dictSession === s && !s.answered) Speaker.speak(q.speak);
+          if (App.dictSession === s && !s.answered) Util.speakWithState(q.speak, document.querySelector('.listen-btn'));
         }, 300);
       }
     },
@@ -352,16 +352,19 @@
         };
         App.rerender();
       },
-      'dict:replay': function () {
+      'dict:replay': function (d, el) {
+        /* 答题前后都允许重听（重播无判分副作用），播放中按钮呼吸提示 */
         var s = App.dictSession;
-        if (s && !s.answered) Speaker.speak(s.questions[s.idx].speak);
+        if (!s || s.done) return;
+        var q = s.questions[s.idx];
+        if (q && q.speak) Util.speakWithState(q.speak, el);
       },
-      'dict:speakAnswer': function () {
+      'dict:speakAnswer': function (d, el) {
         var s = App.dictSession;
         if (!s) return;
         var q = s.questions[s.idx];
         var text = q.answers[0] || q.answer;
-        if (text) Speaker.speak(text);
+        Util.speakWithState(text, el);
       },
       'dict:submit': function () { submitDict(); },
       'dict:retry': function () {

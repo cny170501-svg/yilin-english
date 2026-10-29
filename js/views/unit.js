@@ -30,9 +30,30 @@
     });
   }
 
+  /* 工具栏播放状态：playingMode 记录当前"连续播放/跟读"进行中，
+     局部重渲染（如标记掌握）后由 toolbar() 依此还原按钮态 */
+  var playingMode = null;
+
   function clearHighlights() {
     var els = document.querySelectorAll('.playing');
     for (var i = 0; i < els.length; i++) els[i].classList.remove('playing');
+    playingMode = null;
+    syncToolbar();
+  }
+
+  function syncToolbar() {
+    var b = document.querySelector('[data-tb="play"]');
+    if (b) {
+      var on = playingMode === 'play';
+      b.classList.toggle('is-playing', on);
+      b.innerHTML = Util.icon('play', 16) + ' ' + (on ? '播放中…' : '连续播放');
+    }
+    b = document.querySelector('[data-tb="follow"]');
+    if (b) {
+      var on2 = playingMode === 'follow';
+      b.classList.toggle('is-playing', on2);
+      b.innerHTML = on2 ? '👂 跟读中…' : '👂 跟读模式';
+    }
   }
 
   function highlightIndex(i) {
@@ -78,8 +99,11 @@
         App.rerender();
       },
 
-      'unit:playWord': function (d) {
-        Speaker.speak(d.text);
+      'unit:playWord': function (d, el) {
+        if (el && el.classList) el.classList.add('is-playing');
+        Speaker.speak(d.text, {
+          onend: function () { if (el && el.classList) el.classList.remove('is-playing'); }
+        });
         if (d.unit) Store.recordPlay(d.unit);
       },
 
@@ -104,7 +128,7 @@
           onItem: function (i) { highlightIndex(i); },
           onDone: clearHighlights
         });
-        if (ok) Util.toast('连续播放开始，点击「停止」可随时结束');
+        if (ok) { playingMode = 'play'; syncToolbar(); Util.toast('连续播放开始，点击「停止」可随时结束'); }
       },
 
       'unit:follow': function (d) {
@@ -121,7 +145,7 @@
           onItem: function (i) { highlightIndex(i); },
           onDone: function () { clearHighlights(); Util.toast('跟读结束，真棒！🎉'); }
         });
-        if (ok) Util.toast('跟读模式：听一个，大声跟读一个');
+        if (ok) { playingMode = 'follow'; syncToolbar(); Util.toast('跟读模式：听一个，大声跟读一个（无需麦克风，不作发音评分）'); }
       },
 
       'unit:playSentences': function (d) {
@@ -129,11 +153,12 @@
         if (!u) return;
         var sents = u.sentences || [];
         var texts = sents.map(function (s) { return s.en; });
-        Speaker.speakQueue(texts, {
+        var ok = Speaker.speakQueue(texts, {
           gap: 600,
           onItem: function (i) { highlightIndex(i); },
           onDone: clearHighlights
         });
+        if (ok) { playingMode = 'play'; syncToolbar(); }
       },
 
       'unit:followSentences': function (d) {
@@ -141,11 +166,12 @@
         if (!u) return;
         var sents = u.sentences || [];
         var texts = sents.map(function (s) { return s.en; });
-        Speaker.speakQueue(texts, {
-          gap: Math.max(2500, 0),
+        var ok = Speaker.speakQueue(texts, {
+          gap: 2500,
           onItem: function (i) { highlightIndex(i); },
           onDone: function () { clearHighlights(); Util.toast('跟读结束，真棒！🎉'); }
         });
+        if (ok) { playingMode = 'follow'; syncToolbar(); }
       },
 
       'unit:stop': function () {
@@ -177,9 +203,11 @@
   }
 
   function toolbar(unitId, opts) {
+    var playOn = playingMode === 'play';
+    var followOn = playingMode === 'follow';
     return '<div class="toolbar">' +
-      '<button class="btn btn-mini btn-primary" data-action="' + opts.playAction + '" data-unit="' + unitId + '">' + Util.icon("play", 16) + ' 连续播放</button>' +
-      '<button class="btn btn-mini btn-primary" data-action="' + opts.followAction + '" data-unit="' + unitId + '">🎤 跟读模式</button>' +
+      '<button class="btn btn-mini btn-primary' + (playOn ? ' is-playing' : '') + '" data-action="' + opts.playAction + '" data-unit="' + unitId + '" data-tb="play">' + Util.icon("play", 16) + ' ' + (playOn ? '播放中…' : '连续播放') + '</button>' +
+      '<button class="btn btn-mini btn-primary' + (followOn ? ' is-playing' : '') + '" data-action="' + opts.followAction + '" data-unit="' + unitId + '" data-tb="follow">' + (followOn ? '👂 跟读中…' : '👂 跟读模式') + '</button>' +
       '<button class="btn btn-mini" data-action="unit:stop">' + Util.icon("stop", 16) + ' 停止</button>' +
       '<button class="btn btn-mini" data-action="unit:toggleZh">' + (App.state.showZh ? '🙈 隐藏中文' : '🐵 显示中文') + '</button>' +
       '</div>';

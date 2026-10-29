@@ -57,6 +57,7 @@
       if (!box) {
         box = document.createElement('div');
         box.id = 'toast-box';
+        box.setAttribute('aria-live', 'polite');
         document.body.appendChild(box);
       }
       var t = document.createElement('div');
@@ -67,6 +68,15 @@
         t.classList.add('toast-out');
         setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 350);
       }, 2200);
+    },
+
+    /* 播放语音并给触发按钮加"播放中"状态（图标呼吸），结束或被打断时移除 */
+    speakWithState: function (text, btn) {
+      if (!text) return;
+      if (btn && btn.classList) btn.classList.add('is-playing');
+      Speaker.speak(text, {
+        onend: function () { if (btn && btn.classList) btn.classList.remove('is-playing'); }
+      });
     }
   };
 

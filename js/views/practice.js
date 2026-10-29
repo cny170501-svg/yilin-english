@@ -99,7 +99,7 @@
       if (auto && !q._played && (q.type === 'listen' || q.type === 'listenSent' || q.type === 'listenSpell')) {
         q._played = true;
         setTimeout(function () {
-          if (App.session === s && !s.answered) Speaker.speak(q.speak);
+          if (App.session === s && !s.answered) Util.speakWithState(q.speak, document.querySelector('.listen-btn'));
         }, 300);
       }
       if (auto && !q._played && q.kind === 'dialog') {
@@ -142,17 +142,19 @@
       'practice:startWrong': function () {
         startWrongRetry();
       },
-      'practice:replay': function () {
+      'practice:replay': function (d, el) {
+        /* 答题前后都允许重听题目音频（重播无判分副作用），播放中按钮呼吸提示 */
         var s = App.session;
-        if (s && !s.answered) {
-          var q = s.questions[s.idx];
-          if (q.kind === 'dialog') playDialog(q, true);
-          else if (q.speak) Speaker.speak(q.speak);
-        }
+        if (!s || s.done) return;
+        var q = s.questions[s.idx];
+        if (!q) return;
+        if (q.kind === 'dialog') playDialog(q, true);
+        else if (q.speak) Util.speakWithState(q.speak, el);
       },
       'practice:playDialog': function () {
         var s = App.session;
-        if (s && !s.answered) playDialog(s.questions[s.idx], true);
+        if (!s || s.done) return;
+        playDialog(s.questions[s.idx], true);
       },
       'practice:answer': function (d) {
         var s = App.session;
@@ -223,12 +225,12 @@
       'practice:inputSubmit': function () {
         submitInput();
       },
-      'practice:speakAnswer': function () {
+      'practice:speakAnswer': function (d, el) {
         var s = App.session;
         if (!s) return;
         var q = s.questions[s.idx];
         var text = q.checkSpeak || q.answers && q.answers[0] || q.answer;
-        if (text) Speaker.speak(text);
+        Util.speakWithState(text, el);
       },
       'practice:next': function () {
         nextQuestion(App.session);
@@ -271,6 +273,8 @@
     var texts = lines.map(function (l) { return l.en; });
     var pitchFn = function (i) { return lines[i] && lines[i].who === 'B' ? 1.25 : 0.9; };
     var btn = document.getElementById('dialog-play-state');
+    var playBtn = document.querySelector('.listen-btn-sm');
+    if (playBtn) playBtn.classList.add('is-playing');
     Speaker.speakQueue(texts, {
       gap: 600,
       pitchFn: pitchFn,
@@ -278,6 +282,7 @@
         if (btn) btn.innerHTML = Util.icon("volume", 18) + ' 正在播放第 ' + (i + 1) + '/' + texts.length + ' 句…';
       },
       onDone: function () {
+        if (playBtn) playBtn.classList.remove('is-playing');
         if (btn) btn.textContent = '播放结束，可点击重听';
       }
     });

@@ -55,6 +55,15 @@
     for (var i = 0; i < els.length; i++) els[i].classList.remove('playing');
   }
 
+  /* 「朗读全文」按钮播放态还原 */
+  function resetPlayAllBtn() {
+    var b = document.querySelector('[data-action="article:playAll"]');
+    if (b) {
+      b.classList.remove('is-playing');
+      b.innerHTML = Util.icon('play', 16) + ' 朗读全文';
+    }
+  }
+
   function stopTicker() {
     if (global.__readTicker) {
       clearInterval(global.__readTicker);
@@ -129,7 +138,8 @@
       var quizHtml = renderQuiz(a, st);
 
       var popover = st.popover
-        ? '<div id="word-pop" class="word-pop">' +
+        ? '<div class="pop-mask" data-action="article:closePop"></div>' +
+          '<div id="word-pop" class="word-pop">' +
           '<div class="wp-en">' + esc(st.popover.en) + '</div>' +
           '<div class="wp-zh">' + esc(st.popover.zh) + '</div>' +
           (st.popover.pos ? '<div class="wp-pos muted small">' + esc(st.popover.pos) + '</div>' : '') +
@@ -198,13 +208,18 @@
         Util.toast('语速已调整');
         App.rerender();
       },
-      'article:playAll': function () {
+      'article:playAll': function (d, el) {
         var a = findArticle(App.state.articleId);
         if (!a) return;
         var texts = [];
         a.paragraphs.forEach(function (p) {
           splitSentences(p.en).forEach(function (s) { texts.push(s); });
         });
+        var btn = el || document.querySelector('[data-action="article:playAll"]');
+        if (btn) {
+          btn.classList.add('is-playing');
+          btn.innerHTML = Util.icon('play', 16) + ' 朗读中…';
+        }
         Speaker.speakQueue(texts, {
           gap: 260,
           onItem: function (i) {
@@ -215,25 +230,29 @@
               try { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) { }
             }
           },
-          onDone: clearPlaying
+          onDone: function () { clearPlaying(); resetPlayAllBtn(); }
         });
       },
-      'article:playPara': function (d) {
+      'article:playPara': function (d, el) {
         var a = findArticle(App.state.articleId);
         if (!a) return;
         var pi = +d.pi;
         clearPlaying();
         var paraEl = document.querySelector('[data-para="' + pi + '"]');
         if (paraEl) paraEl.classList.add('playing');
+        if (el) el.classList.add('is-playing');
         var texts = splitSentences(a.paragraphs[pi].en);
         Speaker.speakQueue(texts, {
           gap: 220,
-          onDone: clearPlaying
+          onDone: function () {
+            clearPlaying();
+            if (el) el.classList.remove('is-playing');
+          }
         });
       },
-      'article:speakSent': function (d) {
+      'article:speakSent': function (d, el) {
         clearPlaying();
-        Speaker.speak(d.text);
+        Util.speakWithState(d.text, el);
       },
       'article:pause': function () {
         if (Speaker.pause()) {
@@ -249,6 +268,10 @@
       'article:stop': function () {
         Speaker.stop();
         clearPlaying();
+        /* 清理所有播放中按钮态（朗读全文/段落喇叭） */
+        var playing = document.querySelectorAll('.is-playing');
+        for (var i = 0; i < playing.length; i++) playing[i].classList.remove('is-playing');
+        resetPlayAllBtn();
         var b = document.getElementById('art-pause');
         if (b) { b.innerHTML = Util.icon('pause', 16) + ' 暂停'; b.setAttribute('data-action', 'article:pause'); }
       },

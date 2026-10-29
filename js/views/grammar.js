@@ -190,7 +190,7 @@
     },
 
     actions: {
-      'gt:play': function (d) { Speaker.speak(d.text); },
+      'gt:play': function (d, el) { Util.speakWithState(d.text, el); },
       'gt:toggleZh': function () {
         App.grammarUI.showZh = !App.grammarUI.showZh;
         App.rerender();
@@ -261,12 +261,12 @@
         var el = document.getElementById('gt-hint-' + d.ri);
         if (el) { el.textContent = '💡 提示：' + Gen.inputHint(q); el.classList.remove('hidden'); }
       },
-      'gt:quizSpeak': function (d) {
+      'gt:quizSpeak': function (d, el) {
         var t = topicById(App.state.topicId);
         var r = t.rules[+d.ri];
         var q = wrapQuiz(r.quiz, t, 'r' + d.ri);
         var text = q.speak || q.answers && q.answers[0] || q.answer;
-        if (text) Speaker.speak(text);
+        Util.speakWithState(text, el);
       }
     }
   };

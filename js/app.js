@@ -58,6 +58,15 @@
         if (document.visibilityState === 'hidden') Store.saveNow();
       });
 
+      /* 练习/默写进行中刷新或离开时提醒（成绩在完成时才落账，避免孩子误刷新丢整组） */
+      window.addEventListener('beforeunload', function (e) {
+        var busy = (App.session && !App.session.done) || (App.dictSession && !App.dictSession.done);
+        if (busy) {
+          e.preventDefault();
+          e.returnValue = '';
+        }
+      });
+
       /* PWA Service Worker（file:// 打开时自动跳过） */
       if ('serviceWorker' in navigator &&
           (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
@@ -132,8 +141,10 @@
       var btns = document.querySelectorAll('.nav-btn');
       for (var i = 0; i < btns.length; i++) {
         var target = (btns[i].getAttribute('data-nav') || '').replace('#/', '');
-        btns[i].classList.toggle('active', target === this.route ||
-          (target === 'home' && this.route === 'unit'));
+        var on = target === this.route ||
+          (target === 'home' && this.route === 'unit');
+        btns[i].classList.toggle('active', on);
+        btns[i].setAttribute('aria-current', on ? 'page' : 'false');
       }
       var badge = document.getElementById('wrong-badge');
       if (badge) {
@@ -205,7 +216,7 @@
       return;
     }
     if (el.hasAttribute('data-speak')) {
-      Speaker.speak(el.getAttribute('data-speak'));
+      Util.speakWithState(el.getAttribute('data-speak'), el);
       return;
     }
     if (el.hasAttribute('data-action')) {

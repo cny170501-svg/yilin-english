@@ -63,6 +63,8 @@
         '  <div class="card-title">🔊 语音点读</div>' +
         (Speaker.supported
           ? '<div class="muted small">使用设备自带英语语音：' + esc(Speaker.voiceName()) + '</div>' +
+            (Speaker.hasEnglishVoice() ? '' :
+              '<div class="warn-box">⚠️ 当前设备未检测到英语语音，点读与听力将用系统默认语音朗读，发音可能不标准。安装后重开本页即可：Windows 在「设置 → 时间和语言 → 语音」添加英语语音；安卓在系统文字转语音设置中安装英语语音包；iPhone/iPad 在「设置 → 辅助功能 → 朗读内容 → 声音」下载英语语音。</div>') +
             '<div class="rate-row">' +
             '<span class="muted small">语速：</span>' +
             chip('settings:rate', 0.65, rate <= 0.7, '🐢 慢速') +
