@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-11-03T16:04:58.642Z",
- "total": 553,
+ "generatedAt": "2026-11-03T16:14:11.318Z",
+ "total": 661,
  "texts": [
   {
    "text": "subject",
@@ -1639,6 +1639,10 @@
    "from": "grammarEx"
   },
   {
+   "text": "It's your schoolbag.",
+   "from": "grammarOrder"
+  },
+  {
    "text": "I like dogs and cats.",
    "from": "grammarEx"
   },
@@ -1663,6 +1667,10 @@
    "from": "grammarEx"
   },
   {
+   "text": "I have some grapes.",
+   "from": "grammarOrder"
+  },
+  {
    "text": "Do you like dogs? — Yes, I do.",
    "from": "grammarEx"
   },
@@ -1685,6 +1693,10 @@
   {
    "text": "Does Mike like football? — Yes, he does.",
    "from": "grammarEx"
+  },
+  {
+   "text": "Do you like monkeys?",
+   "from": "grammarOrder"
   },
   {
    "text": "I have a pineapple.",
@@ -1723,6 +1735,10 @@
    "from": "grammarEx"
   },
   {
+   "text": "Can you play table tennis?",
+   "from": "grammarOrder"
+  },
+  {
    "text": "How many toy cars do you have?",
    "from": "grammarEx"
   },
@@ -1759,6 +1775,10 @@
    "from": "grammarEx"
   },
   {
+   "text": "They're under the sofa.",
+   "from": "grammarOrder"
+  },
+  {
    "text": "What would you like? — I'd like a hamburger, please.",
    "from": "grammarEx"
   },
@@ -1779,6 +1799,10 @@
    "from": "grammarEx"
   },
   {
+   "text": "What would you like?",
+   "from": "grammarOrder"
+  },
+  {
    "text": "How much is the fan? — It's fifteen yuan.",
    "from": "grammarEx"
   },
@@ -1793,6 +1817,10 @@
   {
    "text": "I have fifty yuan.",
    "from": "grammarEx"
+  },
+  {
+   "text": "How much is the fan?",
+   "from": "grammarOrder"
   },
   {
    "text": "This is Tom. His hair is short.",
@@ -1811,6 +1839,10 @@
    "from": "grammarEx"
   },
   {
+   "text": "His nose is small.",
+   "from": "grammarOrder"
+  },
+  {
    "text": "Let's make a fruit salad. — Great!",
    "from": "grammarEx"
   },
@@ -1827,24 +1859,68 @@
    "from": "grammarEx"
   },
   {
+   "text": "Look at this cat!",
+   "from": "grammarOrder"
+  },
+  {
    "text": "Momo is a little panda. She is three years old.",
    "from": "readingPara"
+  },
+  {
+   "text": "Momo is a little panda.",
+   "from": "readingSent"
+  },
+  {
+   "text": "She is three years old.",
+   "from": "readingSent"
   },
   {
    "text": "Every morning, Momo gets up early. She eats bamboo for breakfast.",
    "from": "readingPara"
   },
   {
+   "text": "Every morning, Momo gets up early.",
+   "from": "readingSent"
+  },
+  {
+   "text": "She eats bamboo for breakfast.",
+   "from": "readingSent"
+  },
+  {
    "text": "After breakfast, she plays with her friend Lele. They run and jump in the forest.",
    "from": "readingPara"
+  },
+  {
+   "text": "After breakfast, she plays with her friend Lele.",
+   "from": "readingSent"
+  },
+  {
+   "text": "They run and jump in the forest.",
+   "from": "readingSent"
   },
   {
    "text": "Momo can climb trees very well. Lele cannot climb, but he can swim.",
    "from": "readingPara"
   },
   {
+   "text": "Momo can climb trees very well.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Lele cannot climb, but he can swim.",
+   "from": "readingSent"
+  },
+  {
    "text": "In the afternoon, Momo is tired. She sits under a big tree.",
    "from": "readingPara"
+  },
+  {
+   "text": "In the afternoon, Momo is tired.",
+   "from": "readingSent"
+  },
+  {
+   "text": "She sits under a big tree.",
+   "from": "readingSent"
   },
   {
    "text": "What a happy day for little Momo!",
@@ -1879,8 +1955,28 @@
    "from": "readingPara"
   },
   {
+   "text": "It is Sunday.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Tom and his dad go to a snack bar.",
+   "from": "readingSent"
+  },
+  {
    "text": "\"Can I help you?\" the man asks. \"A hamburger and a glass of milk, please,\" says Dad.",
    "from": "readingPara"
+  },
+  {
+   "text": "\"Can I help you?\"",
+   "from": "readingSent"
+  },
+  {
+   "text": "the man asks.",
+   "from": "readingSent"
+  },
+  {
+   "text": "\"A hamburger and a glass of milk, please,\" says Dad.",
+   "from": "readingSent"
   },
   {
    "text": "Tom would like some noodles and a cup of orange juice.",
@@ -1891,12 +1987,44 @@
    "from": "readingPara"
   },
   {
+   "text": "\"Anything else?\"",
+   "from": "readingSent"
+  },
+  {
+   "text": "\"No, thank you.\"",
+   "from": "readingSent"
+  },
+  {
    "text": "The food is nice. Tom eats all his noodles. He is full and happy.",
    "from": "readingPara"
   },
   {
+   "text": "The food is nice.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Tom eats all his noodles.",
+   "from": "readingSent"
+  },
+  {
+   "text": "He is full and happy.",
+   "from": "readingSent"
+  },
+  {
    "text": "How much is the food? Thirty-six yuan. What a nice day!",
    "from": "readingPara"
+  },
+  {
+   "text": "How much is the food?",
+   "from": "readingSent"
+  },
+  {
+   "text": "Thirty-six yuan.",
+   "from": "readingSent"
+  },
+  {
+   "text": "What a nice day!",
+   "from": "readingSent"
   },
   {
    "text": "snack bar",
@@ -1923,20 +2051,76 @@
    "from": "readingPara"
   },
   {
+   "text": "My name is Amy.",
+   "from": "readingSent"
+  },
+  {
+   "text": "This is my new home.",
+   "from": "readingSent"
+  },
+  {
+   "text": "It is not big, but it is nice.",
+   "from": "readingSent"
+  },
+  {
    "text": "Look at the living room. There is a blue sofa in it. I like to read books on the sofa.",
    "from": "readingPara"
+  },
+  {
+   "text": "Look at the living room.",
+   "from": "readingSent"
+  },
+  {
+   "text": "There is a blue sofa in it.",
+   "from": "readingSent"
+  },
+  {
+   "text": "I like to read books on the sofa.",
+   "from": "readingSent"
   },
   {
    "text": "The kitchen is big. Mum can cook nice food in it. Mmm, I can smell the rice!",
    "from": "readingPara"
   },
   {
+   "text": "The kitchen is big.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Mum can cook nice food in it.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Mmm, I can smell the rice!",
+   "from": "readingSent"
+  },
+  {
    "text": "This is my bedroom. It is small and clean. My clock is on the table.",
    "from": "readingPara"
   },
   {
+   "text": "This is my bedroom.",
+   "from": "readingSent"
+  },
+  {
+   "text": "It is small and clean.",
+   "from": "readingSent"
+  },
+  {
+   "text": "My clock is on the table.",
+   "from": "readingSent"
+  },
+  {
    "text": "Where is the bathroom? It is next to my bedroom.",
    "from": "readingPara"
+  },
+  {
+   "text": "Where is the bathroom?",
+   "from": "readingSent"
+  },
+  {
+   "text": "It is next to my bedroom.",
+   "from": "readingSent"
   },
   {
    "text": "I love my new home!",
@@ -1971,20 +2155,76 @@
    "from": "readingPara"
   },
   {
+   "text": "Lily has a little red kite.",
+   "from": "readingSent"
+  },
+  {
+   "text": "She wants to fly it in the park.",
+   "from": "readingSent"
+  },
+  {
    "text": "But there is no wind. The kite cannot fly. Lily is sad.",
    "from": "readingPara"
+  },
+  {
+   "text": "But there is no wind.",
+   "from": "readingSent"
+  },
+  {
+   "text": "The kite cannot fly.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Lily is sad.",
+   "from": "readingSent"
   },
   {
    "text": "\"Don't be sad,\" says Dad. \"Let's wait. The wind will come.\"",
    "from": "readingPara"
   },
   {
+   "text": "\"Don't be sad,\" says Dad.",
+   "from": "readingSent"
+  },
+  {
+   "text": "\"Let's wait.",
+   "from": "readingSent"
+  },
+  {
+   "text": "The wind will come.\"",
+   "from": "readingSent"
+  },
+  {
    "text": "They wait and wait. Now the wind comes! The kite flies up, up, up!",
    "from": "readingPara"
   },
   {
+   "text": "They wait and wait.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Now the wind comes!",
+   "from": "readingSent"
+  },
+  {
+   "text": "The kite flies up, up, up!",
+   "from": "readingSent"
+  },
+  {
    "text": "\"Look at my kite! It can fly high!\" Lily is so happy.",
    "from": "readingPara"
+  },
+  {
+   "text": "\"Look at my kite!",
+   "from": "readingSent"
+  },
+  {
+   "text": "It can fly high!\"",
+   "from": "readingSent"
+  },
+  {
+   "text": "Lily is so happy.",
+   "from": "readingSent"
   },
   {
    "text": "A good thing always comes to those who wait.",
@@ -2019,20 +2259,72 @@
    "from": "readingPara"
   },
   {
+   "text": "A hare can run very fast.",
+   "from": "readingSent"
+  },
+  {
+   "text": "A tortoise walks very slowly.",
+   "from": "readingSent"
+  },
+  {
    "text": "\"You are so slow!\" laughs the hare. \"Let's have a race!\"",
    "from": "readingPara"
+  },
+  {
+   "text": "\"You are so slow!\"",
+   "from": "readingSent"
+  },
+  {
+   "text": "laughs the hare.",
+   "from": "readingSent"
+  },
+  {
+   "text": "\"Let's have a race!\"",
+   "from": "readingSent"
   },
   {
    "text": "The race starts. The hare runs far, far away. The tortoise walks on and on.",
    "from": "readingPara"
   },
   {
+   "text": "The race starts.",
+   "from": "readingSent"
+  },
+  {
+   "text": "The hare runs far, far away.",
+   "from": "readingSent"
+  },
+  {
+   "text": "The tortoise walks on and on.",
+   "from": "readingSent"
+  },
+  {
    "text": "The hare stops under a big tree. \"I can sleep now,\" he says.",
    "from": "readingPara"
   },
   {
+   "text": "The hare stops under a big tree.",
+   "from": "readingSent"
+  },
+  {
+   "text": "\"I can sleep now,\" he says.",
+   "from": "readingSent"
+  },
+  {
    "text": "The tortoise does not stop. He walks and walks. At last, he gets to the tree first!",
    "from": "readingPara"
+  },
+  {
+   "text": "The tortoise does not stop.",
+   "from": "readingSent"
+  },
+  {
+   "text": "He walks and walks.",
+   "from": "readingSent"
+  },
+  {
+   "text": "At last, he gets to the tree first!",
+   "from": "readingSent"
   },
   {
    "text": "Slow but steady wins the race.",
@@ -2067,12 +2359,44 @@
    "from": "readingPara"
   },
   {
+   "text": "The north wind and the sun can both be strong.",
+   "from": "readingSent"
+  },
+  {
+   "text": "One day, they have an argument.",
+   "from": "readingSent"
+  },
+  {
    "text": "\"I am stronger than you!\" says the wind. \"No, I am stronger!\" says the sun.",
    "from": "readingPara"
   },
   {
+   "text": "\"I am stronger than you!\"",
+   "from": "readingSent"
+  },
+  {
+   "text": "says the wind.",
+   "from": "readingSent"
+  },
+  {
+   "text": "\"No, I am stronger!\"",
+   "from": "readingSent"
+  },
+  {
+   "text": "says the sun.",
+   "from": "readingSent"
+  },
+  {
    "text": "A man walks by. He wears a big coat.",
    "from": "readingPara"
+  },
+  {
+   "text": "A man walks by.",
+   "from": "readingSent"
+  },
+  {
+   "text": "He wears a big coat.",
+   "from": "readingSent"
   },
   {
    "text": "\"Let's see who can take off his coat,\" says the sun.",
@@ -2083,8 +2407,28 @@
    "from": "readingPara"
   },
   {
+   "text": "The wind blows and blows.",
+   "from": "readingSent"
+  },
+  {
+   "text": "But the man holds his coat tight.",
+   "from": "readingSent"
+  },
+  {
    "text": "Then the sun shines warm and bright. The man feels hot. He takes off his coat.",
    "from": "readingPara"
+  },
+  {
+   "text": "Then the sun shines warm and bright.",
+   "from": "readingSent"
+  },
+  {
+   "text": "The man feels hot.",
+   "from": "readingSent"
+  },
+  {
+   "text": "He takes off his coat.",
+   "from": "readingSent"
   },
   {
    "text": "Kindness is better than force.",
@@ -2115,6 +2459,18 @@
    "from": "readingPara"
   },
   {
+   "text": "In summer, leaves are green.",
+   "from": "readingSent"
+  },
+  {
+   "text": "But in autumn, many leaves turn yellow or red.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Why?",
+   "from": "readingSent"
+  },
+  {
    "text": "Leaves are little food factories for trees.",
    "from": "readingPara"
   },
@@ -2123,16 +2479,48 @@
    "from": "readingPara"
   },
   {
+   "text": "They use sunlight, water and air to make food.",
+   "from": "readingSent"
+  },
+  {
+   "text": "The green colour helps them do this job.",
+   "from": "readingSent"
+  },
+  {
    "text": "In autumn, days get shorter. There is less sunlight.",
    "from": "readingPara"
+  },
+  {
+   "text": "In autumn, days get shorter.",
+   "from": "readingSent"
+  },
+  {
+   "text": "There is less sunlight.",
+   "from": "readingSent"
   },
   {
    "text": "Trees do not need so much food in winter. So the green colour goes away little by little.",
    "from": "readingPara"
   },
   {
+   "text": "Trees do not need so much food in winter.",
+   "from": "readingSent"
+  },
+  {
+   "text": "So the green colour goes away little by little.",
+   "from": "readingSent"
+  },
+  {
    "text": "Then we can see yellow and red leaves. Isn't nature amazing?",
    "from": "readingPara"
+  },
+  {
+   "text": "Then we can see yellow and red leaves.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Isn't nature amazing?",
+   "from": "readingSent"
   },
   {
    "text": "leaf",
@@ -2159,20 +2547,64 @@
    "from": "readingPara"
   },
   {
+   "text": "Animals have amazing ears.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Let's look at three of them!",
+   "from": "readingSent"
+  },
+  {
    "text": "A rabbit has long ears. They can hear very small sounds. This helps the rabbit run away fast.",
    "from": "readingPara"
+  },
+  {
+   "text": "A rabbit has long ears.",
+   "from": "readingSent"
+  },
+  {
+   "text": "They can hear very small sounds.",
+   "from": "readingSent"
+  },
+  {
+   "text": "This helps the rabbit run away fast.",
+   "from": "readingSent"
   },
   {
    "text": "A bat's ears are big, too. Bats cannot see well, but their ears help them find their way with sound at night.",
    "from": "readingPara"
   },
   {
+   "text": "A bat's ears are big, too.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Bats cannot see well, but their ears help them find their way with sound at night.",
+   "from": "readingSent"
+  },
+  {
    "text": "A cat can move its ears around. Its ears tell it where a sound comes from.",
    "from": "readingPara"
   },
   {
+   "text": "A cat can move its ears around.",
+   "from": "readingSent"
+  },
+  {
+   "text": "Its ears tell it where a sound comes from.",
+   "from": "readingSent"
+  },
+  {
    "text": "What about dogs? A dog can hear much better than you and me!",
    "from": "readingPara"
+  },
+  {
+   "text": "What about dogs?",
+   "from": "readingSent"
+  },
+  {
+   "text": "A dog can hear much better than you and me!",
+   "from": "readingSent"
   },
   {
    "text": "Ears are small, but they do big jobs.",
