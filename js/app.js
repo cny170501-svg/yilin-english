@@ -5,7 +5,8 @@
 
   var App = {
     route: 'home',
-    state: { unitId: null, unitTab: 'words', articleId: null, showZh: true, wrongShowAll: false },
+    state: { unitId: null, knowledgeUnitId: null, unitTab: 'words', articleId: null, showZh: true, wrongShowAll: false },
+    knState: { showZh: true, phraseFilter: 'all' },
     session: null,
     practiceCfg: { scope: 'all', cat: 'listen', preset: 'listenAll' },
     readingState: null,
@@ -20,6 +21,7 @@
 
       Store.load();
       this.state.showZh = Store.data.settings.showZh !== false;
+      this.knState.showZh = Store.data.settings.knowledgeShowZh !== false;
       Content.load();
       Speaker.init();
       this.applyFontSize();
@@ -27,6 +29,7 @@
       this.views = {
         home: global.HomeView,
         unit: global.UnitView,
+        knowledge: global.KnowledgeView,
         practice: global.PracticeView,
         wrong: global.WrongView,
         reading: global.ReadingView,
@@ -105,6 +108,10 @@
         this.state.unitId = seg[1];
         return { route: 'unit' };
       }
+      if (seg[0] === 'knowledge' && seg[1]) {
+        this.state.knowledgeUnitId = seg[1];
+        return { route: 'knowledge' };
+      }
       if (seg[0] === 'read' && seg[1]) {
         this.state.articleId = seg[1];
         return { route: 'read' };
@@ -120,7 +127,7 @@
       var parsed = this.parseHash();
       this.route = this.views[parsed.route] ? parsed.route : 'home';
       /* 页面/文章/单元/语法主题切换时停止朗读；答题反馈等局部重渲染不打断播放 */
-      var sig = this.route + '|' + this.state.unitId + '|' + this.state.unitTab + '|' + this.state.articleId + '|' + this.state.topicId;
+      var sig = this.route + '|' + this.state.unitId + '|' + this.state.unitTab + '|' + this.state.articleId + '|' + this.state.topicId + '|' + this.state.knowledgeUnitId;
       if (sig !== this._sig) {
         Speaker.stop();
         this._sig = sig;

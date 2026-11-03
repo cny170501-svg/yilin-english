@@ -53,6 +53,11 @@
     if (d.reading && (!d.reading.history || typeof d.reading.history !== 'object')) d.reading.history = {};
     if (d.grammar && !Array.isArray(d.grammar.favorites)) d.grammar.favorites = [];
     if (d.grammar && (!d.grammar.topics || typeof d.grammar.topics !== 'object')) d.grammar.topics = {};
+    if (!d.knowledge || typeof d.knowledge !== 'object') d.knowledge = {};
+    Object.keys(d.knowledge).forEach(function (k) {
+      if (!d.knowledge[k] || typeof d.knowledge[k] !== 'object') d.knowledge[k] = { items: {} };
+      if (!d.knowledge[k].items || typeof d.knowledge[k].items !== 'object') d.knowledge[k].items = {};
+    });
     return d;
   }
 
@@ -100,6 +105,8 @@
       reading: { history: {}, favorites: [], vocab: [] },
       /* 语法专项: topics {t1:{state,lastAt,sessions,total,correct}}, favorites [id] */
       grammar: { topics: {}, favorites: [] },
+      /* 单元知识点进度（V2.8）: { u1: { items: { "u1-ph-1": "learned|review|mastered" } } } */
+      knowledge: {},
       settings: defaultSettings()
     };
   }
@@ -257,6 +264,32 @@
         if (this.getWordState(unitId, words[i].en) === 'mastered') n++;
       }
       return n;
+    },
+
+    /* ---------- 单元知识点学习进度（V2.8）----------
+       knowledge: { u1: { items: { "u1-ph-1": "learned|review|mastered" } } }
+       与单词掌握、错题本等原有数据字段互不影响 */
+    knItems: function (unitId) {
+      if (!this.data.knowledge || typeof this.data.knowledge !== 'object') this.data.knowledge = {};
+      if (!this.data.knowledge[unitId] || typeof this.data.knowledge[unitId] !== 'object') {
+        this.data.knowledge[unitId] = { items: {} };
+      }
+      if (!this.data.knowledge[unitId].items || typeof this.data.knowledge[unitId].items !== 'object') {
+        this.data.knowledge[unitId].items = {};
+      }
+      return this.data.knowledge[unitId].items;
+    },
+
+    setKnState: function (unitId, itemId, state) {
+      var items = this.knItems(unitId);
+      if (state) items[itemId] = state;
+      else delete items[itemId];
+      this.save();
+    },
+
+    getKnState: function (unitId, itemId) {
+      var items = this.data.knowledge && this.data.knowledge[unitId] && this.data.knowledge[unitId].items;
+      return (items && items[itemId]) || '';
     },
 
     /* ---------- 阅读 ---------- */

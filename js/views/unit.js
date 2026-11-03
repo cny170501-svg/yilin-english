@@ -89,6 +89,7 @@
         '  <div><div class="unit-head-name">Unit ' + u.no + ' ' + esc(u.title) + '</div>' +
         '  <div class="unit-head-zh">' + esc(u.titleZh || '') + '</div></div></div>' +
         '</header>' +
+        knEntryCard(u) +
         '<div class="tabs">' + tabsHtml + '</div>' +
         '<div class="unit-body">' + body + '</div>';
     },
@@ -200,6 +201,31 @@
     if (preset === 'sentences') return '句型练习';
     if (preset === 'grammar') return '语法练习';
     return '综合测试';
+  }
+
+  /* 单元知识点入口卡片（V2.8）：仅在有知识点的单元显示（U1-U5） */
+  function knEntryCard(u) {
+    var K = global.UNIT_KNOWLEDGE;
+    var ku = K && K.units[u.id];
+    if (!ku) return '';
+    var total = 0, learned = 0;
+    var count = function (arr) { return (arr || []).length; };
+    total = count(ku.sounds && ku.sounds.rules) + count(ku.phrases) + count(ku.sentences) + count(ku.grammar) + count(ku.extra);
+    var items = Store.data.knowledge && Store.data.knowledge[u.id] && Store.data.knowledge[u.id].items || {};
+    Object.keys(items).forEach(function (k) {
+      if (items[k] === 'learned' || items[k] === 'mastered') learned++;
+    });
+    var pct = total ? Math.round(learned * 100 / total) : 0;
+    return '<button class="kn-entry" data-nav="#/knowledge/' + u.id + '" aria-label="进入单元知识点">' +
+      '<span class="kn-entry-icon">📘</span>' +
+      '<span class="kn-entry-main">' +
+      '<span class="kn-entry-title">单元知识点</span>' +
+      '<span class="kn-entry-sub">语音规则 · 重点短语 · 重点句型 · 语法讲解</span>' +
+      '<span class="kn-entry-progress"><span class="kn-entry-bar"><span style="width:' + pct + '%"></span></span>' +
+      '<span class="kn-entry-num">共 ' + total + ' 条 · 已学 ' + learned + ' 条（' + pct + '%）</span></span>' +
+      '</span>' +
+      '<span class="kn-entry-arrow">›</span>' +
+      '</button>';
   }
 
   function toolbar(unitId, opts) {

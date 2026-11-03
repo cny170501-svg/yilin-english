@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-11-03T16:14:11.318Z",
- "total": 661,
+ "generatedAt": "2026-11-03T16:49:21.554Z",
+ "total": 910,
  "texts": [
   {
    "text": "subject",
@@ -2645,6 +2645,1002 @@
   {
    "text": "Hello! I like dogs. Do you like pandas?",
    "from": "settingsPreview"
+  },
+  {
+   "text": "school",
+   "from": "knowledge"
+  },
+  {
+   "text": "these",
+   "from": "knowledge"
+  },
+  {
+   "text": "those",
+   "from": "knowledge"
+  },
+  {
+   "text": "our school subjects",
+   "from": "knowledge"
+  },
+  {
+   "text": "like Music best",
+   "from": "knowledge"
+  },
+  {
+   "text": "also like Science",
+   "from": "knowledge"
+  },
+  {
+   "text": "welcome back to...",
+   "from": "knowledge"
+  },
+  {
+   "text": "be good at Maths",
+   "from": "knowledge"
+  },
+  {
+   "text": "time for Chinese",
+   "from": "knowledge"
+  },
+  {
+   "text": "read English stories",
+   "from": "knowledge"
+  },
+  {
+   "text": "want to learn",
+   "from": "knowledge"
+  },
+  {
+   "text": "have many subjects at school",
+   "from": "knowledge"
+  },
+  {
+   "text": "come to school",
+   "from": "knowledge"
+  },
+  {
+   "text": "PE and Art",
+   "from": "knowledge"
+  },
+  {
+   "text": "an English story",
+   "from": "knowledge"
+  },
+  {
+   "text": "new term",
+   "from": "knowledge"
+  },
+  {
+   "text": "new start",
+   "from": "knowledge"
+  },
+  {
+   "text": "Ethics and the Rule of Law",
+   "from": "knowledge"
+  },
+  {
+   "text": "like Labour",
+   "from": "knowledge"
+  },
+  {
+   "text": "learn with me",
+   "from": "knowledge"
+  },
+  {
+   "text": "go to the sports ground",
+   "from": "knowledge"
+  },
+  {
+   "text": "my favourite subject",
+   "from": "knowledge"
+  },
+  {
+   "text": "look for",
+   "from": "knowledge"
+  },
+  {
+   "text": "an Art teacher",
+   "from": "knowledge"
+  },
+  {
+   "text": "what I love to do",
+   "from": "knowledge"
+  },
+  {
+   "text": "want to learn about Chinese culture",
+   "from": "knowledge"
+  },
+  {
+   "text": "an interesting subject",
+   "from": "knowledge"
+  },
+  {
+   "text": "--What subject do you like best? --I like Music best.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--It's time for IT. or It's time to have IT. --Let's go!",
+   "from": "knowledge"
+  },
+  {
+   "text": "Welcome back to school, class.",
+   "from": "knowledge"
+  },
+  {
+   "text": "We have Chinese, Maths, English and Science.",
+   "from": "knowledge"
+  },
+  {
+   "text": "We also have Art, PE and Music.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I like Maths. I'm good at it.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I like Science best. It's interesting.",
+   "from": "knowledge"
+  },
+  {
+   "text": "We all like reading English stories.",
+   "from": "knowledge"
+  },
+  {
+   "text": "Art and Science are fun to learn.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I work hard at school.",
+   "from": "knowledge"
+  },
+  {
+   "text": "All the subjects make me smart.",
+   "from": "knowledge"
+  },
+  {
+   "text": "What do you learn at school?",
+   "from": "knowledge"
+  },
+  {
+   "text": "My favourite subject is English.",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's time for PE.",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's time to have PE.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I like PE too.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I also like PE.",
+   "from": "knowledge"
+  },
+  {
+   "text": "c, or k or",
+   "from": "knowledge"
+  },
+  {
+   "text": "come",
+   "from": "knowledge"
+  },
+  {
+   "text": "carry",
+   "from": "knowledge"
+  },
+  {
+   "text": "cat",
+   "from": "knowledge"
+  },
+  {
+   "text": "car",
+   "from": "knowledge"
+  },
+  {
+   "text": "cake",
+   "from": "knowledge"
+  },
+  {
+   "text": "ck, or k or",
+   "from": "knowledge"
+  },
+  {
+   "text": "clock",
+   "from": "knowledge"
+  },
+  {
+   "text": "tick-tock",
+   "from": "knowledge"
+  },
+  {
+   "text": "duck",
+   "from": "knowledge"
+  },
+  {
+   "text": "black",
+   "from": "knowledge"
+  },
+  {
+   "text": "ch, or tʃ or",
+   "from": "knowledge"
+  },
+  {
+   "text": "chair",
+   "from": "knowledge"
+  },
+  {
+   "text": "pencil",
+   "from": "knowledge"
+  },
+  {
+   "text": "my day",
+   "from": "knowledge"
+  },
+  {
+   "text": "wash your face first",
+   "from": "knowledge"
+  },
+  {
+   "text": "have breakfast",
+   "from": "knowledge"
+  },
+  {
+   "text": "go to school",
+   "from": "knowledge"
+  },
+  {
+   "text": "go and have lunch",
+   "from": "knowledge"
+  },
+  {
+   "text": "time for class or bed or school or sport",
+   "from": "knowledge"
+  },
+  {
+   "text": "time to go or have lunch or have dinner",
+   "from": "knowledge"
+  },
+  {
+   "text": "be coming",
+   "from": "knowledge"
+  },
+  {
+   "text": "what time",
+   "from": "knowledge"
+  },
+  {
+   "text": "be late",
+   "from": "knowledge"
+  },
+  {
+   "text": "Bobby's day",
+   "from": "knowledge"
+  },
+  {
+   "text": "seven o'clock",
+   "from": "knowledge"
+  },
+  {
+   "text": "six fifteen",
+   "from": "knowledge"
+  },
+  {
+   "text": "eleven twenty",
+   "from": "knowledge"
+  },
+  {
+   "text": "at eight thirty",
+   "from": "knowledge"
+  },
+  {
+   "text": "come on",
+   "from": "knowledge"
+  },
+  {
+   "text": "say hi or bye",
+   "from": "knowledge"
+  },
+  {
+   "text": "every day",
+   "from": "knowledge"
+  },
+  {
+   "text": "come back home",
+   "from": "knowledge"
+  },
+  {
+   "text": "be slow",
+   "from": "knowledge"
+  },
+  {
+   "text": "be early",
+   "from": "knowledge"
+  },
+  {
+   "text": "check your bag",
+   "from": "knowledge"
+  },
+  {
+   "text": "a busy morning",
+   "from": "knowledge"
+  },
+  {
+   "text": "carry my ball",
+   "from": "knowledge"
+  },
+  {
+   "text": "--What time is it now? --It's twelve o'clock.",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's three thirty. Let's go to the sports ground.",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's time for breakfast. or It's time to have breakfast.",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's lunchtime. Let's go and have lunch.",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's nine o'clock. It's time for bed.",
+   "from": "knowledge"
+  },
+  {
+   "text": "All right, Mum and Dad. Good night!",
+   "from": "knowledge"
+  },
+  {
+   "text": "Wash your face first, Bobby.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I carry my ball and say bye.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I come back home and say hi!",
+   "from": "knowledge"
+  },
+  {
+   "text": "Don't be slow.",
+   "from": "knowledge"
+  },
+  {
+   "text": "That's the rule.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I'm coming.",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's time for school.",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's time to go to school.",
+   "from": "knowledge"
+  },
+  {
+   "text": "want",
+   "from": "knowledge"
+  },
+  {
+   "text": "window",
+   "from": "knowledge"
+  },
+  {
+   "text": "welcome",
+   "from": "knowledge"
+  },
+  {
+   "text": "would",
+   "from": "knowledge"
+  },
+  {
+   "text": "with",
+   "from": "knowledge"
+  },
+  {
+   "text": "wh, or w or",
+   "from": "knowledge"
+  },
+  {
+   "text": "white",
+   "from": "knowledge"
+  },
+  {
+   "text": "where",
+   "from": "knowledge"
+  },
+  {
+   "text": "what",
+   "from": "knowledge"
+  },
+  {
+   "text": "when",
+   "from": "knowledge"
+  },
+  {
+   "text": "write",
+   "from": "knowledge"
+  },
+  {
+   "text": "wrong",
+   "from": "knowledge"
+  },
+  {
+   "text": "two",
+   "from": "knowledge"
+  },
+  {
+   "text": "answer",
+   "from": "knowledge"
+  },
+  {
+   "text": "what day",
+   "from": "knowledge"
+  },
+  {
+   "text": "my week",
+   "from": "knowledge"
+  },
+  {
+   "text": "every week",
+   "from": "knowledge"
+  },
+  {
+   "text": "every Thursday and Sunday",
+   "from": "knowledge"
+  },
+  {
+   "text": "at nine o'clock",
+   "from": "knowledge"
+  },
+  {
+   "text": "at six thirty",
+   "from": "knowledge"
+  },
+  {
+   "text": "on Wednesday",
+   "from": "knowledge"
+  },
+  {
+   "text": "on Tuesday and Friday",
+   "from": "knowledge"
+  },
+  {
+   "text": "on Saturday",
+   "from": "knowledge"
+  },
+  {
+   "text": "after class",
+   "from": "knowledge"
+  },
+  {
+   "text": "get up at five",
+   "from": "knowledge"
+  },
+  {
+   "text": "have two Maths lessons",
+   "from": "knowledge"
+  },
+  {
+   "text": "can't be late for school",
+   "from": "knowledge"
+  },
+  {
+   "text": "walk my dog",
+   "from": "knowledge"
+  },
+  {
+   "text": "be up or get up or go to school early",
+   "from": "knowledge"
+  },
+  {
+   "text": "a good idea",
+   "from": "knowledge"
+  },
+  {
+   "text": "go to the cinema",
+   "from": "knowledge"
+  },
+  {
+   "text": "want to walk",
+   "from": "knowledge"
+  },
+  {
+   "text": "have a dancing lesson",
+   "from": "knowledge"
+  },
+  {
+   "text": "what about...",
+   "from": "knowledge"
+  },
+  {
+   "text": "be free",
+   "from": "knowledge"
+  },
+  {
+   "text": "and then",
+   "from": "knowledge"
+  },
+  {
+   "text": "next",
+   "from": "knowledge"
+  },
+  {
+   "text": "watch TV",
+   "from": "knowledge"
+  },
+  {
+   "text": "watch a wonderful play",
+   "from": "knowledge"
+  },
+  {
+   "text": "seven days of a week",
+   "from": "knowledge"
+  },
+  {
+   "text": "enjoy every single day",
+   "from": "knowledge"
+  },
+  {
+   "text": "plan your week",
+   "from": "knowledge"
+  },
+  {
+   "text": "name days of a week",
+   "from": "knowledge"
+  },
+  {
+   "text": "a good planner",
+   "from": "knowledge"
+  },
+  {
+   "text": "make a weekly schedule",
+   "from": "knowledge"
+  },
+  {
+   "text": "make a plan for the week",
+   "from": "knowledge"
+  },
+  {
+   "text": "How do you plan your week?",
+   "from": "knowledge"
+  },
+  {
+   "text": "--What day is it today? --It's Saturday.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--When do you get up every day? --I get up at five.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--When do you have dancing lessons? --I have dancing lessons on Wednesday and Friday.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--What about you? --I walk my dog on Tuesday and Friday.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--What about tomorrow? --OK. I'm free on Saturday.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--What do you want to do on Wednesday? --We want to walk and watch a wonderful play!",
+   "from": "knowledge"
+  },
+  {
+   "text": "I enjoy every single day.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I can't be late for school again!",
+   "from": "knowledge"
+  },
+  {
+   "text": "--You're up early today. --Yes, I want to go to school early.",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's Friday today. Let's go to the cinema after school.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I have two dancing lessons every week.",
+   "from": "knowledge"
+  },
+  {
+   "text": "See you tomorrow.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I would like an apple.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I would like to walk my dog.",
+   "from": "knowledge"
+  },
+  {
+   "text": "bag",
+   "from": "knowledge"
+  },
+  {
+   "text": "a_e, or eɪ or",
+   "from": "knowledge"
+  },
+  {
+   "text": "make",
+   "from": "knowledge"
+  },
+  {
+   "text": "banana",
+   "from": "knowledge"
+  },
+  {
+   "text": "about",
+   "from": "knowledge"
+  },
+  {
+   "text": "again",
+   "from": "knowledge"
+  },
+  {
+   "text": "ar, or ɑ: or",
+   "from": "knowledge"
+  },
+  {
+   "text": "are",
+   "from": "knowledge"
+  },
+  {
+   "text": "farm",
+   "from": "knowledge"
+  },
+  {
+   "text": "play basketball",
+   "from": "knowledge"
+  },
+  {
+   "text": "play football",
+   "from": "knowledge"
+  },
+  {
+   "text": "want to play ping-pong",
+   "from": "knowledge"
+  },
+  {
+   "text": "play with us",
+   "from": "knowledge"
+  },
+  {
+   "text": "play well or can't play well",
+   "from": "knowledge"
+  },
+  {
+   "text": "well played",
+   "from": "knowledge"
+  },
+  {
+   "text": "swim so well",
+   "from": "knowledge"
+  },
+  {
+   "text": "try again",
+   "from": "knowledge"
+  },
+  {
+   "text": "(don't) like swimming or playing football",
+   "from": "knowledge"
+  },
+  {
+   "text": "like sport",
+   "from": "knowledge"
+  },
+  {
+   "text": "(don't) like basketball",
+   "from": "knowledge"
+  },
+  {
+   "text": "both like ping-pong",
+   "from": "knowledge"
+  },
+  {
+   "text": "have a go",
+   "from": "knowledge"
+  },
+  {
+   "text": "be hard for ...",
+   "from": "knowledge"
+  },
+  {
+   "text": "be good for ...",
+   "from": "knowledge"
+  },
+  {
+   "text": "be good at sth.",
+   "from": "knowledge"
+  },
+  {
+   "text": "be good at + v.ing sth.",
+   "from": "knowledge"
+  },
+  {
+   "text": "great fun",
+   "from": "knowledge"
+  },
+  {
+   "text": "catch the ball",
+   "from": "knowledge"
+  },
+  {
+   "text": "hit the ball",
+   "from": "knowledge"
+  },
+  {
+   "text": "throw it back",
+   "from": "knowledge"
+  },
+  {
+   "text": "on the mat",
+   "from": "knowledge"
+  },
+  {
+   "text": "with the bat",
+   "from": "knowledge"
+  },
+  {
+   "text": "play ping-pong together",
+   "from": "knowledge"
+  },
+  {
+   "text": "keep fit",
+   "from": "knowledge"
+  },
+  {
+   "text": "--What sport do you like? --I like playing football. What about you? --Me too.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--Do you like playing basketball? --Yes, I do.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--No, I don't. I don't like playing basketball.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--Ping-pong is fun, but it's hard for me. --It's OK. Try again.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I like running. I like jumping. Sport is cool and fun.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I like sport. It's good for us.",
+   "from": "knowledge"
+  },
+  {
+   "text": "Let's keep fit. Run, run, run!",
+   "from": "knowledge"
+  },
+  {
+   "text": "--Come and play basketball with us. --OK. Thank you!",
+   "from": "knowledge"
+  },
+  {
+   "text": "You can play so well! or Well played!",
+   "from": "knowledge"
+  },
+  {
+   "text": "--I like playing ping-pong. Let's go and play. --Good idea!",
+   "from": "knowledge"
+  },
+  {
+   "text": "--Can we play again tomorrow? --Sure!",
+   "from": "knowledge"
+  },
+  {
+   "text": "I'm good at swimming.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I don't want to play basketball tomorrow.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I like running.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I like jumping.",
+   "from": "knowledge"
+  },
+  {
+   "text": "I like playing basketball.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--What sport do you like? --I like football or playing football.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--Do you like + v.ing sth.? --Yes, I do. or No, I don't.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--Do you like playing ping-pong? --Yes, I do.",
+   "from": "knowledge"
+  },
+  {
+   "text": "her short or long hair",
+   "from": "knowledge"
+  },
+  {
+   "text": "her big eyes",
+   "from": "knowledge"
+  },
+  {
+   "text": "have small or big ears",
+   "from": "knowledge"
+  },
+  {
+   "text": "my small nose",
+   "from": "knowledge"
+  },
+  {
+   "text": "a small or big mouth",
+   "from": "knowledge"
+  },
+  {
+   "text": "same fun",
+   "from": "knowledge"
+  },
+  {
+   "text": "have short or long legs",
+   "from": "knowledge"
+  },
+  {
+   "text": "so tall",
+   "from": "knowledge"
+  },
+  {
+   "text": "her short arms",
+   "from": "knowledge"
+  },
+  {
+   "text": "very short",
+   "from": "knowledge"
+  },
+  {
+   "text": "like dolls",
+   "from": "knowledge"
+  },
+  {
+   "text": "our dolls",
+   "from": "knowledge"
+  },
+  {
+   "text": "lots of (a lot of) robots",
+   "from": "knowledge"
+  },
+  {
+   "text": "that girl doll",
+   "from": "knowledge"
+  },
+  {
+   "text": "different toys",
+   "from": "knowledge"
+  },
+  {
+   "text": "this cute robot",
+   "from": "knowledge"
+  },
+  {
+   "text": "bring you lots of fun",
+   "from": "knowledge"
+  },
+  {
+   "text": "have a show",
+   "from": "knowledge"
+  },
+  {
+   "text": "big and bright",
+   "from": "knowledge"
+  },
+  {
+   "text": "like toys",
+   "from": "knowledge"
+  },
+  {
+   "text": "these cool robots",
+   "from": "knowledge"
+  },
+  {
+   "text": "a cute or lovely face",
+   "from": "knowledge"
+  },
+  {
+   "text": "can talk",
+   "from": "knowledge"
+  },
+  {
+   "text": "share with the class",
+   "from": "knowledge"
+  },
+  {
+   "text": "have fun together with friends",
+   "from": "knowledge"
+  },
+  {
+   "text": "boy or girl",
+   "from": "knowledge"
+  },
+  {
+   "text": "Su Hai's favourite toy",
+   "from": "knowledge"
+  },
+  {
+   "text": "like stars late at night",
+   "from": "knowledge"
+  },
+  {
+   "text": "Look at this robot. His face is cute.",
+   "from": "knowledge"
+  },
+  {
+   "text": "--Can you dance? --Yes, I can. I can talk too.",
+   "from": "knowledge"
+  },
+  {
+   "text": "My doll is a boy. His eyes are small. His nose is small too.",
+   "from": "knowledge"
+  },
+  {
+   "text": "His nose is small. But his mouth is big.",
+   "from": "knowledge"
+  },
+  {
+   "text": "Your dolls are great. They bring you lots of fun!",
+   "from": "knowledge"
+  },
+  {
+   "text": "You are so tall. Your legs are long.",
+   "from": "knowledge"
+  },
+  {
+   "text": "We can have fun together with our friends.",
+   "from": "knowledge"
+  },
+  {
+   "text": "Let's have a show!",
+   "from": "knowledge"
+  },
+  {
+   "text": "It's great fun!",
+   "from": "knowledge"
+  },
+  {
+   "text": "His face is cute.",
+   "from": "knowledge"
+  },
+  {
+   "text": "bring me many toys",
+   "from": "knowledge"
   }
  ]
 }

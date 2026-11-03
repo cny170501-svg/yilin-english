@@ -1,6 +1,6 @@
 /* Service Worker：应用离线缓存（PWA）
    更新任何资源文件时，请把 CACHE 版本号 +1（如 v5 → v6），用户下次打开会自动更新 */
-var CACHE = 'yilin-english-v31';
+var CACHE = 'yilin-english-v33';
 var ASSETS = [
   './',
   './index.html',
@@ -16,6 +16,7 @@ var ASSETS = [
   './js/app.js',
   './js/views/home.js',
   './js/views/unit.js',
+  './js/views/knowledge.js',
   './js/views/practice.js',
   './js/views/wrong.js',
   './js/views/reading.js',
@@ -29,7 +30,8 @@ var ASSETS = [
   './data/reading.js',
   './data/grammar.js',
   './data/dictation.js',
-  /* 音频包清单（470 条 mp3 体积较大，按需在首次播放时由 fetch 处理器缓存） */
+  './data/unit-knowledge.js',
+  /* 音频包清单（mp3 体积较大，按需在首次播放时由 fetch 处理器缓存） */
   './audio/manifest.js',
   './icons/icon-192.png',
   './icons/icon-512.png',
