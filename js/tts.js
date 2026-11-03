@@ -1,6 +1,7 @@
-/* 浏览器语音点读（Web Speech API）
-   - 首次触摸时解锁（iOS Safari 需要在用户手势内触发一次朗读）
-   - 优先选择英语语音（美音优先）
+/* 语音点读（预生成音频包优先 + Web Speech API 降级）
+   - 首选 audio/manifest.js 语音包（豆包同款音色预生成，见 js/audio-pack.js）
+   - 包未命中 / 加载失败 / 被关闭时，回退浏览器语音合成（原逻辑保留）
+   - 首次触摸时解锁（iOS Safari 需要在用户手势内触发一次播放/朗读）
    - 朗读失败或浏览器不支持时给出明确提示 */
 (function (global) {
   'use strict';
@@ -37,12 +38,18 @@
            en[0];
   }
 
+  /* iOS 音频解锁用：约 10ms 的 8kHz 静音 WAV（data URI，无需网络请求） */
+  var SILENT_WAV = 'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+
   var Speaker = {
     supported: !!(synth && typeof window.SpeechSynthesisUtterance !== 'undefined'),
     voice: null,
     _token: 0,
     _queueStopped: true,
     _queueRetry: null,
+    /* 音频包播放状态 */
+    _audioEl: null,
+    _audioMode: false,
 
     init: function () {
       if (!this.supported) return;
@@ -67,6 +74,14 @@
       var unlock = function () {
         if (self._unlocked) return;
         self._unlocked = true;
+        /* 音频元素：静音播放一次即解锁后续的编程播放 */
+        try {
+          var a = self._ensureAudio();
+          a.muted = true;
+          a.src = SILENT_WAV;
+          var p = a.play();
+          if (p && p.then) p.then(function () { a.muted = false; a.removeAttribute('src'); }).catch(function () { a.muted = false; });
+        } catch (e) { /* 忽略 */ }
         try {
           /* volume=0 的静音合成在部分 iOS 版本不解锁，用近无声的 0.01 */
           var u = new window.SpeechSynthesisUtterance(' ');
@@ -94,7 +109,35 @@
       if (this._alive.length > 24) this._alive.splice(0, 12);
     },
 
-    /* 朗读一段文本。返回 false 表示不可用 */
+    _ensureAudio: function () {
+      if (this._audioEl) return this._audioEl;
+      var a = new Audio();
+      a.preload = 'auto';
+      /* 语速调节不变调（Safari 前缀属性兼容） */
+      try {
+        a.preservesPitch = true;
+        if ('webkitPreservesPitch' in a) a.webkitPreservesPitch = true;
+      } catch (e) { /* 忽略 */ }
+      this._audioEl = a;
+      return a;
+    },
+
+    _stopAudio: function () {
+      if (!this._audioEl) return;
+      try {
+        this._audioEl.pause();
+        this._audioEl.currentTime = 0;
+      } catch (e) { /* 忽略 */ }
+      this._audioMode = false;
+    },
+
+    _applyRate: function (a, opts) {
+      var r = (opts && opts.rate) || (global.Store && Store.data.settings.rate) || 0.9;
+      /* 预生成录音本身语速合适，映射到温和区间，避免变速过度失真 */
+      a.playbackRate = Math.min(1.35, Math.max(0.65, r));
+    },
+
+    /* 朗读一段文本。返回 'audio'/'speech' 表示所用通道，false 表示不可用 */
     speak: function (text, opts) {
       /* 独立朗读持有新令牌，会打断进行中的队列 */
       return this._speakWithToken(++this._token, text, opts);
@@ -103,14 +146,60 @@
     /* 内部：以指定令牌朗读（队列复用同一令牌，保证链式回调不被自身作废） */
     _speakWithToken: function (token, text, opts) {
       opts = opts || {};
+      if (!text) {
+        if (opts.onend) opts.onend();
+        return false;
+      }
+      var self = this;
+
+      /* 通道 1：预生成语音包（豆包同款音色） */
+      var url = global.AudioPack ? AudioPack.lookup(text) : null;
+      if (url) {
+        var done = false;
+        var finishAudio = function (fallback) {
+          if (done || token !== self._token) return;
+          done = true;
+          if (fallback) {
+            /* 音频播放失败（404/解码/自动播放拦截）→ 回退设备语音 */
+            self._speechWithToken(token, text, opts);
+          } else if (opts.onend) {
+            opts.onend();
+          }
+        };
+        var a = this._ensureAudio();
+        this._stopAudio();
+        this._audioMode = true;
+        a.onended = function () { finishAudio(false); };
+        a.onerror = function () { finishAudio(true); };
+        a.onabort = function () { /* stop() 主动中止：不算完成也不回退 */ };
+        a.src = url;
+        this._applyRate(a, opts);
+        try {
+          var p = a.play();
+          if (p && p.then) {
+            p.catch(function () {
+              /* 播放被拒绝：若令牌仍有效则回退设备语音 */
+              finishAudio(true);
+            });
+          }
+        } catch (e) {
+          finishAudio(true);
+        }
+        return 'audio';
+      }
+
+      /* 通道 2：设备语音合成 */
+      return this._speechWithToken(token, text, opts);
+    },
+
+    _speechWithToken: function (token, text, opts) {
+      opts = opts || {};
+      var self = this;
+      this._audioMode = false;
       if (!this.supported) {
         Util.toast('当前浏览器不支持语音朗读，建议使用 Safari 或 Chrome', 'warn');
         if (opts.onend) opts.onend();
         return false;
-      }
-      if (!text) {
-        if (opts.onend) opts.onend();
-        return true;
       }
       /* iOS 长时间停留后合成器可能停在 paused 状态，先恢复 */
       try { if (synth.paused) synth.resume(); } catch (e) { /* 忽略 */ }
@@ -164,25 +253,36 @@
         if (opts.onend) opts.onend();
         return false;
       }
-      return true;
+      return 'speech';
     },
 
     stop: function () {
       this._token++;
       this._queueStopped = true;
       this._queueRetry = null;
+      this._stopAudio();
       if (this.supported) {
         try { synth.cancel(); } catch (e) { /* 忽略 */ }
       }
     },
 
-    /* 暂停/继续（部分浏览器对中文语音或队列暂停支持有限，失败时返回 false） */
+    /* 暂停/继续（音频包通道原生支持；语音合成通道部分浏览器支持有限，失败时返回 false） */
     pause: function () {
+      if (this._audioMode && this._audioEl) {
+        try { this._audioEl.pause(); return true; } catch (e) { return false; }
+      }
       if (!this.supported) return false;
       try { synth.pause(); return true; } catch (e) { return false; }
     },
 
     resume: function () {
+      if (this._audioMode && this._audioEl) {
+        try {
+          var p = this._audioEl.play();
+          if (p && p.catch) p.catch(function () { /* 拒绝时交由上层重试 */ });
+          return true;
+        } catch (e) { return false; }
+      }
       if (!this.supported) return false;
       try { synth.resume(); } catch (e) { return false; }
       /* 个别引擎（尤其 iOS Safari）resume 后仍卡在 paused：1.5 秒后仍无恢复迹象，
@@ -201,18 +301,20 @@
 
     /* 连续播放：texts 数组逐个朗读，中间停顿 gap 毫秒
        opts: { gap, onItem(index), onDone(), pitchFn(index) }
-       队列持有统一令牌：外部 speak()/stop() 会打断队列，队列自身不会自我作废 */
+       队列持有统一令牌：外部 speak()/stop() 会打断队列，队列自身不会自我作废
+       返回 'audio'/'speech'（按第一句所用通道） */
     speakQueue: function (texts, opts) {
       opts = opts || {};
-      if (!this.supported) {
+      var self = this;
+      if (!this.supported && !(global.AudioPack && AudioPack.enabled())) {
         Util.toast('当前浏览器不支持语音朗读，建议使用 Safari 或 Chrome', 'warn');
         return false;
       }
       this.stop();
       var token = ++this._token;
       this._queueStopped = false;
-      var self = this;
       var i = 0;
+      var firstChannel = null;
 
       var step = function () {
         if (self._queueStopped || token !== self._token) { self._queueRetry = null; return; }
@@ -236,20 +338,29 @@
         };
         var speakCurrent = function () {
           if (self._queueStopped || token !== self._token) return;
-          /* 记录当前句，供 resume() 自愈时从本句重播 */
+          /* 记录当前句，供 resume() 自愈时从本句重播（仅语音合成通道需要） */
           self._queueRetry = { token: token, run: speakCurrent };
-          self._speakWithToken(token, texts[idx], {
+          var ch = self._speakWithToken(token, texts[idx], {
             pitch: opts.pitchFn ? opts.pitchFn(idx) : undefined,
             onend: advance
           });
+          if (firstChannel === null) firstChannel = ch;
         };
         speakCurrent();
         /* 句级看门狗：只兜底“引擎不回调”的死句——连续 4 秒确认空闲（不在播、
-           不在排队、未暂停）才强制推进；仍在播的长句与暂停状态永不触发 */
+           不在排队、未暂停）才强制推进；仍在播的长句与暂停状态永不触发。
+           音频包通道事件可靠，无需看门狗 */
         var idleTicks = 0;
         var watchdog = function () {
           if (advanced) return;
           if (self._queueStopped || token !== self._token) return;
+          if (self._audioMode && self._audioEl) {
+            var cur = self._audioEl;
+            if (cur.paused || cur.ended) { advance(); return; }
+            idleTicks = 0;
+            setTimeout(watchdog, 1000);
+            return;
+          }
           var busy = false;
           try { busy = synth.speaking || synth.pending || synth.paused; } catch (e) { /* 忽略 */ }
           if (busy) idleTicks = 0; else idleTicks++;
@@ -259,9 +370,10 @@
         setTimeout(watchdog, 1000);
       };
       step();
-      return true;
+      return firstChannel === null ? 'audio' : firstChannel;
     },
 
+    /* 设备语音名称（语音包状态由设置页单独展示，见 AudioPack.describe） */
     voiceName: function () {
       if (!this.supported) return '不可用';
       var v = this.voice;

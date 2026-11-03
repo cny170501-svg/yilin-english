@@ -21,6 +21,9 @@ $mime = @{
     '.ico'  = 'image/x-icon'
     '.md'   = 'text/markdown; charset=utf-8'
     '.txt'  = 'text/plain; charset=utf-8'
+    '.mp3'  = 'audio/mpeg'
+    '.wav'  = 'audio/wav'
+    '.m4a'  = 'audio/mp4'
 }
 
 $listener = New-Object System.Net.HttpListener

@@ -80,6 +80,16 @@
 - V1 升级到 V2 **不丢数据**：旧记录（单词掌握、单元统计、错题、连续天数、设置）完整保留，新统计字段自动补默认值（已实测验证）。
 - 开发者注意：修改 `js/`、`css/`、`data/` 下任何文件后，请把 `sw.js` 里的 `CACHE` 版本号 +1，否则已安装的 PWA 会继续使用旧缓存。
 
+## 四·五、语音包（豆包同款音色，V2.7 新增）
+
+全部朗读优先使用预生成音频包（火山引擎「豆包语音合成」大模型 2.0，音色 Tina老师2.0 / `zh_female_yingyujiaoxue_uranus_bigtts`，英语教学中英混音色），未命中的文本自动回退设备 Web Speech 语音。
+
+- **文本清单**：`tools/tts-texts.json`（553 条，覆盖单词/例句/句型/听力情境/小对话/语法例句/阅读段落与生词/默写易错清单）。数据文件变动后重新收集（walk `BUILTIN_CONTENT` / `LISTENING_CONTENT` / `GRAMMAR_CONTENT` / `READING_CONTENT` / `DICTATION_CONTENT` 的英文朗读字段）。
+- **生成**：`node tools/tts-batch.mjs`（配置区填入 API Key，或用环境变量 `TTS_API_KEY`）。逐条调用火山引擎 v3 HTTP 接口（`POST /api/v3/tts/unidirectional`，`X-Api-Resource-Id: seed-tts-2.0`）合成到 `audio/`（SHA-256 前 16 位命名），断点可续跑（单次 90 秒预算，反复运行直至完成），结束重写 `audio/manifest.js` 清单。
+- **运行时**：`js/audio-pack.js` 动态加载清单（未部署时静默降级）；`js/tts.js` 的 Speaker 音频包优先、语速经 playbackRate 映射（不变调）、支持暂停/继续/队列；设置页可开关语音包。音频文件由 Service Worker 在首次播放后缓存（离线可用）。
+- **注意**：重新生成音频或清单后，必须把 `sw.js` 的 `CACHE` 版本号 +1（`audio/manifest.js` 在 SW 预缓存清单里）。密钥（API Key）只在本机生成时使用，不进入仓库与网页。
+- **词表版本**：2026-11 按新教材词汇表照片更新（8 单元 153 词），单元标题为主题式命名，官方标题待补充后可替换；听力/阅读/语法专项为自编内容，暂未逐句对齐新词表。
+
 ## 五、目录结构
 
 ```

@@ -1,8 +1,9 @@
-/* 内置教材数据：译林版（牛津译林）小学英语 四年级上册
+/* 内置教材数据：译林版（牛津译林）小学英语 四年级上册（新版教材）
  *
  * 说明：
- * - 单元标题与单词表依据公开网络资料整理（同步新版教材单元词汇表），可能存在个别出入；
+ * - 单元主题与单词表依据 2026 版新教材词汇表照片逐条录入（含短语与句型词条）；
  * - 例句、句型与知识点讲解为本工具自编的复习材料，不是教材原文；
+ * - 单元标题为按主题拟定的描述性名称（新教材官方单元标题待补充后可替换）；
  * - 所有内容均可在「设置 → 内容管理」中核对、修改或替换（导入 JSON 后覆盖内置数据）。
  */
 (function (global) {
@@ -13,70 +14,80 @@
     title: "译林版小学英语 四年级上册",
     publisher: "译林出版社（牛津译林版）",
     grade: "四年级上册",
-    sourceNote: "单元标题与单词表依据公开资料整理（同步新版教材词汇表）；例句、句型讲解和练习为本工具自编复习材料，非教材原文。请家长核对后使用，可在「设置 → 内容管理」中修改。",
-    updatedAt: "2026-10-29",
+    sourceNote: "单元主题与单词表依据新教材词汇表录入（2026-11 按教材词汇表照片更新）；例句、句型讲解和练习为本工具自编复习材料，非教材原文。请家长核对后使用，可在「设置 → 内容管理」中修改。",
+    updatedAt: "2026-11-03",
     units: [
       {
         id: "u1",
         no: 1,
-        title: "I like dogs",
-        titleZh: "我喜欢狗",
-        emoji: "🐶",
+        title: "My Subjects",
+        titleZh: "我的学科",
+        emoji: "📚",
         words: [
-          { en: "like", zh: "喜欢", exEn: "I like dogs.", exZh: "我喜欢狗。" },
-          { en: "dog", zh: "狗", exEn: "The dog is small.", exZh: "这只狗很小。" },
-          { en: "animal", zh: "动物", exEn: "A cat is an animal.", exZh: "猫是一种动物。" },
-          { en: "cat", zh: "猫", exEn: "Look at the cat!", exZh: "看这只猫！" },
-          { en: "cute", zh: "可爱的", exEn: "The panda is cute.", exZh: "熊猫很可爱。" },
-          { en: "panda", zh: "熊猫", exEn: "I like pandas.", exZh: "我喜欢熊猫。" },
-          { en: "fat", zh: "胖的", exEn: "The cat is fat.", exZh: "这只猫很胖。" },
-          { en: "elephant", zh: "大象", exEn: "The elephant is big.", exZh: "大象很大。" },
-          { en: "horse", zh: "马", exEn: "The horse can run.", exZh: "马会跑。" },
-          { en: "lion", zh: "狮子", exEn: "Is that a lion?", exZh: "那是一头狮子吗？" },
-          { en: "monkey", zh: "猴子", exEn: "The monkey is cute.", exZh: "猴子很可爱。" },
-          { en: "tiger", zh: "老虎", exEn: "The tiger can jump.", exZh: "老虎会跳。" },
-          { en: "have", zh: "有", exEn: "I have a cat.", exZh: "我有一只猫。" }
+          { en: "subject", zh: "学科", exEn: "What subjects do you like?", exZh: "你喜欢什么学科？" },
+          { en: "Chinese", zh: "语文（课）；中国的", exEn: "We have Chinese every day.", exZh: "我们每天都有语文课。" },
+          { en: "English", zh: "英语（课）；英语的", exEn: "I like English.", exZh: "我喜欢英语。" },
+          { en: "Maths", zh: "数学（课）", exEn: "Maths is fun.", exZh: "数学很有趣。" },
+          { en: "PE", zh: "体育（课）", exEn: "We can play games in PE.", exZh: "体育课上我们可以做游戏。" },
+          { en: "Art", zh: "美术（课）", exEn: "I can draw in Art.", exZh: "美术课上我会画画。" },
+          { en: "Science", zh: "科学（课）", exEn: "I like Science.", exZh: "我喜欢科学。" },
+          { en: "IT", zh: "信息科技（课）", exEn: "We use computers in IT.", exZh: "信息科技课上我们用电脑。" },
+          { en: "Music", zh: "音乐（课）", exEn: "We sing in Music.", exZh: "音乐课上我们唱歌。" },
+          { en: "Labour", zh: "劳动（课）", exEn: "We make things in Labour.", exZh: "劳动课上我们做东西。" },
+          { en: "best", zh: "最", exEn: "I like English best.", exZh: "我最喜欢英语。" },
+          { en: "also", zh: "也，还", exEn: "We also have Music.", exZh: "我们还有音乐课。" },
+          { en: "it's time for", zh: "是……的时候了", exEn: "It's time for Chinese.", exZh: "到上语文课的时间了。" },
+          { en: "mouse", zh: "鼠标；老鼠", exEn: "The mouse is on the desk.", exZh: "鼠标在桌子上。" },
+          { en: "welcome back to", zh: "欢迎回到……", exEn: "Welcome back to school!", exZh: "欢迎回到学校！" },
+          { en: "be good at", zh: "擅长", exEn: "I'm good at Maths.", exZh: "我擅长数学。" },
+          { en: "interesting", zh: "有趣的，有吸引力的", exEn: "The book is interesting.", exZh: "这本书很有趣。" },
+          { en: "learn about", zh: "学习，了解", exEn: "We learn about animals.", exZh: "我们学习了解动物。" },
+          { en: "culture", zh: "文化，文明", exEn: "We learn about Chinese culture.", exZh: "我们学习中国文化。" },
+          { en: "read", zh: "阅读", exEn: "I like reading.", exZh: "我喜欢阅读。" },
+          { en: "story", zh: "故事", exEn: "This story is fun.", exZh: "这个故事很有趣。" },
+          { en: "all", zh: "全部，都", exEn: "All of us like Art.", exZh: "我们都喜欢美术。" },
+          { en: "sports ground", zh: "操场，运动场", exEn: "We play on the sports ground.", exZh: "我们在操场上玩。" }
         ],
         sentences: [
-          { en: "Do you like dogs?", zh: "你喜欢狗吗？" },
-          { en: "Yes, I do.", zh: "是的，我喜欢。" },
-          { en: "No, I don't.", zh: "不，我不喜欢。" },
-          { en: "I like cats. They're cute.", zh: "我喜欢猫。它们很可爱。" },
-          { en: "Look at this cat!", zh: "看这只猫！" },
-          { en: "I don't like tigers.", zh: "我不喜欢老虎。" }
+          { en: "What subjects do you like?", zh: "你喜欢什么学科？" },
+          { en: "I like English best.", zh: "我最喜欢英语。" },
+          { en: "It's time for Chinese.", zh: "到上语文课的时间了。" },
+          { en: "Welcome back to school!", zh: "欢迎回到学校！" },
+          { en: "I'm good at Science.", zh: "我擅长科学。" },
+          { en: "We also have Art and Music.", zh: "我们还有美术课和音乐课。" }
         ],
         grammar: [
           {
             title: "I like … 表达喜欢",
-            explain: ["like 后面接喜欢的东西。", "可数名词一般用复数：I like dogs. / I like apples.", "说单数时要加 a/an：I like this dog."],
+            explain: ["like 后面接喜欢的东西。", "学科名作宾语直接用原词：I like Art. / I like Maths.", "最喜欢用 best：I like English best."],
             examples: [
-              { en: "I like monkeys.", zh: "我喜欢猴子。" },
-              { en: "I like this little cat.", zh: "我喜欢这只小猫。" }
+              { en: "I like Art and Music.", zh: "我喜欢美术和音乐。" },
+              { en: "I like English best.", zh: "我最喜欢英语。" }
             ],
             quiz: [
-              { q: "我喜欢大象。下面哪句是对的？", options: ["I like elephant.", "I like elephants.", "I likes elephants.", "I like a elephants."], answer: 1, explain: "like 后接可数名词复数，I 后面动词用原形 like。" }
+              { q: "我喜欢数学。下面哪句是对的？", options: ["I like Maths.", "I likes Maths.", "I like a Maths.", "I am like Maths."], answer: 0, explain: "I 后面动词用原形 like，学科名直接接在 like 后面。" }
             ]
           },
           {
             title: "Do you like …? 一般疑问句",
             explain: ["问别人喜不喜欢，用 Do you like + 名词？", "肯定回答：Yes, I do.", "否定回答：No, I don't.（don't = do not）"],
             examples: [
-              { en: "Do you like pandas?", zh: "你喜欢熊猫吗？" },
-              { en: "Yes, I do. They're cute and fat.", zh: "是的，我喜欢。它们又可爱又胖。" }
+              { en: "Do you like Science?", zh: "你喜欢科学吗？" },
+              { en: "Yes, I do. It's interesting.", zh: "是的，喜欢。它很有趣。" }
             ],
             quiz: [
-              { q: "— Do you like tigers? — ______", options: ["Yes, I am.", "Yes, it is.", "Yes, I do.", "Yes, I can."], answer: 2, explain: "Do you like…? 用 do 来回答：Yes, I do. / No, I don't." }
+              { q: "— Do you like Music? — ______", options: ["Yes, I am.", "Yes, it is.", "Yes, I do.", "Yes, I can."], answer: 2, explain: "Do you like…? 用 do 来回答：Yes, I do. / No, I don't." }
             ]
           },
           {
-            title: "It's / They're 描述动物",
-            explain: ["说一个东西用 It's…（It is）：It's cute.", "说多个东西用 They're…（They are）：They're fat."],
+            title: "It's time for … 是……的时候了",
+            explain: ["It's time for + 名词（课程、活动等）。", "到上……课的时间了：It's time for Chinese."],
             examples: [
-              { en: "Look at the elephant. It's big.", zh: "看那头大象。它很大。" },
-              { en: "Look at the monkeys. They're cute.", zh: "看那些猴子。它们很可爱。" }
+              { en: "It's time for Maths.", zh: "到上数学课的时间了。" },
+              { en: "It's time for PE. Let's go!", zh: "到上体育课的时间了。走吧！" }
             ],
             quiz: [
-              { q: "Look at the dolls. ______ beautiful.", options: ["It's", "They're", "I'm", "He's"], answer: 1, explain: "dolls 是复数，用 They're（They are）。" }
+              { q: "到上英语课的时间了：______", options: ["It's time for English.", "It's time to English.", "It's time for English class time.", "Time for go English."], answer: 0, explain: "It's time for + 名词：It's time for English." }
             ]
           }
         ]
@@ -84,62 +95,60 @@
       {
         id: "u2",
         no: 2,
-        title: "Let's make a fruit salad",
-        titleZh: "让我们做水果沙拉吧",
-        emoji: "🍓",
+        title: "My Day",
+        titleZh: "我的一天",
+        emoji: "⏰",
         words: [
-          { en: "make", zh: "制作", exEn: "Let's make a cake.", exZh: "让我们做个蛋糕吧。" },
-          { en: "fruit", zh: "水果", exEn: "I like fruit.", exZh: "我喜欢水果。" },
-          { en: "salad", zh: "沙拉", exEn: "The fruit salad is nice.", exZh: "水果沙拉很好吃。" },
-          { en: "pineapple", zh: "菠萝", exEn: "The pineapple is yellow.", exZh: "菠萝是黄色的。" },
-          { en: "mango", zh: "芒果", exEn: "Do you like mangoes?", exZh: "你喜欢芒果吗？" },
-          { en: "any", zh: "一些（用于疑问句、否定句）", exEn: "Do you have any bananas?", exZh: "你有香蕉吗？" },
-          { en: "banana", zh: "香蕉", exEn: "I have two bananas.", exZh: "我有两根香蕉。" },
-          { en: "some", zh: "一些", exEn: "I have some grapes.", exZh: "我有一些葡萄。" },
-          { en: "grape", zh: "葡萄", exEn: "The grapes are sweet.", exZh: "葡萄很甜。" },
-          { en: "our", zh: "我们的", exEn: "This is our classroom.", exZh: "这是我们的教室。" },
-          { en: "cool", zh: "酷的；真棒", exEn: "Cool! Look at my robot.", exZh: "真酷！看我的机器人。" },
-          { en: "wonderful", zh: "精彩的；了不起的", exEn: "Wonderful!", exZh: "太棒了！" }
+          { en: "day", zh: "一天，一日", exEn: "What a happy day!", exZh: "多开心的一天啊！" },
+          { en: "get up", zh: "起床", exEn: "I get up at six thirty.", exZh: "我六点半起床。" },
+          { en: "wash", zh: "洗", exEn: "Wash your hands, please.", exZh: "请洗手。" },
+          { en: "face", zh: "脸，面孔", exEn: "Wash your face.", exZh: "洗洗脸。" },
+          { en: "have lessons", zh: "上课", exEn: "We have lessons at eight.", exZh: "我们八点开始上课。" },
+          { en: "have", zh: "吃；喝", exEn: "We have lunch at school.", exZh: "我们在学校吃午饭。" },
+          { en: "dinner", zh: "正餐，（常指）晚餐", exEn: "I have dinner at home.", exZh: "我在家吃晚饭。" },
+          { en: "breakfast", zh: "早餐，早饭", exEn: "Breakfast is good for us.", exZh: "早餐对我们有好处。" },
+          { en: "lunch", zh: "午餐，午饭", exEn: "What's for lunch?", exZh: "午餐吃什么？" }
         ],
         sentences: [
-          { en: "Let's make a fruit salad.", zh: "让我们做一份水果沙拉吧。" },
-          { en: "I have a pineapple.", zh: "我有一个菠萝。" },
-          { en: "I have some grapes.", zh: "我有一些葡萄。" },
-          { en: "Do you have any bananas?", zh: "你有香蕉吗？" },
-          { en: "Yes, I do. / No, I don't.", zh: "是的，我有。/ 不，我没有。" },
-          { en: "Look at our fruit salad!", zh: "看我们的水果沙拉！" }
+          { en: "I get up at six thirty.", zh: "我六点半起床。" },
+          { en: "Wash your face, please.", zh: "请洗脸。" },
+          { en: "We have lessons at eight.", zh: "我们八点开始上课。" },
+          { en: "What time do you have lunch?", zh: "你几点吃午饭？" },
+          { en: "I have dinner with my family.", zh: "我和家人一起吃晚饭。" },
+          { en: "What a happy day!", zh: "多开心的一天啊！" }
         ],
         grammar: [
           {
             title: "Let's … 提议一起做某事",
-            explain: ["Let's = Let us（让我们……）", "Let's 后面接动词原形：Let's make…", "回答可以说 Great! / OK! / Good idea!"],
+            explain: ["Let's = Let us（让我们……）", "Let's 后面接动词原形：Let's have breakfast.", "回答可以说 Great! / OK! / Good idea!"],
             examples: [
-              { en: "Let's make a fruit salad.", zh: "让我们做一份水果沙拉吧。" },
-              { en: "— Let's play football. — Great!", zh: "— 我们踢足球吧。— 太好了！" }
+              { en: "Let's have lunch.", zh: "我们吃午饭吧。" },
+              { en: "— Let's go to bed. — OK! Good night!", zh: "—我们上床睡觉吧。—好！晚安！" }
             ],
             quiz: [
-              { q: "Let's ______ a fruit salad.", options: ["make", "makes", "making", "to make"], answer: 0, explain: "Let's 后面接动词原形。" }
+              { q: "Let's ______ breakfast.", options: ["have", "has", "having", "to have"], answer: 0, explain: "Let's 后面接动词原形。" }
             ]
           },
           {
-            title: "have / has 表示“有”",
-            explain: ["I / You / We / They + have", "He / She / It + has"],
+            title: "have 的两个意思：吃 与 有",
+            explain: ["have 可以表示吃、喝：have breakfast / have lunch / have dinner", "也可以表示有：I have lots of books.", "第三人称单数用 has：He has a robot."],
             examples: [
-              { en: "I have a pineapple.", zh: "我有一个菠萝。" },
-              { en: "She has two mangoes.", zh: "她有两个芒果。" }
+              { en: "We have lunch at twelve.", zh: "我们十二点吃午饭。" },
+              { en: "He has a nice schoolbag.", zh: "他有一个漂亮的书包。" }
             ],
             quiz: [
-              { q: "Mike ______ three bananas.", options: ["have", "has", "is", "are"], answer: 1, explain: "Mike 是第三人称单数，用 has。" }
+              { q: "Mike ______ three books.", options: ["have", "has", "is", "are"], answer: 1, explain: "Mike 是第三人称单数，用 has。" }
             ]
           },
           {
-            title: "some 与 any",
-            explain: ["some 用在肯定句：I have some grapes.", "any 用在疑问句和否定句：Do you have any bananas?"],
+            title: "at + 时间点",
+            explain: ["at 用在具体时间点前：at six / at seven thirty", "I get up at six. 我六点起床。"],
             examples: [
-              { en: "I don't have any apples.", zh: "我没有苹果。" }
+              { en: "I get up at six thirty.", zh: "我六点半起床。" },
+              { en: "We have lessons at eight.", zh: "我们八点开始上课。" }
             ],
             quiz: [
-              { q: "I have ______ grapes.", options: ["any", "some", "a", "an"], answer: 1, explain: "肯定句用 some；any 用于疑问句和否定句。" }
+              { q: "我七点吃早餐：I have breakfast ______ seven.", options: ["in", "on", "at", "of"], answer: 2, explain: "具体时间点前用 at。" }
             ]
           }
         ]
@@ -147,69 +156,81 @@
       {
         id: "u3",
         no: 3,
-        title: "How many?",
-        titleZh: "多少？",
-        emoji: "🔢",
+        title: "What Time Is It?",
+        titleZh: "现在几点了",
+        emoji: "🕐",
         words: [
-          { en: "thirteen", zh: "十三", exEn: "I have thirteen stickers.", exZh: "我有十三张贴纸。" },
-          { en: "fourteen", zh: "十四", exEn: "Fourteen and five is nineteen.", exZh: "十四加五是十九。" },
-          { en: "fifteen", zh: "十五", exEn: "She has fifteen grapes.", exZh: "她有十五颗葡萄。" },
-          { en: "sixteen", zh: "十六", exEn: "I can see sixteen birds.", exZh: "我能看见十六只鸟。" },
-          { en: "seventeen", zh: "十七", exEn: "Sixteen and one is seventeen.", exZh: "十六加一是十七。" },
-          { en: "eighteen", zh: "十八", exEn: "Fifteen and three is eighteen.", exZh: "十五加三是十八。" },
-          { en: "nineteen", zh: "十九", exEn: "Twenty minus one is nineteen.", exZh: "二十减一是十九。" },
-          { en: "how many", zh: "多少（提问数量）", exEn: "How many books do you have?", exZh: "你有多少本书？" },
-          { en: "many", zh: "许多", exEn: "I have many stickers.", exZh: "我有许多贴纸。" },
-          { en: "sticker", zh: "贴纸", exEn: "Can I have a sticker?", exZh: "我能要一张贴纸吗？" },
-          { en: "can", zh: "可以；能", exEn: "I can swim.", exZh: "我会游泳。" },
-          { en: "have a look", zh: "看一看", exEn: "Can I have a look?", exZh: "我能看一看吗？" },
-          { en: "very", zh: "非常", exEn: "The robot is very cool.", exZh: "这个机器人非常酷。" },
-          { en: "sure", zh: "当然", exEn: "— Can I have a look? — Sure!", exZh: "—我能看一看吗？—当然可以！" },
-          { en: "play", zh: "玩；打（球）；踢（球）", exEn: "Let's play table tennis.", exZh: "让我们打乒乓球吧。" },
-          { en: "box", zh: "盒子", exEn: "The balls are in the box.", exZh: "球在盒子里。" },
-          { en: "table tennis", zh: "乒乓球", exEn: "I can play table tennis.", exZh: "我会打乒乓球。" },
-          { en: "but", zh: "但是", exEn: "I like dogs, but I don't like cats.", exZh: "我喜欢狗，但我不喜欢猫。" },
-          { en: "do", zh: "（助动词，构成疑问句等）", exEn: "— Do you like tigers? — Yes, I do.", exZh: "—你喜欢老虎吗？—是的，喜欢。" }
+          { en: "go to bed", zh: "上床睡觉", exEn: "It's time to go to bed.", exZh: "到了上床睡觉的时间了。" },
+          { en: "o'clock", zh: "（表示整点）……点钟", exEn: "It's seven o'clock.", exZh: "七点了。" },
+          { en: "early", zh: "早的", exEn: "I get up early.", exZh: "我起床很早。" },
+          { en: "thirty", zh: "三十", exEn: "It's six thirty.", exZh: "六点半了。" },
+          { en: "first", zh: "首次，第一", exEn: "Sunday is the first day of a week.", exZh: "星期日是一周的第一天。" },
+          { en: "hurry up", zh: "快点儿", exEn: "Hurry up! We're late.", exZh: "快点儿！我们迟到了。" },
+          { en: "What time is it?", zh: "几点了？", exEn: "What time is it now?", exZh: "现在几点了？" },
+          { en: "I'm coming!", zh: "我来了！", exEn: "Wait for me. I'm coming!", exZh: "等等我。我来了！" },
+          { en: "twenty", zh: "二十", exEn: "Twenty and ten is thirty.", exZh: "二十加十是三十。" },
+          { en: "Come on!", zh: "赶快！加把劲！", exEn: "Come on! Let's go!", exZh: "快！走吧！" },
+          { en: "class", zh: "课；一节课", exEn: "We have an English class.", exZh: "我们有一节英语课。" },
+          { en: "eleven", zh: "十一", exEn: "Eleven and one is twelve.", exZh: "十一加一是十二。" },
+          { en: "sport", zh: "体育运动", exEn: "I like sport.", exZh: "我喜欢体育运动。" },
+          { en: "fifteen", zh: "十五", exEn: "It's four fifteen.", exZh: "四点十五分了。" },
+          { en: "it's time to", zh: "到了……的时间了", exEn: "It's time to go home.", exZh: "到了回家的时间了。" },
+          { en: "bed", zh: "床", exEn: "The cat is on the bed.", exZh: "猫在床上。" },
+          { en: "Good night!", zh: "晚安！", exEn: "Good night, Mum!", exZh: "妈妈，晚安！" },
+          { en: "week", zh: "周，星期", exEn: "There are seven days in a week.", exZh: "一周有七天。" },
+          { en: "Monday", zh: "星期一", exEn: "We have PE on Monday.", exZh: "我们星期一有体育课。" },
+          { en: "Tuesday", zh: "星期二", exEn: "Today is Tuesday.", exZh: "今天是星期二。" },
+          { en: "Wednesday", zh: "星期三", exEn: "Wednesday comes after Tuesday.", exZh: "星期三在星期二之后。" },
+          { en: "Thursday", zh: "星期四", exEn: "What day is it? It's Thursday.", exZh: "今天星期几？星期四。" },
+          { en: "Friday", zh: "星期五", exEn: "Friday is fun.", exZh: "星期五很开心。" },
+          { en: "Saturday", zh: "星期六", exEn: "I don't go to school on Saturday.", exZh: "我星期六不上学。" },
+          { en: "Sunday", zh: "星期日", exEn: "We fly kites on Sunday.", exZh: "我们星期日放风筝。" },
+          { en: "When", zh: "什么时候", exEn: "When do you get up?", exZh: "你什么时候起床？" },
+          { en: "today", zh: "今天", exEn: "What day is it today?", exZh: "今天星期几？" },
+          { en: "What day is it today?", zh: "今天星期几？", exEn: "What day is it today? It's Monday.", exZh: "今天星期几？星期一。" },
+          { en: "every", zh: "每一个，每个", exEn: "I read every day.", exZh: "我每天都阅读。" },
+          { en: "at", zh: "在（某时间）", exEn: "We have lunch at twelve.", exZh: "我们十二点吃午饭。" }
         ],
         sentences: [
-          { en: "How many stickers do you have?", zh: "你有多少张贴纸？" },
-          { en: "I have fifteen stickers.", zh: "我有十五张贴纸。" },
-          { en: "Can I have a look?", zh: "我能看一看吗？" },
-          { en: "Sure.", zh: "当然可以。" },
-          { en: "How many toy cars do you have?", zh: "你有多少辆玩具汽车？" },
-          { en: "I have fourteen.", zh: "我有十四个。" }
+          { en: "What time is it?", zh: "几点了？" },
+          { en: "It's seven o'clock.", zh: "七点了。" },
+          { en: "It's time to go to bed.", zh: "该上床睡觉了。" },
+          { en: "Hurry up! We're late.", zh: "快点儿！我们迟到了。" },
+          { en: "What day is it today?", zh: "今天星期几？" },
+          { en: "It's Wednesday.", zh: "今天是星期三。" }
         ],
         grammar: [
           {
-            title: "How many … 问数量",
-            explain: ["How many + 名词复数 + do you have?", "回答用数字：I have fifteen (stickers)."],
+            title: "What time is it? 问时间",
+            explain: ["问几点：What time is it?", "回答：It's + 数字 (+ o'clock)：It's seven. / It's seven o'clock.", "几点半：It's six thirty.（六点半）"],
             examples: [
-              { en: "How many dogs do you have?", zh: "你有多少只狗？" },
-              { en: "I have three.", zh: "我有三只。" }
+              { en: "— What time is it? — It's seven o'clock.", zh: "—几点了？—七点了。" },
+              { en: "It's four fifteen.", zh: "四点十五分了。" }
             ],
             quiz: [
-              { q: "— How many ______ do you have? — I have sixteen.", options: ["sticker", "stickers", "a sticker", "stickeres"], answer: 1, explain: "How many 后面接名词复数。" }
+              { q: "— What time is it? — ______ seven o'clock.", options: ["It's", "Is it", "Its", "This is"], answer: 0, explain: "回答时间用 It's 开头；Its（没有撇号）是“它的”。" }
             ]
           },
           {
-            title: "13–19 的数字",
-            explain: ["大多在个位数后加 -teen：four→fourteen, six→sixteen", "注意特殊拼写：thirteen, fifteen, eighteen"],
+            title: "It's time to … 与 It's time for …",
+            explain: ["It's time to + 动词原形：It's time to go to bed.", "It's time for + 名词：It's time for class."],
             examples: [
-              { en: "thirteen, fourteen, fifteen…", zh: "13、14、15……" }
+              { en: "It's time to go to bed.", zh: "该上床睡觉了。" },
+              { en: "It's time for class.", zh: "该上课了。" }
             ],
             quiz: [
-              { q: "十五用英语怎么说？", options: ["fivteen", "fifty", "fifteen", "fiveteen"], answer: 2, explain: "十五是 fifteen（注意拼写）；fifty 是五十。" }
+              { q: "该回家了：It's time ______ go home.", options: ["for", "to", "at", "of"], answer: 1, explain: "to 后面接动词原形：It's time to go home." }
             ]
           },
           {
-            title: "Can I …? 请求许可",
-            explain: ["请别人允许自己做某事：Can I + 动词原形?", "回答：Sure. / Yes, you can. / OK."],
+            title: "What day is it today? 问星期",
+            explain: ["问今天星期几：What day is it today?", "回答：It's + 星期：It's Monday. / It's Sunday.", "一周七天首字母要大写：Monday, Tuesday, Wednesday…"],
             examples: [
-              { en: "Can I have a look?", zh: "我能看一看吗？" },
-              { en: "Can I play with your robot?", zh: "我能玩你的机器人吗？" }
+              { en: "— What day is it today? — It's Wednesday.", zh: "—今天星期几？—星期三。" },
+              { en: "We have PE on Monday.", zh: "我们星期一有体育课。" }
             ],
             quiz: [
-              { q: "— ______ I have a look? — Sure.", options: ["Do", "Am", "Can", "Is"], answer: 2, explain: "请求许可用 Can I …?" }
+              { q: "— What day is it today? — ______ Friday.", options: ["It's", "Is", "Today is the", "This"], answer: 0, explain: "回答星期用 It's + 星期名。" }
             ]
           }
         ]
@@ -217,49 +238,55 @@
       {
         id: "u4",
         no: 4,
-        title: "I can play basketball",
-        titleZh: "我会打篮球",
-        emoji: "🏀",
+        title: "After School",
+        titleZh: "放学后",
+        emoji: "⚽",
         words: [
-          { en: "basketball", zh: "篮球", exEn: "I can play basketball.", exZh: "我会打篮球。" },
-          { en: "football", zh: "足球", exEn: "Let's play football.", exZh: "让我们踢足球吧。" },
-          { en: "jump", zh: "跳", exEn: "The frog can jump.", exZh: "青蛙会跳。" },
-          { en: "skate", zh: "滑冰", exEn: "My dad can skate.", exZh: "我爸爸会滑冰。" },
-          { en: "swim", zh: "游泳", exEn: "Fish can swim.", exZh: "鱼会游泳。" },
-          { en: "well", zh: "好；很好地", exEn: "He can swim well.", exZh: "他游泳游得很好。" },
-          { en: "have a try", zh: "试一试", exEn: "Have a try!", exZh: "试一试吧！" },
-          { en: "yeah", zh: "是；对的（表示高兴）", exEn: "Yeah! I can do it!", exZh: "耶！我能做到！" },
-          { en: "quack", zh: "（鸭子）嘎嘎叫", exEn: "The duck says \"Quack!\"", exZh: "鸭子“嘎嘎”叫。" },
-          { en: "tweet", zh: "（小鸟）啾啾叫", exEn: "The bird says \"Tweet!\"", exZh: "小鸟“啾啾”叫。" },
-          { en: "fly", zh: "飞", exEn: "Birds can fly.", exZh: "鸟会飞。" },
-          { en: "ouch", zh: "哎哟", exEn: "Ouch! My leg!", exZh: "哎哟！我的腿！" },
-          { en: "sad", zh: "难过的", exEn: "Don't be sad.", exZh: "别难过。" },
-          { en: "either", zh: "也（不）", exEn: "I can't skate either.", exZh: "我也不会滑冰。" }
+          { en: "dancing", zh: "跳舞，舞蹈", exEn: "I like dancing.", exZh: "我喜欢跳舞。" },
+          { en: "lesson", zh: "一节课，一课时", exEn: "I have a dancing lesson.", exZh: "我有一节舞蹈课。" },
+          { en: "after school", zh: "放学后", exEn: "What do you do after school?", exZh: "放学后你做什么？" },
+          { en: "cinema", zh: "电影院", exEn: "Let's go to the cinema.", exZh: "我们去看电影吧。" },
+          { en: "dog", zh: "狗（动物）", exEn: "The dog is cute.", exZh: "这只狗很可爱。" },
+          { en: "walk", zh: "走，遛", exEn: "I walk my dog after school.", exZh: "放学后我遛狗。" },
+          { en: "tomorrow", zh: "明天，在明天", exEn: "See you tomorrow!", exZh: "明天见！" },
+          { en: "free", zh: "空闲的", exEn: "Are you free now?", exZh: "你现在有空吗？" },
+          { en: "See you tomorrow!", zh: "明天见！", exEn: "OK! See you tomorrow!", exZh: "好！明天见！" },
+          { en: "play", zh: "打（球），踢（球）", exEn: "Let's play football.", exZh: "我们踢足球吧。" },
+          { en: "football", zh: "足球", exEn: "I can play football.", exZh: "我会踢足球。" },
+          { en: "ping-pong", zh: "乒乓球", exEn: "Ping-pong is fun.", exZh: "乒乓球很有趣。" },
+          { en: "basketball", zh: "篮球", exEn: "He can play basketball well.", exZh: "他篮球打得好。" },
+          { en: "great", zh: "非常的，极好的", exEn: "That's great!", exZh: "太棒了！" },
+          { en: "swimming", zh: "游泳", exEn: "I go swimming on Sunday.", exZh: "我星期日去游泳。" },
+          { en: "so", zh: "（表示程度）这么，那么", exEn: "The cake is so nice.", exZh: "蛋糕真好吃。" },
+          { en: "well", zh: "好", exEn: "Well played!", exZh: "打得好！" },
+          { en: "Have a go!", zh: "试一试！", exEn: "Have a go! You can do it.", exZh: "试一试！你能行。" },
+          { en: "difficult", zh: "难的，不容易的", exEn: "It's not difficult.", exZh: "这不难。" },
+          { en: "It's OK.", zh: "没关系。", exEn: "It's OK. Try again.", exZh: "没关系。再试试。" },
+          { en: "Well played!", zh: "好球！", exEn: "Well played! What a goal!", exZh: "好球！进球真棒！" }
         ],
         sentences: [
+          { en: "What do you do after school?", zh: "放学后你做什么？" },
+          { en: "I have a dancing lesson today.", zh: "我今天有一节舞蹈课。" },
+          { en: "Let's play ping-pong!", zh: "我们打乒乓球吧！" },
           { en: "Can you play basketball?", zh: "你会打篮球吗？" },
-          { en: "Yes, I can. Look!", zh: "是的，我会。看！" },
-          { en: "No, I can't.", zh: "不，我不会。" },
-          { en: "Have a try!", zh: "试一试吧！" },
-          { en: "I can play football well.", zh: "我足球踢得很好。" },
-          { en: "Don't be sad.", zh: "别难过。" },
-          { en: "Can he swim? Yes, he can.", zh: "他会游泳吗？是的，他会。" }
+          { en: "Have a go!", zh: "试一试！" },
+          { en: "Well played!", zh: "好球！" }
         ],
         grammar: [
           {
             title: "can 表示“会、能”",
-            explain: ["can 后面接动词原形：I can swim.", "问句：Can you …? 回答：Yes, I can. / No, I can't.", "can't = cannot，表示“不会、不能”"],
+            explain: ["can 后面接动词原形：I can play football.", "问句：Can you …? 回答：Yes, I can. / No, I can't.", "can't = cannot，表示“不会、不能”"],
             examples: [
-              { en: "Can you jump?", zh: "你会跳吗？" },
-              { en: "No, I can't.", zh: "不，我不会。" }
+              { en: "Can you play ping-pong?", zh: "你会打乒乓球吗？" },
+              { en: "No, I can't. But I can dance!", zh: "不，我不会。但我会跳舞！" }
             ],
             quiz: [
-              { q: "— Can you skate? — No, ______.", options: ["I don't", "I'm not", "I can't", "I not can"], answer: 2, explain: "用 can 提问，用 can 回答：Yes, I can. / No, I can't." }
+              { q: "— Can you play football? — No, ______.", options: ["I don't", "I'm not", "I can't", "I not can"], answer: 2, explain: "用 can 提问，用 can 回答：Yes, I can. / No, I can't." }
             ]
           },
           {
             title: "play + 球类",
-            explain: ["play 后面接球类运动时不加 the：play basketball / play football / play table tennis"],
+            explain: ["play 后面接球类运动时不加 the：play basketball / play football / play ping-pong"],
             examples: [
               { en: "I can play basketball well.", zh: "我篮球打得好。" }
             ],
@@ -269,12 +296,12 @@
           },
           {
             title: "either 也（不）",
-            explain: ["too 用在肯定句句末：I can swim, too.", "either 用在否定句句末：I can't swim either."],
+            explain: ["too 用在肯定句句末：I can dance, too.", "either 用在否定句句末：I can't play ping-pong either."],
             examples: [
-              { en: "I can't skate either.", zh: "我也不会滑冰。" }
+              { en: "I can't play ping-pong either.", zh: "我也不会打乒乓球。" }
             ],
             quiz: [
-              { q: "I can't swim. Tom can't swim ______.", options: ["too", "either", "and", "but"], answer: 1, explain: "否定句句末用 either 表示“也（不）”。" }
+              { q: "I can't dance. Tom can't dance ______.", options: ["too", "either", "and", "but"], answer: 1, explain: "否定句句末用 either 表示“也（不）”。" }
             ]
           }
         ]
@@ -282,232 +309,43 @@
       {
         id: "u5",
         no: 5,
-        title: "Our new home",
-        titleZh: "我们的新家",
-        emoji: "🏠",
+        title: "Our Toys",
+        titleZh: "我们的玩具",
+        emoji: "🪆",
         words: [
-          { en: "home", zh: "家", exEn: "Welcome to my home.", exZh: "欢迎到我家来。" },
-          { en: "bedroom", zh: "卧室", exEn: "I sleep in my bedroom.", exZh: "我在卧室睡觉。" },
-          { en: "living room", zh: "客厅", exEn: "The TV is in the living room.", exZh: "电视在客厅里。" },
-          { en: "sofa", zh: "沙发", exEn: "The cat is on the sofa.", exZh: "猫在沙发上。" },
-          { en: "kitchen", zh: "厨房", exEn: "Mum is in the kitchen.", exZh: "妈妈在厨房里。" },
-          { en: "clock", zh: "钟；时钟", exEn: "The clock is on the table.", exZh: "钟在桌子上。" },
-          { en: "fridge", zh: "冰箱", exEn: "The milk is in the fridge.", exZh: "牛奶在冰箱里。" },
-          { en: "table", zh: "桌子", exEn: "The apples are on the table.", exZh: "苹果在桌子上。" },
-          { en: "bathroom", zh: "浴室；卫生间", exEn: "Is Dad in the bathroom?", exZh: "爸爸在卫生间吗？" },
-          { en: "hungry", zh: "饿的", exEn: "I'm hungry.", exZh: "我饿了。" },
-          { en: "come", zh: "来", exEn: "Come in, please.", exZh: "请进。" },
-          { en: "How are you?", zh: "你好吗？", exEn: "— How are you? — I'm fine, thank you.", exZh: "—你好吗？—我很好，谢谢。" }
-        ],
-        sentences: [
-          { en: "This is our new home.", zh: "这是我们的新家。" },
-          { en: "Where's my bag?", zh: "我的包在哪里？" },
-          { en: "It's in your bedroom.", zh: "它在你的卧室里。" },
-          { en: "Where are my shoes?", zh: "我的鞋子在哪里？" },
-          { en: "They're under the sofa.", zh: "它们在沙发下面。" },
-          { en: "Is it in the kitchen? Yes, it is.", zh: "它在厨房里吗？是的。" }
-        ],
-        grammar: [
-          {
-            title: "Where's …? 问单个东西在哪",
-            explain: ["Where's = Where is", "回答：It's + 方位：It's in / on / under / near …", "in 在里面，on 在上面，under 在下面，near 在旁边"],
-            examples: [
-              { en: "Where's the clock?", zh: "钟在哪里？" },
-              { en: "It's on the table.", zh: "它在桌子上。" }
-            ],
-            quiz: [
-              { q: "— Where's the clock? — ______", options: ["They're on the wall.", "It's on the wall.", "I'm fine.", "Yes, it is."], answer: 1, explain: "单个东西用 It's… 回答。" }
-            ]
-          },
-          {
-            title: "Where are …? 问多个东西在哪",
-            explain: ["多个东西用 are：Where are my shoes?", "回答：They're + 方位"],
-            examples: [
-              { en: "Where are my books?", zh: "我的书在哪里？" },
-              { en: "They're in the box.", zh: "它们在盒子里。" }
-            ],
-            quiz: [
-              { q: "— Where ______ my pens? — They're on the table.", options: ["is", "am", "are", "be"], answer: 2, explain: "pens 是复数，用 are。" }
-            ]
-          },
-          {
-            title: "Is it …? 一般疑问句",
-            explain: ["Is it in the kitchen? 它在厨房里吗？", "回答：Yes, it is. / No, it isn't."],
-            examples: [
-              { en: "Is the cat under the sofa?", zh: "猫在沙发下面吗？" }
-            ],
-            quiz: [
-              { q: "The cat is ______ the sofa. （猫在沙发下面）", options: ["under", "in", "at", "of"], answer: 0, explain: "under 表示“在……下面”。" }
-            ]
-          }
-        ]
-      },
-      {
-        id: "u6",
-        no: 6,
-        title: "At the snack bar",
-        titleZh: "在小吃店",
-        emoji: "🍔",
-        words: [
-          { en: "at", zh: "在（某处）", exEn: "We are at the snack bar.", exZh: "我们在小吃店。" },
-          { en: "snack bar", zh: "小吃店；快餐店", exEn: "Let's go to the snack bar.", exZh: "我们去小吃店吧。" },
-          { en: "hamburger", zh: "汉堡包", exEn: "I'd like a hamburger.", exZh: "我想要一个汉堡包。" },
-          { en: "noodles", zh: "面条", exEn: "I like noodles.", exZh: "我喜欢面条。" },
-          { en: "sandwich", zh: "三明治", exEn: "The sandwich is big.", exZh: "这个三明治很大。" },
-          { en: "coffee", zh: "咖啡", exEn: "Dad likes coffee.", exZh: "爸爸喜欢咖啡。" },
-          { en: "tea", zh: "茶", exEn: "A cup of tea, please.", exZh: "请给我一杯茶。" },
-          { en: "juice", zh: "果汁", exEn: "I'd like some juice.", exZh: "我想要一些果汁。" },
-          { en: "rice", zh: "米饭；大米", exEn: "The rice is hot.", exZh: "米饭是热的。" },
-          { en: "fish", zh: "鱼", exEn: "Do you like fish?", exZh: "你喜欢鱼吗？" },
-          { en: "a glass of", zh: "一（玻璃）杯", exEn: "a glass of milk", exZh: "一杯牛奶" },
-          { en: "a cup of", zh: "一（茶）杯", exEn: "a cup of coffee", exZh: "一杯咖啡" },
-          { en: "dad", zh: "爸爸", exEn: "Dad, I'm hungry.", exZh: "爸爸，我饿了。" },
-          { en: "big", zh: "大的", exEn: "The hamburger is big.", exZh: "汉堡包很大。" },
-          { en: "Anything else?", zh: "还要别的吗？", exEn: "— Anything else? — No, thank you.", exZh: "—还要别的吗？—不了，谢谢。" },
-          { en: "What would you like?", zh: "你想要什么？", exEn: "What would you like, Mum?", exZh: "妈妈，你想要什么？" }
-        ],
-        sentences: [
-          { en: "What would you like?", zh: "你想要什么？" },
-          { en: "I'd like a hamburger and a glass of milk, please.", zh: "我想要一个汉堡包和一杯牛奶。" },
-          { en: "Anything else?", zh: "还要别的吗？" },
-          { en: "A cup of tea, please.", zh: "请给我一杯茶。" },
-          { en: "No, thank you.", zh: "不了，谢谢。" },
-          { en: "Can I help you?", zh: "您要点什么？" }
-        ],
-        grammar: [
-          {
-            title: "What would you like? 询问想要什么",
-            explain: ["I'd like … = I would like …（我想要……）", "句尾加 please 更有礼貌"],
-            examples: [
-              { en: "— What would you like? — I'd like some noodles.", zh: "—你想要什么？—我想要一些面条。" }
-            ],
-            quiz: [
-              { q: "I'd like = ______", options: ["I do like", "I am like", "I would like", "I likes"], answer: 2, explain: "I'd 是 I would 的缩写。" }
-            ]
-          },
-          {
-            title: "a glass of 与 a cup of",
-            explain: ["a glass of：玻璃杯，常接牛奶、果汁：a glass of milk", "a cup of：茶杯，常接茶、咖啡：a cup of tea"],
-            examples: [
-              { en: "I'd like a cup of coffee.", zh: "我想要一杯咖啡。" }
-            ],
-            quiz: [
-              { q: "“一杯牛奶”怎么说？", options: ["a cup of milk", "a glass of milk", "a milk", "a bottle milks"], answer: 1, explain: "牛奶通常装在玻璃杯里，用 a glass of milk。" }
-            ]
-          },
-          {
-            title: "点餐常用语",
-            explain: ["服务员问：Can I help you? / What would you like?", "追问：Anything else?", "回答后加 please / thank you 更有礼貌"],
-            examples: [
-              { en: "— Can I help you? — I'd like a sandwich, please.", zh: "—您要点什么？—我想要一个三明治。" }
-            ],
-            quiz: [
-              { q: "服务员问“还要别的吗？”可以说：______", options: ["How much is it?", "Anything else?", "How are you?", "What's this?"], answer: 1, explain: "Anything else? 意思是“还要别的吗？”。" }
-            ]
-          }
-        ]
-      },
-      {
-        id: "u7",
-        no: 7,
-        title: "How much?",
-        titleZh: "多少钱？",
-        emoji: "💰",
-        words: [
-          { en: "how much", zh: "多少钱", exEn: "How much is it?", exZh: "它多少钱？" },
-          { en: "shoe", zh: "鞋", exEn: "My shoes are new.", exZh: "我的鞋子是新的。" },
-          { en: "sock", zh: "袜子", exEn: "I have white socks.", exZh: "我有白袜子。" },
-          { en: "umbrella", zh: "雨伞", exEn: "The umbrella is nice.", exZh: "这把雨伞很好看。" },
-          { en: "fan", zh: "扇子；电扇", exEn: "The fan is fifteen yuan.", exZh: "这把扇子十五元。" },
-          { en: "yuan", zh: "元（人民币单位）", exEn: "The book is ten yuan.", exZh: "这本书十元。" },
-          { en: "twenty", zh: "二十", exEn: "I have twenty stickers.", exZh: "我有二十张贴纸。" },
-          { en: "twenty-eight", zh: "二十八", exEn: "The shoes are twenty-eight yuan.", exZh: "这双鞋二十八元。" },
-          { en: "thirty", zh: "三十", exEn: "Thirty and twenty is fifty.", exZh: "三十加二十是五十。" },
-          { en: "forty", zh: "四十", exEn: "The clock is forty yuan.", exZh: "这个钟四十元。" },
-          { en: "forty-five", zh: "四十五", exEn: "The doll is forty-five yuan.", exZh: "这个娃娃四十五元。" },
-          { en: "fifty", zh: "五十", exEn: "I have fifty yuan.", exZh: "我有五十元。" },
-          { en: "only", zh: "只；仅仅", exEn: "It's only five yuan.", exZh: "它只要五元。" },
-          { en: "her", zh: "她的", exEn: "Her umbrella is beautiful.", exZh: "她的雨伞很漂亮。" },
-          { en: "tail", zh: "尾巴", exEn: "The cat's tail is long.", exZh: "猫的尾巴很长。" },
-          { en: "long", zh: "长的", exEn: "The ruler is long.", exZh: "这把尺很长。" },
-          { en: "Well done!", zh: "干得好！", exEn: "Well done, Mike!", exZh: "干得好，迈克！" }
-        ],
-        sentences: [
-          { en: "How much is it?", zh: "它多少钱？" },
-          { en: "It's nineteen yuan.", zh: "它十九元。" },
-          { en: "How much are they?", zh: "它们多少钱？" },
-          { en: "They're thirty yuan.", zh: "它们三十元。" },
-          { en: "It's only five yuan.", zh: "它只要五元。" },
-          { en: "Well done!", zh: "干得好！" }
-        ],
-        grammar: [
-          {
-            title: "How much is …? 问单个东西的价格",
-            explain: ["How much is + 单个东西？", "回答：It's + 数字 + yuan."],
-            examples: [
-              { en: "— How much is the fan? — It's five yuan.", zh: "—这把扇子多少钱？—五元。" }
-            ],
-            quiz: [
-              { q: "— How much is the fan? — ______ five yuan.", options: ["It's", "They're", "I'm", "Its"], answer: 0, explain: "单件东西用 It's 回答；Its（没有撇号）意思是“它的”，不是“它是”。" }
-            ]
-          },
-          {
-            title: "How much are …? 问多个东西的价格",
-            explain: ["How much are + 复数东西？", "回答：They're + 数字 + yuan."],
-            examples: [
-              { en: "— How much are the socks? — They're ten yuan.", zh: "—这双袜子多少钱？—十元。" }
-            ],
-            quiz: [
-              { q: "— How much ______ the shoes? — They're thirty yuan.", options: ["is", "am", "are", "do"], answer: 2, explain: "shoes 是复数，用 are。" }
-            ]
-          },
-          {
-            title: "整十数字的拼写",
-            explain: ["twenty 20, thirty 30, forty 40, fifty 50", "注意：forty 中间没有 u（不是 fourty）"],
-            examples: [
-              { en: "twenty, thirty, forty, fifty", zh: "20、30、40、50" }
-            ],
-            quiz: [
-              { q: "“四十”正确的拼写是：", options: ["fourty", "forty", "fourtey", "fortey"], answer: 1, explain: "forty 没有字母 u。" }
-            ]
-          }
-        ]
-      },
-      {
-        id: "u8",
-        no: 8,
-        title: "Dolls",
-        titleZh: "玩具娃娃",
-        emoji: "🧸",
-        words: [
+          { en: "different", zh: "不同的，有区别的", exEn: "These two dolls are different.", exZh: "这两个娃娃不一样。" },
+          { en: "same", zh: "相同的，同一的", exEn: "We have the same bag.", exZh: "我们有一样的包。" },
           { en: "hair", zh: "头发", exEn: "Her hair is long.", exZh: "她的头发长。" },
-          { en: "eye", zh: "眼睛", exEn: "Her eyes are big.", exZh: "她的眼睛大。" },
-          { en: "ear", zh: "耳朵", exEn: "The rabbit's ears are long.", exZh: "兔子的耳朵长。" },
-          { en: "nose", zh: "鼻子", exEn: "His nose is small.", exZh: "他的鼻子小。" },
-          { en: "mouth", zh: "嘴巴", exEn: "The doll's mouth is small.", exZh: "娃娃的嘴巴小。" },
-          { en: "small", zh: "小的", exEn: "The cat is small.", exZh: "这只猫小。" },
-          { en: "his", zh: "他的", exEn: "His hair is short.", exZh: "他的头发短。" },
-          { en: "short", zh: "短的；矮的", exEn: "My ruler is short.", exZh: "我的尺子短。" },
-          { en: "thin", zh: "瘦的", exEn: "The man is thin.", exZh: "那个男人很瘦。" },
-          { en: "tall", zh: "高的", exEn: "My dad is tall.", exZh: "我爸爸个子高。" },
-          { en: "king", zh: "国王", exEn: "The king is fat.", exZh: "国王很胖。" },
-          { en: "snowman", zh: "雪人", exEn: "Look at the snowman!", exZh: "看那个雪人！" }
+          { en: "eye", zh: "眼睛", exEn: "His eyes are big.", exZh: "他的眼睛大。" },
+          { en: "ear", zh: "耳朵", exEn: "The robot has big ears.", exZh: "这个机器人耳朵大。" },
+          { en: "mouth", zh: "嘴，口", exEn: "Her mouth is small.", exZh: "她的嘴巴小。" },
+          { en: "arm", zh: "手臂", exEn: "The robot's arms are long.", exZh: "机器人的手臂长。" },
+          { en: "leg", zh: "腿", exEn: "The doll has short legs.", exZh: "这个娃娃腿短。" },
+          { en: "robot", zh: "机器人", exEn: "Look at my robot.", exZh: "看我的机器人。" },
+          { en: "his", zh: "他的", exEn: "This is his ball.", exZh: "这是他的球。" },
+          { en: "tall", zh: "高的", exEn: "My brother is tall.", exZh: "我哥哥个子高。" },
+          { en: "doll", zh: "玩具娃娃", exEn: "Her doll is cute.", exZh: "她的娃娃很可爱。" },
+          { en: "small", zh: "小的", exEn: "The car is small.", exZh: "这辆汽车很小。" },
+          { en: "her", zh: "她的", exEn: "That's her book.", exZh: "那是她的书。" },
+          { en: "bring", zh: "带来", exEn: "Bring your toys to school.", exZh: "把你的玩具带来学校。" },
+          { en: "lots of", zh: "大量，许多", exEn: "I have lots of books.", exZh: "我有很多书。" },
+          { en: "have", zh: "组织，举办", exEn: "We have a toy show.", exZh: "我们举办玩具展览。" }
         ],
         sentences: [
-          { en: "Look at our doll.", zh: "看我们的娃娃。" },
-          { en: "She's beautiful.", zh: "她很漂亮。" },
-          { en: "Her hair is long.", zh: "她的头发长。" },
-          { en: "Her eyes are big.", zh: "她的眼睛大。" },
-          { en: "His nose is small.", zh: "他的鼻子小。" },
-          { en: "He's a king now!", zh: "现在他是国王啦！" }
+          { en: "Look at this robot.", zh: "看这个机器人。" },
+          { en: "He is tall.", zh: "他个子高。" },
+          { en: "His hair is short.", zh: "他的头发是短的。" },
+          { en: "Her eyes are big.", zh: "她的眼睛大大的。" },
+          { en: "The doll has a small mouth.", zh: "这个娃娃嘴巴小小的。" },
+          { en: "They look the same.", zh: "它们看起来一样。" }
         ],
         grammar: [
           {
             title: "his 与 her",
             explain: ["his 他的（男孩/男人），her 她的（女孩/女人）", "后面直接接名词：his hair, her eyes"],
             examples: [
-              { en: "This is Tom. His nose is small.", zh: "这是汤姆。他的鼻子小。" },
-              { en: "This is Amy. Her hair is long.", zh: "这是艾米。她的头发长。" }
+              { en: "This is Tom. His robot is cool.", zh: "这是汤姆。他的机器人很酷。" },
+              { en: "This is Amy. Her doll is cute.", zh: "这是艾米。她的娃娃很可爱。" }
             ],
             quiz: [
               { q: "Look at the girl. ______ hair is long.", options: ["His", "Her", "She", "He"], answer: 1, explain: "girl 是女孩，用 her。" }
@@ -517,20 +355,222 @@
             title: "is 与 are 描述部位",
             explain: ["单个部位用 is：His nose is small.", "成对的部位（两只眼、两只耳）用 are：Her eyes are big."],
             examples: [
-              { en: "His ears are big.", zh: "他的耳朵大。" }
+              { en: "The robot's arms are long.", zh: "机器人的手臂长。" }
             ],
             quiz: [
               { q: "His eyes ______ big.", options: ["is", "am", "are", "be"], answer: 2, explain: "eyes 是复数，用 are。" }
             ]
           },
           {
-            title: "tall / short / thin / fat 描述外形",
-            explain: ["tall 高的，short 矮的或短的，thin 瘦的，fat 胖的", "He is tall. / She is thin."],
+            title: "tall / small / big 描述外形",
+            explain: ["tall 高的，small 小的，big 大的，long 长的，short 短的", "He is tall. / The doll has short legs."],
             examples: [
-              { en: "The boy is tall and thin.", zh: "那个男孩又高又瘦。" }
+              { en: "The robot is tall and cool.", zh: "这个机器人又高又酷。" }
             ],
             quiz: [
-              { q: "那个男孩又高又瘦：______", options: ["The boy is tall and thin.", "The boy is short and fat.", "The boy can tall.", "The boy is long."], answer: 0, explain: "tall 高、thin 瘦；人是“高”，不是 long。" }
+              { q: "这个娃娃很小：The doll is ______.", options: ["small", "tall", "same", "bring"], answer: 0, explain: "small 小的；tall 高的。" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "u6",
+        no: 6,
+        title: "Weather",
+        titleZh: "天气",
+        emoji: "🌤️",
+        words: [
+          { en: "weather", zh: "天气，气象", exEn: "What's the weather like?", exZh: "天气怎么样？" },
+          { en: "sunny", zh: "晴朗的", exEn: "It's sunny today.", exZh: "今天晴朗。" },
+          { en: "cloudy", zh: "多云的，阴天的", exEn: "It's cloudy now.", exZh: "现在是阴天。" },
+          { en: "rainy", zh: "阴雨的，多雨的", exEn: "I don't like rainy days.", exZh: "我不喜欢雨天。" },
+          { en: "cool", zh: "凉爽的", exEn: "It's cool in the morning.", exZh: "早晨很凉爽。" },
+          { en: "warm", zh: "温暖的，暖和的", exEn: "Spring is warm.", exZh: "春天很温暖。" },
+          { en: "hot", zh: "温度高的，热的", exEn: "It's hot in summer.", exZh: "夏天很热。" },
+          { en: "windy", zh: "多风的，风大的", exEn: "It's windy today.", exZh: "今天风大。" },
+          { en: "save for a rainy day", zh: "未雨绸缪", exEn: "We save money for a rainy day.", exZh: "我们存钱以备不时之需。" },
+          { en: "money", zh: "钱", exEn: "I have some money.", exZh: "我有一些钱。" },
+          { en: "What's the weather like today?", zh: "今天天气怎么样？", exEn: "What's the weather like today? It's sunny.", exZh: "今天天气怎么样？晴天。" },
+          { en: "park", zh: "公园", exEn: "We go to the park.", exZh: "我们去公园。" },
+          { en: "fly a kite", zh: "放风筝", exEn: "Let's fly a kite.", exZh: "我们放风筝吧。" },
+          { en: "It's raining.", zh: "下雨了。", exEn: "It's raining. Take an umbrella.", exZh: "下雨了。带上雨伞。" },
+          { en: "worry", zh: "担心，忧虑", exEn: "Don't worry.", exZh: "别担心。" },
+          { en: "umbrella", zh: "伞，雨伞", exEn: "This umbrella is big.", exZh: "这把伞很大。" },
+          { en: "there", zh: "到那里，在那里", exEn: "Let's go there.", exZh: "我们去那里吧。" }
+        ],
+        sentences: [
+          { en: "What's the weather like today?", zh: "今天天气怎么样？" },
+          { en: "It's sunny and warm.", zh: "晴朗又温暖。" },
+          { en: "It's raining.", zh: "下雨了。" },
+          { en: "Let's fly a kite!", zh: "我们去放风筝吧！" },
+          { en: "Take an umbrella with you.", zh: "带上雨伞。" },
+          { en: "Don't worry.", zh: "别担心。" }
+        ],
+        grammar: [
+          {
+            title: "What's the weather like…? 问天气",
+            explain: ["问天气：What's the weather like today?", "回答用 It's + 天气词：It's sunny. / It's rainy."],
+            examples: [
+              { en: "— What's the weather like today? — It's sunny.", zh: "—今天天气怎么样？—晴天。" }
+            ],
+            quiz: [
+              { q: "— ______ the weather like today? — It's cloudy.", options: ["What's", "How's", "Where's", "Who's"], answer: 0, explain: "问天气固定说法：What's the weather like?" }
+            ]
+          },
+          {
+            title: "It's + 天气词 描述天气",
+            explain: ["sunny / cloudy / rainy / windy / hot / warm / cool / cold 都可以放在 It's 后面", "It's hot in summer. 夏天很热。"],
+            examples: [
+              { en: "It's warm in spring. It's cold in winter.", zh: "春天温暖，冬天寒冷。" }
+            ],
+            quiz: [
+              { q: "今天刮风：______ windy today.", options: ["It's", "It", "Its", "Is it"], answer: 0, explain: "描述天气用 It's + 天气词。" }
+            ]
+          },
+          {
+            title: "Don't worry. 安慰别人",
+            explain: ["worry 担心，忧虑。", "安慰别人说：Don't worry.（别担心。）祈使句用动词原形开头，否定用 Don't。"],
+            examples: [
+              { en: "— It's raining! — Don't worry. We have umbrellas.", zh: "—下雨了！—别担心。我们有雨伞。" }
+            ],
+            quiz: [
+              { q: "安慰别人“别担心”：______", options: ["Don't worry.", "No worry.", "Not worry.", "You don't worry."], answer: 0, explain: "否定祈使句用 Don't + 动词原形：Don't worry." }
+            ]
+          }
+        ]
+      },
+      {
+        id: "u7",
+        no: 7,
+        title: "Seasons",
+        titleZh: "四季",
+        emoji: "🍂",
+        words: [
+          { en: "season", zh: "季节", exEn: "Which season do you like?", exZh: "你喜欢哪个季节？" },
+          { en: "spring", zh: "春天，春季", exEn: "It's warm in spring.", exZh: "春天很温暖。" },
+          { en: "go boating", zh: "去划船", exEn: "We go boating in spring.", exZh: "我们春天去划船。" },
+          { en: "winter", zh: "冬天，冬季", exEn: "It's cold in winter.", exZh: "冬天很冷。" },
+          { en: "go skating", zh: "去滑冰，去溜冰", exEn: "We go skating in winter.", exZh: "我们冬天去滑冰。" },
+          { en: "summer", zh: "夏天，夏季", exEn: "It's hot in summer.", exZh: "夏天很热。" },
+          { en: "ice cream", zh: "冰激凌", exEn: "I like ice cream.", exZh: "我喜欢冰激凌。" },
+          { en: "go swimming", zh: "去游泳", exEn: "We go swimming in summer.", exZh: "我们夏天去游泳。" },
+          { en: "autumn", zh: "秋天", exEn: "Autumn is cool.", exZh: "秋天很凉爽。" },
+          { en: "go climbing", zh: "去爬山", exEn: "Let's go climbing.", exZh: "我们去爬山吧。" },
+          { en: "new", zh: "新的", exEn: "My bike is new.", exZh: "我的自行车是新的。" },
+          { en: "cold", zh: "寒冷的，冷的", exEn: "It's cold today.", exZh: "今天很冷。" },
+          { en: "bird", zh: "鸟", exEn: "Birds fly back in spring.", exZh: "春天鸟儿飞回来。" },
+          { en: "back", zh: "回原处", exEn: "The birds come back.", exZh: "鸟儿们回来了。" },
+          { en: "nose", zh: "鼻子", exEn: "The snowman has a long nose.", exZh: "雪人有个长鼻子。" },
+          { en: "year", zh: "年", exEn: "Happy New Year!", exZh: "新年快乐！" },
+          { en: "plant", zh: "栽种，种植", exEn: "We plant trees in spring.", exZh: "我们春天种树。" },
+          { en: "pick", zh: "采，摘", exEn: "We pick apples in autumn.", exZh: "我们秋天摘苹果。" },
+          { en: "snow", zh: "雪，积雪", exEn: "Look at the snow!", exZh: "看那雪！" },
+          { en: "know", zh: "知道", exEn: "I know this story.", exZh: "我知道这个故事。" }
+        ],
+        sentences: [
+          { en: "What season is it?", zh: "这是什么季节？" },
+          { en: "It's warm in spring.", zh: "春天很温暖。" },
+          { en: "We go swimming in summer.", zh: "夏天我们去游泳。" },
+          { en: "It's cold in winter.", zh: "冬天很冷。" },
+          { en: "We plant trees in spring.", zh: "我们春天种树。" },
+          { en: "Birds come back in spring.", zh: "春天鸟儿飞回来了。" }
+        ],
+        grammar: [
+          {
+            title: "in + 季节",
+            explain: ["季节前用 in：in spring / in summer / in autumn / in winter", "It's warm in spring. 春天很温暖。"],
+            examples: [
+              { en: "We go swimming in summer.", zh: "我们夏天去游泳。" },
+              { en: "It's cold in winter.", zh: "冬天很冷。" }
+            ],
+            quiz: [
+              { q: "春天我们种树：We plant trees ______ spring.", options: ["in", "on", "at", "to"], answer: 0, explain: "季节前用 in：in spring。" }
+            ]
+          },
+          {
+            title: "go + 动词-ing 去做活动",
+            explain: ["go swimming 去游泳，go boating 去划船，go skating 去滑冰，go climbing 去爬山", "go 后面的动词要加 -ing"],
+            examples: [
+              { en: "Let's go boating.", zh: "我们去划船吧。" },
+              { en: "We go skating in winter.", zh: "我们冬天去滑冰。" }
+            ],
+            quiz: [
+              { q: "去游泳：go ______", options: ["swim", "swimming", "swims", "to swim"], answer: 1, explain: "go 后面的动词加 -ing：go swimming." }
+            ]
+          },
+          {
+            title: "What season…? 问季节",
+            explain: ["问季节：What season is it?", "回答：It's spring. / It's winter."],
+            examples: [
+              { en: "— What season is it? — It's spring. It's warm.", zh: "—这是什么季节？—春天。很温暖。" }
+            ],
+            quiz: [
+              { q: "— What season is it? — ______", options: ["It's winter.", "It's Monday.", "It's sunny.", "It's seven."], answer: 0, explain: "问季节用季节名回答：It's winter." }
+            ]
+          }
+        ]
+      },
+      {
+        id: "u8",
+        no: 8,
+        title: "Clothes",
+        titleZh: "衣服",
+        emoji: "👕",
+        words: [
+          { en: "wear", zh: "穿，戴", exEn: "I wear a coat today.", exZh: "我今天穿外套。" },
+          { en: "cap", zh: "（常指有帽舌的）便帽", exEn: "His cap is blue.", exZh: "他的帽子是蓝色的。" },
+          { en: "coat", zh: "外套，外衣", exEn: "This coat is warm.", exZh: "这件外套很暖和。" },
+          { en: "skirt", zh: "半身裙", exEn: "Her skirt is nice.", exZh: "她的裙子很好看。" },
+          { en: "trousers", zh: "裤子", exEn: "These trousers are long.", exZh: "这条裤子长。" },
+          { en: "dress", zh: "连衣裙", exEn: "What a nice dress!", exZh: "多漂亮的连衣裙啊！" },
+          { en: "shirt", zh: "（男式）衬衫", exEn: "His shirt is white.", exZh: "他的衬衫是白色的。" },
+          { en: "shorts", zh: "短裤", exEn: "I wear shorts in summer.", exZh: "我夏天穿短裤。" },
+          { en: "whose", zh: "谁的", exEn: "Whose ball is this?", exZh: "这是谁的球？" },
+          { en: "look", zh: "看来好像，显得", exEn: "You look great!", exZh: "你看起来真棒！" },
+          { en: "in", zh: "穿着；戴着", exEn: "The girl in red is my sister.", exZh: "穿红衣服的女孩是我妹妹。" },
+          { en: "sunglasses", zh: "太阳镜，墨镜", exEn: "I have sunglasses.", exZh: "我有太阳镜。" },
+          { en: "why", zh: "为什么", exEn: "Why do you like it?", exZh: "你为什么喜欢它？" },
+          { en: "because", zh: "因为", exEn: "Because it's cool.", exZh: "因为它很酷。" },
+          { en: "bright", zh: "明亮的；鲜艳的", exEn: "The dress is bright.", exZh: "这条连衣裙颜色鲜艳。" },
+          { en: "clothes", zh: "衣服", exEn: "Wash your clothes.", exZh: "洗你的衣服。" }
+        ],
+        sentences: [
+          { en: "Whose dress is this?", zh: "这是谁的连衣裙？" },
+          { en: "It's my dress.", zh: "是我的连衣裙。" },
+          { en: "Look at his new coat.", zh: "看他的新外套。" },
+          { en: "You look great!", zh: "你看起来真棒！" },
+          { en: "Why do you like it?", zh: "你为什么喜欢它？" },
+          { en: "Because it's bright and nice.", zh: "因为它鲜艳又好看。" }
+        ],
+        grammar: [
+          {
+            title: "Whose…? 问归属",
+            explain: ["Whose + 东西 + is this? 这是谁的……？", "回答：It's my dress. / It's his cap.（也可以说人名+'s：It's Yang Ling's.）"],
+            examples: [
+              { en: "— Whose cap is this? — It's my cap.", zh: "—这是谁的帽子？—是我的帽子。" }
+            ],
+            quiz: [
+              { q: "— ______ skirt is this? — It's her skirt.", options: ["Whose", "Who's", "What", "Which"], answer: 0, explain: "问归属用 Whose（谁的）；Who's = Who is（谁是）。" }
+            ]
+          },
+          {
+            title: "Why…? Because… 问答原因",
+            explain: ["Why 问为什么，Because 回答因为。", "Why do you like it? — Because it's nice."],
+            examples: [
+              { en: "— Why do you like the coat? — Because it's warm.", zh: "—你为什么喜欢这件外套？—因为它很暖和。" }
+            ],
+            quiz: [
+              { q: "— ______ do you like it? — Because it's bright.", options: ["Why", "What", "Whose", "When"], answer: 0, explain: "问原因用 Why，回答用 Because。" }
+            ]
+          },
+          {
+            title: "You look + 形容词",
+            explain: ["look 看起来：You look great! 你看起来真棒！", "look 后面接形容词，描述看上去的样子。"],
+            examples: [
+              { en: "You look great in the new coat!", zh: "你穿新外套看起来真棒！" }
+            ],
+            quiz: [
+              { q: "你看起来真棒：You ______ great!", options: ["look", "looks", "looking", "look at"], answer: 0, explain: "You 后面动词用原形 look；look at 是“看着”，后面接东西。" }
             ]
           }
         ]

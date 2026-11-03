@@ -1,0 +1,2218 @@
+{
+ "generatedAt": "2026-11-03T16:04:58.642Z",
+ "total": 553,
+ "texts": [
+  {
+   "text": "subject",
+   "from": "word"
+  },
+  {
+   "text": "What subjects do you like?",
+   "from": "wordEx"
+  },
+  {
+   "text": "Chinese",
+   "from": "word"
+  },
+  {
+   "text": "We have Chinese every day.",
+   "from": "wordEx"
+  },
+  {
+   "text": "English",
+   "from": "word"
+  },
+  {
+   "text": "I like English.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Maths",
+   "from": "word"
+  },
+  {
+   "text": "Maths is fun.",
+   "from": "wordEx"
+  },
+  {
+   "text": "PE",
+   "from": "word"
+  },
+  {
+   "text": "We can play games in PE.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Art",
+   "from": "word"
+  },
+  {
+   "text": "I can draw in Art.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Science",
+   "from": "word"
+  },
+  {
+   "text": "I like Science.",
+   "from": "wordEx"
+  },
+  {
+   "text": "IT",
+   "from": "word"
+  },
+  {
+   "text": "We use computers in IT.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Music",
+   "from": "word"
+  },
+  {
+   "text": "We sing in Music.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Labour",
+   "from": "word"
+  },
+  {
+   "text": "We make things in Labour.",
+   "from": "wordEx"
+  },
+  {
+   "text": "best",
+   "from": "word"
+  },
+  {
+   "text": "I like English best.",
+   "from": "wordEx"
+  },
+  {
+   "text": "also",
+   "from": "word"
+  },
+  {
+   "text": "We also have Music.",
+   "from": "wordEx"
+  },
+  {
+   "text": "it's time for",
+   "from": "word"
+  },
+  {
+   "text": "It's time for Chinese.",
+   "from": "wordEx"
+  },
+  {
+   "text": "mouse",
+   "from": "word"
+  },
+  {
+   "text": "The mouse is on the desk.",
+   "from": "wordEx"
+  },
+  {
+   "text": "welcome back to",
+   "from": "word"
+  },
+  {
+   "text": "Welcome back to school!",
+   "from": "wordEx"
+  },
+  {
+   "text": "be good at",
+   "from": "word"
+  },
+  {
+   "text": "I'm good at Maths.",
+   "from": "wordEx"
+  },
+  {
+   "text": "interesting",
+   "from": "word"
+  },
+  {
+   "text": "The book is interesting.",
+   "from": "wordEx"
+  },
+  {
+   "text": "learn about",
+   "from": "word"
+  },
+  {
+   "text": "We learn about animals.",
+   "from": "wordEx"
+  },
+  {
+   "text": "culture",
+   "from": "word"
+  },
+  {
+   "text": "We learn about Chinese culture.",
+   "from": "wordEx"
+  },
+  {
+   "text": "read",
+   "from": "word"
+  },
+  {
+   "text": "I like reading.",
+   "from": "wordEx"
+  },
+  {
+   "text": "story",
+   "from": "word"
+  },
+  {
+   "text": "This story is fun.",
+   "from": "wordEx"
+  },
+  {
+   "text": "all",
+   "from": "word"
+  },
+  {
+   "text": "All of us like Art.",
+   "from": "wordEx"
+  },
+  {
+   "text": "sports ground",
+   "from": "word"
+  },
+  {
+   "text": "We play on the sports ground.",
+   "from": "wordEx"
+  },
+  {
+   "text": "I'm good at Science.",
+   "from": "sentence"
+  },
+  {
+   "text": "We also have Art and Music.",
+   "from": "sentence"
+  },
+  {
+   "text": "I like Art and Music.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "Do you like Science?",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "Yes, I do. It's interesting.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "It's time for Maths.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "It's time for PE. Let's go!",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "day",
+   "from": "word"
+  },
+  {
+   "text": "What a happy day!",
+   "from": "wordEx"
+  },
+  {
+   "text": "get up",
+   "from": "word"
+  },
+  {
+   "text": "I get up at six thirty.",
+   "from": "wordEx"
+  },
+  {
+   "text": "wash",
+   "from": "word"
+  },
+  {
+   "text": "Wash your hands, please.",
+   "from": "wordEx"
+  },
+  {
+   "text": "face",
+   "from": "word"
+  },
+  {
+   "text": "Wash your face.",
+   "from": "wordEx"
+  },
+  {
+   "text": "have lessons",
+   "from": "word"
+  },
+  {
+   "text": "We have lessons at eight.",
+   "from": "wordEx"
+  },
+  {
+   "text": "have",
+   "from": "word"
+  },
+  {
+   "text": "We have lunch at school.",
+   "from": "wordEx"
+  },
+  {
+   "text": "dinner",
+   "from": "word"
+  },
+  {
+   "text": "I have dinner at home.",
+   "from": "wordEx"
+  },
+  {
+   "text": "breakfast",
+   "from": "word"
+  },
+  {
+   "text": "Breakfast is good for us.",
+   "from": "wordEx"
+  },
+  {
+   "text": "lunch",
+   "from": "word"
+  },
+  {
+   "text": "What's for lunch?",
+   "from": "wordEx"
+  },
+  {
+   "text": "Wash your face, please.",
+   "from": "sentence"
+  },
+  {
+   "text": "What time do you have lunch?",
+   "from": "sentence"
+  },
+  {
+   "text": "I have dinner with my family.",
+   "from": "sentence"
+  },
+  {
+   "text": "Let's have lunch.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "— Let's go to bed. — OK! Good night!",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "We have lunch at twelve.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "He has a nice schoolbag.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "go to bed",
+   "from": "word"
+  },
+  {
+   "text": "It's time to go to bed.",
+   "from": "wordEx"
+  },
+  {
+   "text": "o'clock",
+   "from": "word"
+  },
+  {
+   "text": "It's seven o'clock.",
+   "from": "wordEx"
+  },
+  {
+   "text": "early",
+   "from": "word"
+  },
+  {
+   "text": "I get up early.",
+   "from": "wordEx"
+  },
+  {
+   "text": "thirty",
+   "from": "word"
+  },
+  {
+   "text": "It's six thirty.",
+   "from": "wordEx"
+  },
+  {
+   "text": "first",
+   "from": "word"
+  },
+  {
+   "text": "Sunday is the first day of a week.",
+   "from": "wordEx"
+  },
+  {
+   "text": "hurry up",
+   "from": "word"
+  },
+  {
+   "text": "Hurry up! We're late.",
+   "from": "wordEx"
+  },
+  {
+   "text": "What time is it?",
+   "from": "word"
+  },
+  {
+   "text": "What time is it now?",
+   "from": "wordEx"
+  },
+  {
+   "text": "I'm coming!",
+   "from": "word"
+  },
+  {
+   "text": "Wait for me. I'm coming!",
+   "from": "wordEx"
+  },
+  {
+   "text": "twenty",
+   "from": "word"
+  },
+  {
+   "text": "Twenty and ten is thirty.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Come on!",
+   "from": "word"
+  },
+  {
+   "text": "Come on! Let's go!",
+   "from": "wordEx"
+  },
+  {
+   "text": "class",
+   "from": "word"
+  },
+  {
+   "text": "We have an English class.",
+   "from": "wordEx"
+  },
+  {
+   "text": "eleven",
+   "from": "word"
+  },
+  {
+   "text": "Eleven and one is twelve.",
+   "from": "wordEx"
+  },
+  {
+   "text": "sport",
+   "from": "word"
+  },
+  {
+   "text": "I like sport.",
+   "from": "wordEx"
+  },
+  {
+   "text": "fifteen",
+   "from": "word"
+  },
+  {
+   "text": "It's four fifteen.",
+   "from": "wordEx"
+  },
+  {
+   "text": "it's time to",
+   "from": "word"
+  },
+  {
+   "text": "It's time to go home.",
+   "from": "wordEx"
+  },
+  {
+   "text": "bed",
+   "from": "word"
+  },
+  {
+   "text": "The cat is on the bed.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Good night!",
+   "from": "word"
+  },
+  {
+   "text": "Good night, Mum!",
+   "from": "wordEx"
+  },
+  {
+   "text": "week",
+   "from": "word"
+  },
+  {
+   "text": "There are seven days in a week.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Monday",
+   "from": "word"
+  },
+  {
+   "text": "We have PE on Monday.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Tuesday",
+   "from": "word"
+  },
+  {
+   "text": "Today is Tuesday.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Wednesday",
+   "from": "word"
+  },
+  {
+   "text": "Wednesday comes after Tuesday.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Thursday",
+   "from": "word"
+  },
+  {
+   "text": "What day is it? It's Thursday.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Friday",
+   "from": "word"
+  },
+  {
+   "text": "Friday is fun.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Saturday",
+   "from": "word"
+  },
+  {
+   "text": "I don't go to school on Saturday.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Sunday",
+   "from": "word"
+  },
+  {
+   "text": "We fly kites on Sunday.",
+   "from": "wordEx"
+  },
+  {
+   "text": "When",
+   "from": "word"
+  },
+  {
+   "text": "When do you get up?",
+   "from": "wordEx"
+  },
+  {
+   "text": "today",
+   "from": "word"
+  },
+  {
+   "text": "What day is it today?",
+   "from": "wordEx"
+  },
+  {
+   "text": "What day is it today? It's Monday.",
+   "from": "wordEx"
+  },
+  {
+   "text": "every",
+   "from": "word"
+  },
+  {
+   "text": "I read every day.",
+   "from": "wordEx"
+  },
+  {
+   "text": "at",
+   "from": "word"
+  },
+  {
+   "text": "It's Wednesday.",
+   "from": "sentence"
+  },
+  {
+   "text": "— What time is it? — It's seven o'clock.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "It's time for class.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "— What day is it today? — It's Wednesday.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "dancing",
+   "from": "word"
+  },
+  {
+   "text": "I like dancing.",
+   "from": "wordEx"
+  },
+  {
+   "text": "lesson",
+   "from": "word"
+  },
+  {
+   "text": "I have a dancing lesson.",
+   "from": "wordEx"
+  },
+  {
+   "text": "after school",
+   "from": "word"
+  },
+  {
+   "text": "What do you do after school?",
+   "from": "wordEx"
+  },
+  {
+   "text": "cinema",
+   "from": "word"
+  },
+  {
+   "text": "Let's go to the cinema.",
+   "from": "wordEx"
+  },
+  {
+   "text": "dog",
+   "from": "word"
+  },
+  {
+   "text": "The dog is cute.",
+   "from": "wordEx"
+  },
+  {
+   "text": "walk",
+   "from": "word"
+  },
+  {
+   "text": "I walk my dog after school.",
+   "from": "wordEx"
+  },
+  {
+   "text": "tomorrow",
+   "from": "word"
+  },
+  {
+   "text": "See you tomorrow!",
+   "from": "wordEx"
+  },
+  {
+   "text": "free",
+   "from": "word"
+  },
+  {
+   "text": "Are you free now?",
+   "from": "wordEx"
+  },
+  {
+   "text": "OK! See you tomorrow!",
+   "from": "wordEx"
+  },
+  {
+   "text": "play",
+   "from": "word"
+  },
+  {
+   "text": "Let's play football.",
+   "from": "wordEx"
+  },
+  {
+   "text": "football",
+   "from": "word"
+  },
+  {
+   "text": "I can play football.",
+   "from": "wordEx"
+  },
+  {
+   "text": "ping-pong",
+   "from": "word"
+  },
+  {
+   "text": "Ping-pong is fun.",
+   "from": "wordEx"
+  },
+  {
+   "text": "basketball",
+   "from": "word"
+  },
+  {
+   "text": "He can play basketball well.",
+   "from": "wordEx"
+  },
+  {
+   "text": "great",
+   "from": "word"
+  },
+  {
+   "text": "That's great!",
+   "from": "wordEx"
+  },
+  {
+   "text": "swimming",
+   "from": "word"
+  },
+  {
+   "text": "I go swimming on Sunday.",
+   "from": "wordEx"
+  },
+  {
+   "text": "so",
+   "from": "word"
+  },
+  {
+   "text": "The cake is so nice.",
+   "from": "wordEx"
+  },
+  {
+   "text": "well",
+   "from": "word"
+  },
+  {
+   "text": "Well played!",
+   "from": "wordEx"
+  },
+  {
+   "text": "Have a go!",
+   "from": "word"
+  },
+  {
+   "text": "Have a go! You can do it.",
+   "from": "wordEx"
+  },
+  {
+   "text": "difficult",
+   "from": "word"
+  },
+  {
+   "text": "It's not difficult.",
+   "from": "wordEx"
+  },
+  {
+   "text": "It's OK.",
+   "from": "word"
+  },
+  {
+   "text": "It's OK. Try again.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Well played! What a goal!",
+   "from": "wordEx"
+  },
+  {
+   "text": "I have a dancing lesson today.",
+   "from": "sentence"
+  },
+  {
+   "text": "Let's play ping-pong!",
+   "from": "sentence"
+  },
+  {
+   "text": "Can you play basketball?",
+   "from": "sentence"
+  },
+  {
+   "text": "Can you play ping-pong?",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "No, I can't. But I can dance!",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "I can play basketball well.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "I can't play ping-pong either.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "different",
+   "from": "word"
+  },
+  {
+   "text": "These two dolls are different.",
+   "from": "wordEx"
+  },
+  {
+   "text": "same",
+   "from": "word"
+  },
+  {
+   "text": "We have the same bag.",
+   "from": "wordEx"
+  },
+  {
+   "text": "hair",
+   "from": "word"
+  },
+  {
+   "text": "Her hair is long.",
+   "from": "wordEx"
+  },
+  {
+   "text": "eye",
+   "from": "word"
+  },
+  {
+   "text": "His eyes are big.",
+   "from": "wordEx"
+  },
+  {
+   "text": "ear",
+   "from": "word"
+  },
+  {
+   "text": "The robot has big ears.",
+   "from": "wordEx"
+  },
+  {
+   "text": "mouth",
+   "from": "word"
+  },
+  {
+   "text": "Her mouth is small.",
+   "from": "wordEx"
+  },
+  {
+   "text": "arm",
+   "from": "word"
+  },
+  {
+   "text": "The robot's arms are long.",
+   "from": "wordEx"
+  },
+  {
+   "text": "leg",
+   "from": "word"
+  },
+  {
+   "text": "The doll has short legs.",
+   "from": "wordEx"
+  },
+  {
+   "text": "robot",
+   "from": "word"
+  },
+  {
+   "text": "Look at my robot.",
+   "from": "wordEx"
+  },
+  {
+   "text": "his",
+   "from": "word"
+  },
+  {
+   "text": "This is his ball.",
+   "from": "wordEx"
+  },
+  {
+   "text": "tall",
+   "from": "word"
+  },
+  {
+   "text": "My brother is tall.",
+   "from": "wordEx"
+  },
+  {
+   "text": "doll",
+   "from": "word"
+  },
+  {
+   "text": "Her doll is cute.",
+   "from": "wordEx"
+  },
+  {
+   "text": "small",
+   "from": "word"
+  },
+  {
+   "text": "The car is small.",
+   "from": "wordEx"
+  },
+  {
+   "text": "her",
+   "from": "word"
+  },
+  {
+   "text": "That's her book.",
+   "from": "wordEx"
+  },
+  {
+   "text": "bring",
+   "from": "word"
+  },
+  {
+   "text": "Bring your toys to school.",
+   "from": "wordEx"
+  },
+  {
+   "text": "lots of",
+   "from": "word"
+  },
+  {
+   "text": "I have lots of books.",
+   "from": "wordEx"
+  },
+  {
+   "text": "We have a toy show.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Look at this robot.",
+   "from": "sentence"
+  },
+  {
+   "text": "He is tall.",
+   "from": "sentence"
+  },
+  {
+   "text": "His hair is short.",
+   "from": "sentence"
+  },
+  {
+   "text": "Her eyes are big.",
+   "from": "sentence"
+  },
+  {
+   "text": "The doll has a small mouth.",
+   "from": "sentence"
+  },
+  {
+   "text": "They look the same.",
+   "from": "sentence"
+  },
+  {
+   "text": "This is Tom. His robot is cool.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "This is Amy. Her doll is cute.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "The robot is tall and cool.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "weather",
+   "from": "word"
+  },
+  {
+   "text": "What's the weather like?",
+   "from": "wordEx"
+  },
+  {
+   "text": "sunny",
+   "from": "word"
+  },
+  {
+   "text": "It's sunny today.",
+   "from": "wordEx"
+  },
+  {
+   "text": "cloudy",
+   "from": "word"
+  },
+  {
+   "text": "It's cloudy now.",
+   "from": "wordEx"
+  },
+  {
+   "text": "rainy",
+   "from": "word"
+  },
+  {
+   "text": "I don't like rainy days.",
+   "from": "wordEx"
+  },
+  {
+   "text": "cool",
+   "from": "word"
+  },
+  {
+   "text": "It's cool in the morning.",
+   "from": "wordEx"
+  },
+  {
+   "text": "warm",
+   "from": "word"
+  },
+  {
+   "text": "Spring is warm.",
+   "from": "wordEx"
+  },
+  {
+   "text": "hot",
+   "from": "word"
+  },
+  {
+   "text": "It's hot in summer.",
+   "from": "wordEx"
+  },
+  {
+   "text": "windy",
+   "from": "word"
+  },
+  {
+   "text": "It's windy today.",
+   "from": "wordEx"
+  },
+  {
+   "text": "save for a rainy day",
+   "from": "word"
+  },
+  {
+   "text": "We save money for a rainy day.",
+   "from": "wordEx"
+  },
+  {
+   "text": "money",
+   "from": "word"
+  },
+  {
+   "text": "I have some money.",
+   "from": "wordEx"
+  },
+  {
+   "text": "What's the weather like today?",
+   "from": "word"
+  },
+  {
+   "text": "What's the weather like today? It's sunny.",
+   "from": "wordEx"
+  },
+  {
+   "text": "park",
+   "from": "word"
+  },
+  {
+   "text": "We go to the park.",
+   "from": "wordEx"
+  },
+  {
+   "text": "fly a kite",
+   "from": "word"
+  },
+  {
+   "text": "Let's fly a kite.",
+   "from": "wordEx"
+  },
+  {
+   "text": "It's raining.",
+   "from": "word"
+  },
+  {
+   "text": "It's raining. Take an umbrella.",
+   "from": "wordEx"
+  },
+  {
+   "text": "worry",
+   "from": "word"
+  },
+  {
+   "text": "Don't worry.",
+   "from": "wordEx"
+  },
+  {
+   "text": "umbrella",
+   "from": "word"
+  },
+  {
+   "text": "This umbrella is big.",
+   "from": "wordEx"
+  },
+  {
+   "text": "there",
+   "from": "word"
+  },
+  {
+   "text": "Let's go there.",
+   "from": "wordEx"
+  },
+  {
+   "text": "It's sunny and warm.",
+   "from": "sentence"
+  },
+  {
+   "text": "Let's fly a kite!",
+   "from": "sentence"
+  },
+  {
+   "text": "Take an umbrella with you.",
+   "from": "sentence"
+  },
+  {
+   "text": "— What's the weather like today? — It's sunny.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "It's warm in spring. It's cold in winter.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "— It's raining! — Don't worry. We have umbrellas.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "season",
+   "from": "word"
+  },
+  {
+   "text": "Which season do you like?",
+   "from": "wordEx"
+  },
+  {
+   "text": "spring",
+   "from": "word"
+  },
+  {
+   "text": "It's warm in spring.",
+   "from": "wordEx"
+  },
+  {
+   "text": "go boating",
+   "from": "word"
+  },
+  {
+   "text": "We go boating in spring.",
+   "from": "wordEx"
+  },
+  {
+   "text": "winter",
+   "from": "word"
+  },
+  {
+   "text": "It's cold in winter.",
+   "from": "wordEx"
+  },
+  {
+   "text": "go skating",
+   "from": "word"
+  },
+  {
+   "text": "We go skating in winter.",
+   "from": "wordEx"
+  },
+  {
+   "text": "summer",
+   "from": "word"
+  },
+  {
+   "text": "ice cream",
+   "from": "word"
+  },
+  {
+   "text": "I like ice cream.",
+   "from": "wordEx"
+  },
+  {
+   "text": "go swimming",
+   "from": "word"
+  },
+  {
+   "text": "We go swimming in summer.",
+   "from": "wordEx"
+  },
+  {
+   "text": "autumn",
+   "from": "word"
+  },
+  {
+   "text": "Autumn is cool.",
+   "from": "wordEx"
+  },
+  {
+   "text": "go climbing",
+   "from": "word"
+  },
+  {
+   "text": "Let's go climbing.",
+   "from": "wordEx"
+  },
+  {
+   "text": "new",
+   "from": "word"
+  },
+  {
+   "text": "My bike is new.",
+   "from": "wordEx"
+  },
+  {
+   "text": "cold",
+   "from": "word"
+  },
+  {
+   "text": "It's cold today.",
+   "from": "wordEx"
+  },
+  {
+   "text": "bird",
+   "from": "word"
+  },
+  {
+   "text": "Birds fly back in spring.",
+   "from": "wordEx"
+  },
+  {
+   "text": "back",
+   "from": "word"
+  },
+  {
+   "text": "The birds come back.",
+   "from": "wordEx"
+  },
+  {
+   "text": "nose",
+   "from": "word"
+  },
+  {
+   "text": "The snowman has a long nose.",
+   "from": "wordEx"
+  },
+  {
+   "text": "year",
+   "from": "word"
+  },
+  {
+   "text": "Happy New Year!",
+   "from": "wordEx"
+  },
+  {
+   "text": "plant",
+   "from": "word"
+  },
+  {
+   "text": "We plant trees in spring.",
+   "from": "wordEx"
+  },
+  {
+   "text": "pick",
+   "from": "word"
+  },
+  {
+   "text": "We pick apples in autumn.",
+   "from": "wordEx"
+  },
+  {
+   "text": "snow",
+   "from": "word"
+  },
+  {
+   "text": "Look at the snow!",
+   "from": "wordEx"
+  },
+  {
+   "text": "know",
+   "from": "word"
+  },
+  {
+   "text": "I know this story.",
+   "from": "wordEx"
+  },
+  {
+   "text": "What season is it?",
+   "from": "sentence"
+  },
+  {
+   "text": "Birds come back in spring.",
+   "from": "sentence"
+  },
+  {
+   "text": "Let's go boating.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "— What season is it? — It's spring. It's warm.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "wear",
+   "from": "word"
+  },
+  {
+   "text": "I wear a coat today.",
+   "from": "wordEx"
+  },
+  {
+   "text": "cap",
+   "from": "word"
+  },
+  {
+   "text": "His cap is blue.",
+   "from": "wordEx"
+  },
+  {
+   "text": "coat",
+   "from": "word"
+  },
+  {
+   "text": "This coat is warm.",
+   "from": "wordEx"
+  },
+  {
+   "text": "skirt",
+   "from": "word"
+  },
+  {
+   "text": "Her skirt is nice.",
+   "from": "wordEx"
+  },
+  {
+   "text": "trousers",
+   "from": "word"
+  },
+  {
+   "text": "These trousers are long.",
+   "from": "wordEx"
+  },
+  {
+   "text": "dress",
+   "from": "word"
+  },
+  {
+   "text": "What a nice dress!",
+   "from": "wordEx"
+  },
+  {
+   "text": "shirt",
+   "from": "word"
+  },
+  {
+   "text": "His shirt is white.",
+   "from": "wordEx"
+  },
+  {
+   "text": "shorts",
+   "from": "word"
+  },
+  {
+   "text": "I wear shorts in summer.",
+   "from": "wordEx"
+  },
+  {
+   "text": "whose",
+   "from": "word"
+  },
+  {
+   "text": "Whose ball is this?",
+   "from": "wordEx"
+  },
+  {
+   "text": "look",
+   "from": "word"
+  },
+  {
+   "text": "You look great!",
+   "from": "wordEx"
+  },
+  {
+   "text": "in",
+   "from": "word"
+  },
+  {
+   "text": "The girl in red is my sister.",
+   "from": "wordEx"
+  },
+  {
+   "text": "sunglasses",
+   "from": "word"
+  },
+  {
+   "text": "I have sunglasses.",
+   "from": "wordEx"
+  },
+  {
+   "text": "why",
+   "from": "word"
+  },
+  {
+   "text": "Why do you like it?",
+   "from": "wordEx"
+  },
+  {
+   "text": "because",
+   "from": "word"
+  },
+  {
+   "text": "Because it's cool.",
+   "from": "wordEx"
+  },
+  {
+   "text": "bright",
+   "from": "word"
+  },
+  {
+   "text": "The dress is bright.",
+   "from": "wordEx"
+  },
+  {
+   "text": "clothes",
+   "from": "word"
+  },
+  {
+   "text": "Wash your clothes.",
+   "from": "wordEx"
+  },
+  {
+   "text": "Whose dress is this?",
+   "from": "sentence"
+  },
+  {
+   "text": "It's my dress.",
+   "from": "sentence"
+  },
+  {
+   "text": "Look at his new coat.",
+   "from": "sentence"
+  },
+  {
+   "text": "Because it's bright and nice.",
+   "from": "sentence"
+  },
+  {
+   "text": "— Whose cap is this? — It's my cap.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "— Why do you like the coat? — Because it's warm.",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "You look great in the new coat!",
+   "from": "unitGrammarEx"
+  },
+  {
+   "text": "Mike likes dogs very much, but he doesn't like lions.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "Look at that fat panda! It's so cute.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "I have a pineapple and some grapes. Let's make a fruit salad.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "Su Hai doesn't have any mangoes, but she has two bananas.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "I have fifteen stickers. How many stickers do you have?",
+   "from": "listenAudio"
+  },
+  {
+   "text": "Sixteen and three is nineteen.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "Wang Bing can play basketball very well, but he can't skate.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "Don't be sad. Have a try! You can jump high.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "Mum is in the kitchen, and Dad is in the living room.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "My clock is on the table and my bag is under the sofa.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "I'd like a hamburger and a glass of milk, please.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "A cup of coffee is eight yuan, and the tea is five yuan.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "The shoes are forty-five yuan, and the socks are ten yuan.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "This fan is twenty yuan. That fan is thirty yuan.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "Look at our doll. Her hair is long and her eyes are big.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "The tall man is my teacher. The short boy is my brother.",
+   "from": "listenAudio"
+  },
+  {
+   "text": "Do you like dogs, Helen?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "No, I don't.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "What do you like?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "I like pandas. They're cute and fat.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Let's make a fruit salad.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Great! Do you have any bananas?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "No, I don't. I have some grapes.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Wonderful!",
+   "from": "dialogLine"
+  },
+  {
+   "text": "How many toy cars do you have, Mike?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "I have fourteen.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Can I have a look?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Sure!",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Can you play football, Liu Tao?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "No, I can't.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Have a try!",
+   "from": "dialogLine"
+  },
+  {
+   "text": "OK. Look! I can play it now!",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Cool!",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Mum, where's my football?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Is it in your bedroom?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "No, it isn't.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Look! It's under the sofa in the living room.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Can I help you?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "I'd like some noodles, please.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Anything else?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "A glass of orange juice, please. How much are they?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Eighteen yuan.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Look at these socks! How much are they?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "They're ten yuan.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "And the shoes?",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Thirty-five yuan.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "OK. I'd like the socks, please.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Look at the snowman!",
+   "from": "dialogLine"
+  },
+  {
+   "text": "Wow! His nose is big and his eyes are small.",
+   "from": "dialogLine"
+  },
+  {
+   "text": "How funny!",
+   "from": "dialogLine"
+  },
+  {
+   "text": "I am a boy.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "She is my English teacher.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "They are cute and fat.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I'm nine years old.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "It's in your bedroom.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "They're thirty yuan.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Is this your bag? — Yes, it is.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "The cats aren't fat.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I like dogs and cats.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "How many boxes do you have?",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I have an apple and a banana.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Look at that elephant! It's an elephant.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I like pandas.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I like this little cat.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Do you like dogs? — Yes, I do.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Do you like tigers? — No, I don't.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I don't like lions.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "We don't like hot tea.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Helen likes pandas.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Does Mike like football? — Yes, he does.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I have a pineapple.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Su Hai has two bananas.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Do you have any mangoes?",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I don't have any bananas.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I can play basketball.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I can't skate.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Can you jump? — Yes, I can.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Can I play with your robot? — Sure!",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Mike can play basketball well.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "How many toy cars do you have?",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Thirteen and six is nineteen.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I have fifteen stickers.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Where's my schoolbag? — It's in your bedroom.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Where are my socks? — They're under the sofa.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "The milk is in the fridge.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "The clock is on the table.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "The cat is under the chair.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Is it in the bathroom? — No, it isn't.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "What would you like? — I'd like a hamburger, please.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I'd like some noodles.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I'd like a glass of milk.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "A cup of tea, please.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "— Anything else? — No, thank you.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "How much is the fan? — It's fifteen yuan.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "How much are the shoes? — They're forty-five yuan.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "The doll is forty-five yuan.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "I have fifty yuan.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "This is Tom. His hair is short.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "This is Amy. Her doll is beautiful.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "His mouth is small.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Her ears are big.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Let's make a fruit salad. — Great!",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Let's play table tennis.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Look at our doll!",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Don't be sad.",
+   "from": "grammarEx"
+  },
+  {
+   "text": "Momo is a little panda. She is three years old.",
+   "from": "readingPara"
+  },
+  {
+   "text": "Every morning, Momo gets up early. She eats bamboo for breakfast.",
+   "from": "readingPara"
+  },
+  {
+   "text": "After breakfast, she plays with her friend Lele. They run and jump in the forest.",
+   "from": "readingPara"
+  },
+  {
+   "text": "Momo can climb trees very well. Lele cannot climb, but he can swim.",
+   "from": "readingPara"
+  },
+  {
+   "text": "In the afternoon, Momo is tired. She sits under a big tree.",
+   "from": "readingPara"
+  },
+  {
+   "text": "What a happy day for little Momo!",
+   "from": "readingPara"
+  },
+  {
+   "text": "panda",
+   "from": "readingVocab"
+  },
+  {
+   "text": "bamboo",
+   "from": "readingVocab"
+  },
+  {
+   "text": "forest",
+   "from": "readingVocab"
+  },
+  {
+   "text": "climb",
+   "from": "readingVocab"
+  },
+  {
+   "text": "tired",
+   "from": "readingVocab"
+  },
+  {
+   "text": "afternoon",
+   "from": "readingVocab"
+  },
+  {
+   "text": "It is Sunday. Tom and his dad go to a snack bar.",
+   "from": "readingPara"
+  },
+  {
+   "text": "\"Can I help you?\" the man asks. \"A hamburger and a glass of milk, please,\" says Dad.",
+   "from": "readingPara"
+  },
+  {
+   "text": "Tom would like some noodles and a cup of orange juice.",
+   "from": "readingPara"
+  },
+  {
+   "text": "\"Anything else?\" \"No, thank you.\"",
+   "from": "readingPara"
+  },
+  {
+   "text": "The food is nice. Tom eats all his noodles. He is full and happy.",
+   "from": "readingPara"
+  },
+  {
+   "text": "How much is the food? Thirty-six yuan. What a nice day!",
+   "from": "readingPara"
+  },
+  {
+   "text": "snack bar",
+   "from": "readingVocab"
+  },
+  {
+   "text": "would like",
+   "from": "readingVocab"
+  },
+  {
+   "text": "juice",
+   "from": "readingVocab"
+  },
+  {
+   "text": "full",
+   "from": "readingVocab"
+  },
+  {
+   "text": "ask",
+   "from": "readingVocab"
+  },
+  {
+   "text": "My name is Amy. This is my new home. It is not big, but it is nice.",
+   "from": "readingPara"
+  },
+  {
+   "text": "Look at the living room. There is a blue sofa in it. I like to read books on the sofa.",
+   "from": "readingPara"
+  },
+  {
+   "text": "The kitchen is big. Mum can cook nice food in it. Mmm, I can smell the rice!",
+   "from": "readingPara"
+  },
+  {
+   "text": "This is my bedroom. It is small and clean. My clock is on the table.",
+   "from": "readingPara"
+  },
+  {
+   "text": "Where is the bathroom? It is next to my bedroom.",
+   "from": "readingPara"
+  },
+  {
+   "text": "I love my new home!",
+   "from": "readingPara"
+  },
+  {
+   "text": "living room",
+   "from": "readingVocab"
+  },
+  {
+   "text": "kitchen",
+   "from": "readingVocab"
+  },
+  {
+   "text": "bedroom",
+   "from": "readingVocab"
+  },
+  {
+   "text": "bathroom",
+   "from": "readingVocab"
+  },
+  {
+   "text": "clean",
+   "from": "readingVocab"
+  },
+  {
+   "text": "next to",
+   "from": "readingVocab"
+  },
+  {
+   "text": "Lily has a little red kite. She wants to fly it in the park.",
+   "from": "readingPara"
+  },
+  {
+   "text": "But there is no wind. The kite cannot fly. Lily is sad.",
+   "from": "readingPara"
+  },
+  {
+   "text": "\"Don't be sad,\" says Dad. \"Let's wait. The wind will come.\"",
+   "from": "readingPara"
+  },
+  {
+   "text": "They wait and wait. Now the wind comes! The kite flies up, up, up!",
+   "from": "readingPara"
+  },
+  {
+   "text": "\"Look at my kite! It can fly high!\" Lily is so happy.",
+   "from": "readingPara"
+  },
+  {
+   "text": "A good thing always comes to those who wait.",
+   "from": "readingPara"
+  },
+  {
+   "text": "kite",
+   "from": "readingVocab"
+  },
+  {
+   "text": "fly",
+   "from": "readingVocab"
+  },
+  {
+   "text": "wind",
+   "from": "readingVocab"
+  },
+  {
+   "text": "wait",
+   "from": "readingVocab"
+  },
+  {
+   "text": "high",
+   "from": "readingVocab"
+  },
+  {
+   "text": "sad",
+   "from": "readingVocab"
+  },
+  {
+   "text": "A hare can run very fast. A tortoise walks very slowly.",
+   "from": "readingPara"
+  },
+  {
+   "text": "\"You are so slow!\" laughs the hare. \"Let's have a race!\"",
+   "from": "readingPara"
+  },
+  {
+   "text": "The race starts. The hare runs far, far away. The tortoise walks on and on.",
+   "from": "readingPara"
+  },
+  {
+   "text": "The hare stops under a big tree. \"I can sleep now,\" he says.",
+   "from": "readingPara"
+  },
+  {
+   "text": "The tortoise does not stop. He walks and walks. At last, he gets to the tree first!",
+   "from": "readingPara"
+  },
+  {
+   "text": "Slow but steady wins the race.",
+   "from": "readingPara"
+  },
+  {
+   "text": "hare",
+   "from": "readingVocab"
+  },
+  {
+   "text": "tortoise",
+   "from": "readingVocab"
+  },
+  {
+   "text": "race",
+   "from": "readingVocab"
+  },
+  {
+   "text": "slowly",
+   "from": "readingVocab"
+  },
+  {
+   "text": "steady",
+   "from": "readingVocab"
+  },
+  {
+   "text": "win",
+   "from": "readingVocab"
+  },
+  {
+   "text": "The north wind and the sun can both be strong. One day, they have an argument.",
+   "from": "readingPara"
+  },
+  {
+   "text": "\"I am stronger than you!\" says the wind. \"No, I am stronger!\" says the sun.",
+   "from": "readingPara"
+  },
+  {
+   "text": "A man walks by. He wears a big coat.",
+   "from": "readingPara"
+  },
+  {
+   "text": "\"Let's see who can take off his coat,\" says the sun.",
+   "from": "readingPara"
+  },
+  {
+   "text": "The wind blows and blows. But the man holds his coat tight.",
+   "from": "readingPara"
+  },
+  {
+   "text": "Then the sun shines warm and bright. The man feels hot. He takes off his coat.",
+   "from": "readingPara"
+  },
+  {
+   "text": "Kindness is better than force.",
+   "from": "readingPara"
+  },
+  {
+   "text": "north wind",
+   "from": "readingVocab"
+  },
+  {
+   "text": "argument",
+   "from": "readingVocab"
+  },
+  {
+   "text": "take off",
+   "from": "readingVocab"
+  },
+  {
+   "text": "blow",
+   "from": "readingVocab"
+  },
+  {
+   "text": "shine",
+   "from": "readingVocab"
+  },
+  {
+   "text": "In summer, leaves are green. But in autumn, many leaves turn yellow or red. Why?",
+   "from": "readingPara"
+  },
+  {
+   "text": "Leaves are little food factories for trees.",
+   "from": "readingPara"
+  },
+  {
+   "text": "They use sunlight, water and air to make food. The green colour helps them do this job.",
+   "from": "readingPara"
+  },
+  {
+   "text": "In autumn, days get shorter. There is less sunlight.",
+   "from": "readingPara"
+  },
+  {
+   "text": "Trees do not need so much food in winter. So the green colour goes away little by little.",
+   "from": "readingPara"
+  },
+  {
+   "text": "Then we can see yellow and red leaves. Isn't nature amazing?",
+   "from": "readingPara"
+  },
+  {
+   "text": "leaf",
+   "from": "readingVocab"
+  },
+  {
+   "text": "sunlight",
+   "from": "readingVocab"
+  },
+  {
+   "text": "factory",
+   "from": "readingVocab"
+  },
+  {
+   "text": "colour",
+   "from": "readingVocab"
+  },
+  {
+   "text": "amazing",
+   "from": "readingVocab"
+  },
+  {
+   "text": "Animals have amazing ears. Let's look at three of them!",
+   "from": "readingPara"
+  },
+  {
+   "text": "A rabbit has long ears. They can hear very small sounds. This helps the rabbit run away fast.",
+   "from": "readingPara"
+  },
+  {
+   "text": "A bat's ears are big, too. Bats cannot see well, but their ears help them find their way with sound at night.",
+   "from": "readingPara"
+  },
+  {
+   "text": "A cat can move its ears around. Its ears tell it where a sound comes from.",
+   "from": "readingPara"
+  },
+  {
+   "text": "What about dogs? A dog can hear much better than you and me!",
+   "from": "readingPara"
+  },
+  {
+   "text": "Ears are small, but they do big jobs.",
+   "from": "readingPara"
+  },
+  {
+   "text": "rabbit",
+   "from": "readingVocab"
+  },
+  {
+   "text": "bat",
+   "from": "readingVocab"
+  },
+  {
+   "text": "sound",
+   "from": "readingVocab"
+  },
+  {
+   "text": "at night",
+   "from": "readingVocab"
+  },
+  {
+   "text": "move",
+   "from": "readingVocab"
+  },
+  {
+   "text": "hear",
+   "from": "readingVocab"
+  },
+  {
+   "text": "eyes",
+   "from": "confusion"
+  },
+  {
+   "text": "ears",
+   "from": "confusion"
+  },
+  {
+   "text": "Hello! I like dogs. Do you like pandas?",
+   "from": "settingsPreview"
+  }
+ ]
+}

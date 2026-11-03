@@ -44,6 +44,48 @@
         goalRow('完成练习', 'dailySessions', [{ v: 1, l: '1 组' }, { v: 2, l: '2 组' }, { v: 3, l: '3 组' }]) +
         goalRow('课外阅读', 'dailyReading', [{ v: 0, l: '不安排' }, { v: 1, l: '1 篇' }, { v: 2, l: '2 篇' }]);
 
+      /* 语音：豆包同款语音包优先展示，未部署时显示设备语音 */
+      var pack = (typeof AudioPack !== 'undefined' && AudioPack.describe) ? AudioPack.describe() : null;
+      var packOn = !!(pack && AudioPack.enabled());
+      var rateRows =
+            '<div class="rate-row">' +
+            '<span class="muted small">语速：</span>' +
+            chip('settings:rate', 0.65, rate <= 0.7, '🐢 慢速') +
+            chip('settings:rate', 0.9, rate > 0.7 && rate < 1.05, '🚶 正常') +
+            chip('settings:rate', 1.1, rate >= 1.05, '🐇 快速') +
+            '</div>' +
+            '<div class="rate-row">' +
+            '<span class="muted small">听力题自动播放：</span>' +
+            chip('settings:autoplay', 1, st.listenAutoplay !== false, '开') +
+            chip('settings:autoplay', 0, st.listenAutoplay === false, '关') +
+            '</div>' +
+            '<button class="btn btn-primary btn-block" data-speak="Hello! I like dogs. Do you like pandas?">▶ 试听发音（当前：' + rateLabel + '）</button>';
+      var voiceCard;
+      if (pack) {
+        voiceCard =
+          '<div class="muted small">' + (packOn
+            ? '✅ 已启用豆包同款语音包：' + pack.count + ' 条录音（音色：' + esc(pack.voiceLabel || '豆包同款') + '），每条播放过一次后自动离线缓存。'
+            : '豆包语音包已加载，当前处于关闭状态，正在使用设备语音。') +
+          '</div>' +
+          '<div class="rate-row">' +
+          '<span class="muted small">豆包语音包：</span>' +
+          chip('settings:audioPack', 1, packOn, '开') +
+          chip('settings:audioPack', 0, !packOn, '关') +
+          '</div>' +
+          '<div class="muted small">语音包未覆盖的少量文本（如自定义导入的内容）会回退设备语音：' +
+          esc(Speaker.supported ? Speaker.voiceName() : '设备语音不可用') + '</div>' +
+          rateRows;
+      } else if (Speaker.supported) {
+        voiceCard =
+          '<div class="muted small">使用设备自带英语语音：' + esc(Speaker.voiceName()) + '</div>' +
+          (Speaker.hasEnglishVoice() ? '' :
+            '<div class="warn-box">⚠️ 当前设备未检测到英语语音，点读与听力将用系统默认语音朗读，发音可能不标准。安装后重开本页即可：Windows 在「设置 → 时间和语言 → 语音」添加英语语音；安卓在系统文字转语音设置中安装英语语音包；iPhone/iPad 在「设置 → 辅助功能 → 朗读内容 → 声音」下载英语语音。</div>') +
+          rateRows +
+          '<div class="muted small">提示：iPad/iPhone 如果没有声音，请检查是否开启了静音键，并在 设置→辅助功能→朗读内容 中确认语音可用。</div>';
+      } else {
+        voiceCard = '<div class="warn-box">当前浏览器不支持设备语音朗读（Web Speech API），且未加载豆包语音包。点读与听力功能需要使用 Safari（iPhone/iPad）或 Chrome/Edge（安卓/电脑）浏览器。</div>';
+      }
+
       return '' +
         '<header class="page-head"><div class="book-title">⚙️ 设置</div></header>' +
 
@@ -60,25 +102,7 @@
 
         /* ---------- 语音 ---------- */
         '<section class="card">' +
-        '  <div class="card-title">🔊 语音点读</div>' +
-        (Speaker.supported
-          ? '<div class="muted small">使用设备自带英语语音：' + esc(Speaker.voiceName()) + '</div>' +
-            (Speaker.hasEnglishVoice() ? '' :
-              '<div class="warn-box">⚠️ 当前设备未检测到英语语音，点读与听力将用系统默认语音朗读，发音可能不标准。安装后重开本页即可：Windows 在「设置 → 时间和语言 → 语音」添加英语语音；安卓在系统文字转语音设置中安装英语语音包；iPhone/iPad 在「设置 → 辅助功能 → 朗读内容 → 声音」下载英语语音。</div>') +
-            '<div class="rate-row">' +
-            '<span class="muted small">语速：</span>' +
-            chip('settings:rate', 0.65, rate <= 0.7, '🐢 慢速') +
-            chip('settings:rate', 0.9, rate > 0.7 && rate < 1.05, '🚶 正常') +
-            chip('settings:rate', 1.1, rate >= 1.05, '🐇 快速') +
-            '</div>' +
-            '<div class="rate-row">' +
-            '<span class="muted small">听力题自动播放：</span>' +
-            chip('settings:autoplay', 1, st.listenAutoplay !== false, '开') +
-            chip('settings:autoplay', 0, st.listenAutoplay === false, '关') +
-            '</div>' +
-            '<button class="btn btn-primary btn-block" data-speak="Hello! I like dogs. Do you like pandas?">▶ 试听发音（当前：' + rateLabel + '）</button>' +
-            '<div class="muted small">提示：iPad/iPhone 如果没有声音，请检查是否开启了静音键，并在 设置→辅助功能→朗读内容 中确认语音可用。</div>'
-          : '<div class="warn-box">当前浏览器不支持语音朗读（Web Speech API）。点读与听力功能需要使用 Safari（iPhone/iPad）或 Chrome/Edge（安卓/电脑）浏览器。</div>') +
+        '  <div class="card-title">🔊 语音点读</div>' + voiceCard +
         '</section>' +
 
         /* ---------- 显示 ---------- */
@@ -143,7 +167,7 @@
         '  <div class="card-title">ℹ️ 关于本工具（功能完成情况）</div>' +
         '  <div class="about-lines muted small">' +
         '  · 已实现：单词点读与跟读、句型点读、知识点讲解、语法专项（11 主题讲解 + 主题练习）、听力四模式（选词/听句/听写/对话）、读写五模式（看中写英/听中写英/听写/补全/互译）、看图默写专项（看图/看中文/默句子/听音/易错强化五种模式，逐词定位判题，V2.2）、七种选择与排序题型、综合测试与分题型成绩、错题本（题型/单元/语法主题筛选、重练、去讲解/去原文）、阅读板块（双语切换/逐句点读/朗读暂停/生词收藏/阅读理解/视频资源导航）、每日任务、学习进度与家长报告、内容导入、PWA。<br>' +
-        '  · 语音：使用设备自带 TTS 合成（不依赖网络音频），<b>不是教材配套原版录音</b>；句子判分为规则比对（忽略大小写/标点/少量差异），<b>不是智能语义评分</b>。<br>' +
+        '  · 语音：优先使用预生成的「豆包同款音色」语音包（火山引擎语音合成，覆盖单词/句型/听力/阅读/默写共 ' + (pack ? pack.count : 0) + ' 条，播放过一次后离线可用）；未覆盖文本回退设备自带 TTS。<b>两种语音均不是教材配套原版录音</b>；句子判分为规则比对（忽略大小写/标点/少量差异），<b>不是智能语义评分</b>。<br>' +
         '  · 未实现（不以下线功能伪装）：视频字幕抓取与双语字幕、云端同步、听力真题音频。视频区提供的是真实外链与人工整理的学习重点。<br>' +
         '  · 内容声明：教材单词表依据公开资料整理；例句/句型/听力材料/阅读文章（除标注公有领域改编外）为本工具自编原创；<b>均不是教材原文</b>，请以课本为准核对。' +
         '  </div>' +
@@ -151,6 +175,13 @@
     },
 
     actions: {
+      'settings:audioPack': function (d) {
+        Store.data.settings.audioPack = d.v === '1';
+        Store.save();
+        Speaker.stop();
+        Util.toast(d.v === '1' ? '已启用豆包语音包' : '已切换为设备语音');
+        App.rerender();
+      },
       'settings:rate': function (d) {
         Store.data.settings.rate = +d.v;
         Store.save();

@@ -9,72 +9,78 @@
 (function (global) {
   "use strict";
 
-  /* 能用 emoji 直观表达的单词 → 图（按单元组织） */
+  /* 能用 emoji 直观表达的单词 → 图（按单元组织，对齐新教材词表） */
   var WORD_IMAGES = {
     u1: {
-      "dog": "🐶", "cat": "🐱", "panda": "🐼", "horse": "🐴", "lion": "🦁",
-      "monkey": "🐵", "tiger": "🐯", "elephant": "🐘"
+      "subject": "📚", "Maths": "🔢", "Science": "🔬", "IT": "💻", "Music": "🎵",
+      "Art": "🎨", "mouse": "🐭", "story": "📖", "read": "📖"
     },
     u2: {
-      "pineapple": "🍍", "mango": "🥭", "banana": "🍌", "grape": "🍇", "salad": "🥗"
+      "breakfast": "🍳", "lunch": "🍱", "dinner": "🍲", "face": "🙂"
     },
     u3: {
-      "box": "📦", "table tennis": "🏓"
+      "bed": "🛏️", "o'clock": "🕐"
     },
     u4: {
-      "basketball": "🏀", "football": "⚽", "swim": "🏊", "skate": "⛸️", "quack": "🦆", "tweet": "🐦"
+      "football": "⚽", "basketball": "🏀", "ping-pong": "🏓", "swimming": "🏊",
+      "dancing": "💃", "cinema": "🎬", "dog": "🐶", "walk": "🚶"
     },
     u5: {
-      "home": "🏠", "bedroom": "🛏️", "living room": "🛋️", "sofa": "🛋️", "kitchen": "🍳", "fridge": "🧊", "clock": "⏰", "bathroom": "🛁"
+      "robot": "🤖", "doll": "🪆", "eye": "👁️", "ear": "👂", "mouth": "👄",
+      "arm": "💪", "leg": "🦵"
     },
     u6: {
-      "hamburger": "🍔", "noodles": "🍜", "sandwich": "🥪", "coffee": "☕", "tea": "🍵", "juice": "🧃", "rice": "🍚", "fish": "🐟", "snack bar": "🏪"
+      "sunny": "☀️", "cloudy": "⛅", "rainy": "🌧️", "windy": "🌬️", "umbrella": "☂️",
+      "park": "🏞️", "fly a kite": "🪁", "money": "💰", "hot": "🔥"
     },
     u7: {
-      "shoe": "👟", "sock": "🧦", "umbrella": "☂️", "yuan": "🧧"
+      "spring": "🌸", "summer": "🏖️", "winter": "❄️", "snow": "⛄", "bird": "🐦",
+      "ice cream": "🍦", "plant": "🌱", "nose": "👃"
     },
     u8: {
-      "eye": "👁️", "ear": "👂", "nose": "👃", "mouth": "👄", "snowman": "⛄", "king": "👑"
+      "cap": "🧢", "coat": "🧥", "dress": "👗", "shirt": "👔", "shorts": "🩳",
+      "sunglasses": "🕶️"
     }
   };
 
-  /* 专项强化：易错拼写 / 易混词 / 复数与形式变化（本工具自编补充练习） */
+  /* 专项强化：易错拼写 / 易混词 / 复数与形式变化（本工具自编补充练习，对齐新教材词表） */
   var CONFUSIONS = [
-    { unitId: "u3", prompt: "十三（拼写易错：和三十对比）", answers: ["thirteen"], zh: "十三", tip: "thirteen（13）/ thirty（30）：13 有个 ir。" },
+    { unitId: "u3", prompt: "星期三（拼写最难的日子）", answers: ["Wednesday"], zh: "星期三", tip: "Wed-nes-day：中间是 nes，不是 Wedsday。" },
     { unitId: "u3", prompt: "十五（注意拼写，不是 fivteen）", answers: ["fifteen"], zh: "十五", tip: "five → fifteen，ve 变 f。" },
-    { unitId: "u3", prompt: "十八（只保留一个 t）", answers: ["eighteen"], zh: "十八", tip: "eight + een，不要写成 eightteen。" },
-    { unitId: "u3", prompt: "十九", answers: ["nineteen"], zh: "十九", tip: "nine 去掉 e 加 teen。" },
-    { unitId: "u7", prompt: "四十（没有 u！）", answers: ["forty"], zh: "四十", tip: "four 去掉 u 变 forty，不是 fourty。" },
-    { unitId: "u7", prompt: "五十", answers: ["fifty"], zh: "五十", tip: "five → fifty，ve 变 f。" },
-    { unitId: "u2", prompt: "mango 的复数", answers: ["mangoes"], zh: "芒果（复数）", tip: "以 o 结尾常加 es：mangoes。" },
-    { unitId: "u2", prompt: "box 的复数", answers: ["boxes"], zh: "盒子（复数）", tip: "x 结尾加 es。" },
-    { unitId: "u3", prompt: "sticker 的复数", answers: ["stickers"], zh: "贴纸（复数）", tip: "直接加 s。" },
-    { unitId: "u8", prompt: "眼睛（注意复数形式拼写）", answers: ["eyes"], zh: "眼睛（两只）", tip: "Her eyes are big. 用复数。" },
-    { unitId: "u8", prompt: "耳朵（两只，拼写里有 ar）", answers: ["ears"], zh: "耳朵", tip: "ear + s，别漏 a。" },
-    { unitId: "u1", prompt: "elephant（默写：大象）", answers: ["elephant"], zh: "大象", tip: "e-l-e-p-h-a-n-t，注意 ph 发 f 音。" },
-    { unitId: "u5", prompt: "卧室 bedroom（注意 oo）", answers: ["bedroom"], zh: "卧室", tip: "bed + room，两个 o。" },
-    { unitId: "u5", prompt: "厨房 kitchen（注意 ch）", answers: ["kitchen"], zh: "厨房", tip: "k-i-t-c-h-e-n。" },
-    { unitId: "u6", prompt: "汉堡包 hamburger（易漏字母）", answers: ["hamburger"], zh: "汉堡包", tip: "ham + bur + ger。" },
-    { unitId: "u6", prompt: "三明治 sandwich（结尾是 ch）", answers: ["sandwich"], zh: "三明治", tip: "sand + wich，不是 which。" },
-    { unitId: "u1", prompt: "animal（默写：动物）", answers: ["animal"], zh: "动物", tip: "a-n-i-m-a-l。" },
+    { unitId: "u3", prompt: "三十（和 thirteen 对比）", answers: ["thirty"], zh: "三十", tip: "thirteen（13）/ thirty（30）：13 有个 ir。" },
+    { unitId: "u3", prompt: "星期二（双写 e 中间有 s）", answers: ["Tuesday"], zh: "星期二", tip: "Tu-es-day，别写成 Tuesday 以外的样子。" },
+    { unitId: "u3", prompt: "星期四（里有 sir 的音）", answers: ["Thursday"], zh: "星期四", tip: "Thur-s-day，开头 Th 发咬舌音。" },
+    { unitId: "u7", prompt: "秋天（美式说法，n 结尾）", answers: ["autumn"], zh: "秋天", tip: "autumn：n 不发音，但拼写要有。" },
+    { unitId: "u8", prompt: "因为（开头 be-）", answers: ["because"], zh: "因为", tip: "be-cause，两个词根连写。" },
+    { unitId: "u6", prompt: "天气 weather（th 在中间）", answers: ["weather"], zh: "天气", tip: "wea-ther，别拼成 whether（是否）。" },
+    { unitId: "u6", prompt: "雨伞 umbrella（双写 l 前是 um）", answers: ["umbrella"], zh: "雨伞", tip: "um-brel-la，两个 l。" },
+    { unitId: "u8", prompt: "太阳镜 sunglasses（两个词连写）", answers: ["sunglasses"], zh: "太阳镜", tip: "sun + glasses 连写，glass 有双写 s。" },
+    { unitId: "u8", prompt: "衣服 clothes（无声的 e）", answers: ["clothes"], zh: "衣服", tip: "clo-th-es，o 后面有 th。" },
+    { unitId: "u8", prompt: "短裤 shorts（shirt 的兄弟）", answers: ["shorts"], zh: "短裤", tip: "short 加 s；shirt 是衬衫。" },
+    { unitId: "u1", prompt: "学科 subject（j 在中间）", answers: ["subject"], zh: "学科", tip: "sub-ject，j 后面是 ect。" },
+    { unitId: "u1", prompt: "有趣的 interesting（三段式）", answers: ["interesting"], zh: "有趣的", tip: "in-ter-est-ing，别漏中间的 e。" },
     { unitId: "u4", prompt: "篮球 basketball（两个词连写）", answers: ["basketball"], zh: "篮球", tip: "basket + ball 连写，中间没有空格。" },
-    { unitId: "u4", prompt: "乒乓球（两个词，中间有空格）", answers: ["table tennis"], zh: "乒乓球", tip: "table tennis 有空格；basketball 没有。" },
-    { unitId: "u5", prompt: "客厅（两个词，中间有空格）", answers: ["living room"], zh: "客厅", tip: "living + 空格 + room。" },
-    { unitId: "u7", prompt: "雨伞 umbrella（双写 l 前是 um）", answers: ["umbrella"], zh: "雨伞", tip: "um-brel-la，两个 l。" },
-    { unitId: "u7", prompt: "袜子 sock 的复数", answers: ["socks"], zh: "袜子（一双）", tip: "a pair of socks 用复数。" },
-    { unitId: "u7", prompt: "鞋 shoe 的复数", answers: ["shoes"], zh: "鞋（一双）", tip: "The shoes are… 用复数。" },
-    { unitId: "u8", prompt: "雪人 snowman（snow + man）", answers: ["snowman"], zh: "雪人", tip: "snow + man 连写；复数 snowmen。" },
-    { unitId: "u8", prompt: "国王 king（默写）", answers: ["king"], zh: "国王", tip: "k-i-n-g。" },
-    { unitId: "u2", prompt: "葡萄 grape（不要漏 e）", answers: ["grape"], zh: "葡萄", tip: "g-r-a-p-e；复数 grapes。" },
-    { unitId: "u2", prompt: "菠萝 pineapple（pine + apple）", answers: ["pineapple"], zh: "菠萝", tip: "pine + apple 连写。" },
-    { unitId: "u6", prompt: "面条 noodles（习惯用复数）", answers: ["noodles"], zh: "面条", tip: "面条习惯说 noodles。" },
-    { unitId: "u6", prompt: "米饭 rice（不可数，不加 s）", answers: ["rice"], zh: "米饭", tip: "rice 不可数，没有 rices。" },
-    { unitId: "u6", prompt: "一玻璃杯：____ of milk", answers: ["a glass"], zh: "一（玻璃）杯", tip: "玻璃杯 a glass of；茶杯 a cup of。" }
+    { unitId: "u4", prompt: "乒乓球（新教材说法，有连字符）", answers: ["ping-pong"], zh: "乒乓球", tip: "ping-pong 有连字符；旧说法是 table tennis。" },
+    { unitId: "u4", prompt: "困难的 difficult（双 f 之间是 i）", answers: ["difficult"], zh: "困难的", tip: "dif-fi-cult，两个 f。" },
+    { unitId: "u5", prompt: "机器人 robot（o 开头 o 结尾）", answers: ["robot"], zh: "机器人", tip: "ro-bot，别拼成 rebort。" },
+    { unitId: "u5", prompt: "不同的 different（三段式）", answers: ["different"], zh: "不同的", tip: "dif-fer-ent，中间是 fer。" },
+    { unitId: "u5", prompt: "眼睛（注意复数形式拼写）", answers: ["eyes"], zh: "眼睛（两只）", tip: "Her eyes are big. 用复数。" },
+    { unitId: "u5", prompt: "耳朵（两只，拼写里有 ar）", answers: ["ears"], zh: "耳朵", tip: "ear + s，别漏 a。" },
+    { unitId: "u6", prompt: "多云的 cloudy（cloud 加 y）", answers: ["cloudy"], zh: "多云的", tip: "cloud + y；注意别丢 u。" },
+    { unitId: "u6", prompt: "温暖的 warm（没有 o 在中间）", answers: ["warm"], zh: "温暖的", tip: "w-arm，不是 worm（虫）。" },
+    { unitId: "u7", prompt: "冬天 winter（开头 wi）", answers: ["winter"], zh: "冬天", tip: "win-ter，里面是 win。" },
+    { unitId: "u7", prompt: "雪 snow（知道 know 少个 k）", answers: ["snow"], zh: "雪", tip: "s-now；know 知道开头是 kn-。" },
+    { unitId: "u7", prompt: "知道 know（k 不发音但要写）", answers: ["know"], zh: "知道", tip: "k 不发音：know / snow 都有 silent k？只有 know 有。" },
+    { unitId: "u2", prompt: "早餐 breakfast（break + fast）", answers: ["breakfast"], zh: "早餐", tip: "break + fast 连写。" },
+    { unitId: "u2", prompt: "午餐 lunch（没有 en）", answers: ["lunch"], zh: "午餐", tip: "lunch 午餐；dinner 晚餐。" },
+    { unitId: "u3", prompt: "十一 eleven（三个 e）", answers: ["eleven"], zh: "十一", tip: "e-le-ven，开头结尾都是 e。" },
+    { unitId: "u1", prompt: "科学 Science（结尾是 ence）", answers: ["Science"], zh: "科学", tip: "sci-ence，c 后面是 e。" },
+    { unitId: "u1", prompt: "音乐 Music（大写因为学科名）", answers: ["Music"], zh: "音乐（课）", tip: "学科名首字母大写：Music, Art, Maths。" }
   ];
 
   global.DICTATION_CONTENT = {
-    updatedAt: "2026-10-29",
-    note: "看图题使用 emoji 插图（非教材原图）；词表来自已核实单元单词表；强化清单为自编补充练习；听音使用语音合成。",
+    updatedAt: "2026-11-04",
+    note: "看图题使用 emoji 插图（非教材原图）；词表对齐新教材词汇表；强化清单为自编补充练习；听音使用语音包/语音合成。",
     wordImages: WORD_IMAGES,
     confusions: CONFUSIONS
   };
