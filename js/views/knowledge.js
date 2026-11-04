@@ -82,7 +82,8 @@
 
   /* 英文文本 → TTS 输入清理（斜杠读作 or，去星号），展示仍用原文 */
   function ttsText(s) {
-    return String(s || '').replace(/\s*\/\s*/g, ' or ').replace(/[★]/g, '').trim();
+    /* 保留音标外围的 /.../，避免 /w/ 被改写成 “orw or” 导致音标误读及语音包查找失败 */
+    return String(s || '').replace(/\s+\/\s+/g, ' or ').replace(/[★]/g, '').trim();
   }
 
   function speakBtn(text, extra) {
