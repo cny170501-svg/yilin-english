@@ -84,7 +84,7 @@
 
 ## 四·五、语音包（豆包同款音色，V2.7 新增）
 
-全部朗读优先使用预生成音频包（火山引擎「豆包语音合成」大模型 2.0，音色 Tina老师2.0 / `zh_female_yingyujiaoxue_uranus_bigtts`，英语教学中英混音色），未命中的文本自动回退设备 Web Speech 语音。
+全站统一使用预生成音频包（火山引擎「豆包语音合成」大模型 2.0，音色 Tina老师2.0 / `zh_female_yingyujiaoxue_uranus_bigtts`）。未命中语音包或音频播放失败时会明确提示补录/重试，**不回退设备 Web Speech**，避免电脑、手机系统音色混入。
 
 - **文本清单**：`tools/tts-texts.json`（553 条，覆盖单词/例句/句型/听力情境/小对话/语法例句/阅读段落与生词/默写易错清单）。数据文件变动后重新收集（walk `BUILTIN_CONTENT` / `LISTENING_CONTENT` / `GRAMMAR_CONTENT` / `READING_CONTENT` / `DICTATION_CONTENT` 的英文朗读字段）。
 - **生成**：`node tools/tts-batch.mjs`（配置区填入 API Key，或用环境变量 `TTS_API_KEY`）。逐条调用火山引擎 v3 HTTP 接口（`POST /api/v3/tts/unidirectional`，`X-Api-Resource-Id: seed-tts-2.0`）合成到 `audio/`（SHA-256 前 16 位命名），断点可续跑（单次 90 秒预算，反复运行直至完成），结束重写 `audio/manifest.js` 清单。
