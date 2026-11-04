@@ -152,7 +152,7 @@
           var p = a.play();
           if (p && p.then) {
             p.catch(function () {
-              /* 播放被拒绝：若令牌仍有效则回退设备语音 */
+              /* 播放被拒绝：只提示重试，不切换设备语音 */
               finishAudio(true);
             });
           }
