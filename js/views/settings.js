@@ -69,15 +69,10 @@
           '</div>' +
           '<div class="muted small">全站固定使用 Tina老师2.0 音色。未收录的内容会提示补录，不会切换成电脑或手机的系统语音。</div>' +
           rateRows;
-      } else if (Speaker.supported) {
-        voiceCard =
-          '<div class="muted small">使用设备自带英语语音：' + esc(Speaker.voiceName()) + '</div>' +
-          (Speaker.hasEnglishVoice() ? '' :
-            '<div class="warn-box">⚠️ 当前设备未检测到英语语音，点读与听力将用系统默认语音朗读，发音可能不标准。安装后重开本页即可：Windows 在「设置 → 时间和语言 → 语音」添加英语语音；安卓在系统文字转语音设置中安装英语语音包；iPhone/iPad 在「设置 → 辅助功能 → 朗读内容 → 声音」下载英语语音。</div>') +
-          rateRows +
-          '<div class="muted small">提示：iPad/iPhone 如果没有声音，请检查是否开启了静音键，并在 设置→辅助功能→朗读内容 中确认语音可用。</div>';
       } else {
-        voiceCard = '<div class="warn-box">当前浏览器不支持设备语音朗读（Web Speech API），且未加载豆包语音包。点读与听力功能需要使用 Safari（iPhone/iPad）或 Chrome/Edge（安卓/电脑）浏览器。</div>';
+        voiceCard =
+          '<div class="warn-box">Tina老师2.0 语音包尚未加载。请检查网络或刷新页面；在语音包加载成功前，点读不会切换到设备系统语音。</div>' +
+          rateRows;
       }
 
       return '' +
@@ -169,13 +164,6 @@
     },
 
     actions: {
-      'settings:audioPack': function (d) {
-        Store.data.settings.audioPack = d.v === '1';
-        Store.save();
-        Speaker.stop();
-        Util.toast(d.v === '1' ? '已启用豆包语音包' : '已切换为设备语音');
-        App.rerender();
-      },
       'settings:rate': function (d) {
         Store.data.settings.rate = +d.v;
         Store.save();
