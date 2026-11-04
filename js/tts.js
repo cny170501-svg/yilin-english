@@ -1,8 +1,7 @@
-/* 语音点读（预生成音频包优先 + Web Speech API 降级）
-   - 首选 audio/manifest.js 语音包（豆包同款音色预生成，见 js/audio-pack.js）
-   - 包未命中 / 加载失败 / 被关闭时，回退浏览器语音合成（原逻辑保留）
-   - 首次触摸时解锁（iOS Safari 需要在用户手势内触发一次播放/朗读）
-   - 朗读失败或浏览器不支持时给出明确提示 */
+/* 语音点读：统一使用预生成的豆包「Tina老师2.0」音频包
+   - 所有可播放语音均来自 audio/manifest.js，不回退设备 Web Speech，避免音色混杂
+   - 未命中语音包或音频播放失败时明确提示，待补录后再播放
+   - 首次触摸时解锁 HTMLAudioElement（iOS Safari 需要用户手势） */
 (function (global) {
   'use strict';
 
@@ -52,18 +51,7 @@
     _audioMode: false,
 
     init: function () {
-      if (!this.supported) return;
-      var self = this;
-      var refresh = function () {
-        var voices = synth.getVoices() || [];
-        if (voices.length) self.voice = pickVoice(voices);
-      };
-      refresh();
-      if (typeof synth.onvoiceschanged !== 'undefined') {
-        synth.onvoiceschanged = refresh;
-      }
-      /* 部分浏览器语音列表异步加载，1 秒后再取一次 */
-      setTimeout(refresh, 1000);
+      /* 不再初始化设备英语音色；全站统一播放 Tina 老师 2.0 预生成音频 */
       this._installUnlock();
     },
 
@@ -81,16 +69,6 @@
           a.src = SILENT_WAV;
           var p = a.play();
           if (p && p.then) p.then(function () { a.muted = false; a.removeAttribute('src'); }).catch(function () { a.muted = false; });
-        } catch (e) { /* 忽略 */ }
-        try {
-          /* volume=0 的静音合成在部分 iOS 版本不解锁，用近无声的 0.01 */
-          var u = new window.SpeechSynthesisUtterance(' ');
-          u.volume = 0.01;
-          u.rate = 1;
-          u.onend = function () { self._unlockingAt = 0; };
-          self._keep(u);
-          self._unlockingAt = Date.now();
-          synth.speak(u);
         } catch (e) { /* 忽略 */ }
         document.removeEventListener('pointerdown', unlock);
         document.removeEventListener('touchend', unlock);
@@ -156,15 +134,11 @@
       var url = global.AudioPack ? AudioPack.lookup(text) : null;
       if (url) {
         var done = false;
-        var finishAudio = function (fallback) {
+        var finishAudio = function (failed) {
           if (done || token !== self._token) return;
           done = true;
-          if (fallback) {
-            /* 音频播放失败（404/解码/自动播放拦截）→ 回退设备语音 */
-            self._speechWithToken(token, text, opts);
-          } else if (opts.onend) {
-            opts.onend();
-          }
+          if (failed) Util.toast('Tina老师2.0语音播放失败，请刷新页面或检查网络/缓存', 'warn');
+          if (opts.onend) opts.onend();
         };
         var a = this._ensureAudio();
         this._stopAudio();
@@ -188,8 +162,10 @@
         return 'audio';
       }
 
-      /* 通道 2：设备语音合成 */
-      return this._speechWithToken(token, text, opts);
+      /* 未命中语音包时不调用设备 TTS，避免混入其他音色 */
+      Util.toast('这条内容暂时没有 Tina老师2.0 录音，请补充生成语音包', 'warn');
+      if (opts.onend) opts.onend();
+      return false;
     },
 
     _speechWithToken: function (token, text, opts) {
@@ -306,8 +282,8 @@
     speakQueue: function (texts, opts) {
       opts = opts || {};
       var self = this;
-      if (!this.supported && !(global.AudioPack && AudioPack.enabled())) {
-        Util.toast('当前浏览器不支持语音朗读，建议使用 Safari 或 Chrome', 'warn');
+      if (!(global.AudioPack && AudioPack.enabled())) {
+        Util.toast('Tina老师2.0语音包尚未加载，请刷新页面后重试', 'warn');
         return false;
       }
       this.stop();
