@@ -405,3 +405,25 @@ body.ui2 .toast-warn { background: #B45309; }
 body.ui2 .empty-card { color: var(--u2-ink2); background: var(--u2-surface); border: 1px dashed var(--u2-line); }
 body.ui2 ::-webkit-scrollbar { width: 8px; height: 8px; }
 body.ui2 ::-webkit-scrollbar-thumb { background: var(--u2-line); border-radius: 4px; }
+
+/* ===== 沉浸式单词/句型（UI 3.0 模块三 · SentencePop 式）===== */
+body.ui2 .sp-top {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 4px 8px;
+}
+body.ui2 .sp-top-title {
+  flex: 1; min-width: 0; font-size: 14px; font-weight: 800; color: var(--u2-ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+body.ui2 .sp-pos { font-size: 12px; color: var(--u2-ink2); font-weight: 700; }
+body.ui2 .sp-pos-line { font-size: 12px; color: var(--u2-ink2); margin-bottom: 12px; letter-spacing: .04em; }
+body.ui2 .sp-word-big { font-size: 40px; font-weight: 700; letter-spacing: -0.01em; }
+body.ui2 .sp-emoji { font-size: 52px; margin-top: 12px; }
+body.ui2 .sp-word-playing { background: var(--u2-accent-soft); border-radius: 8px; }
+body.ui2 .sp-ex-row { display: flex; align-items: flex-start; gap: 8px; }
+body.ui2 .sp-ex-en { font-size: 14.5px; font-weight: 700; color: var(--u2-ink); word-break: break-word; }
+body.ui2 .sp-ex-zh { font-size: 12.5px; color: var(--u2-ink2); margin-top: 3px; }
+body.ui2 .sp-zh-hidden { cursor: pointer; opacity: .55; }
+@media (max-width: 480px) {
+  body.ui2 .sp-word-big { font-size: 34px; }
+}

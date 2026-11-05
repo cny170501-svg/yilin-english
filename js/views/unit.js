@@ -236,6 +236,7 @@
       '<button class="btn btn-mini btn-primary' + (followOn ? ' is-playing' : '') + '" data-action="' + opts.followAction + '" data-unit="' + unitId + '" data-tb="follow">' + (followOn ? '👂 跟读中…' : '👂 跟读模式') + '</button>' +
       '<button class="btn btn-mini" data-action="unit:stop">' + Util.icon("stop", 16) + ' 停止</button>' +
       '<button class="btn btn-mini" data-action="unit:toggleZh">' + (App.state.showZh ? '🙈 隐藏中文' : '🐵 显示中文') + '</button>' +
+      (opts.immersive ? '<button class="btn btn-mini btn-primary" data-nav="' + opts.immersive + '">🎯 沉浸</button>' : '') +
       '</div>';
   }
 
@@ -243,7 +244,7 @@
     var showZh = App.state.showZh;
     var filter = App.state.unitWordFilter || 'all';
     var words = filteredWords(u);
-    var html = toolbar(u.id, { playAction: 'unit:playAll', followAction: 'unit:follow' });
+    var html = toolbar(u.id, { playAction: 'unit:playAll', followAction: 'unit:follow', immersive: '#/iword/' + u.id });
     /* 状态筛选 */
     html += '<div class="scope-row" style="margin-bottom:10px">' + WORD_FILTERS.map(function (f) {
       var on = filter === f.key;
@@ -277,7 +278,7 @@
 
   function renderSentences(u) {
     var showZh = App.state.showZh;
-    var html = toolbar(u.id, { playAction: 'unit:playSentences', followAction: 'unit:followSentences' });
+    var html = toolbar(u.id, { playAction: 'unit:playSentences', followAction: 'unit:followSentences', immersive: '#/isentence/' + u.id });
     html += '<div class="source-tip">💡 逐句点读，先听再跟读。句型为本单元重点句式（复习参考）</div>';
     html += '<div class="sent-list">';
     (u.sentences || []).forEach(function (s, i) {
