@@ -217,3 +217,191 @@ body.ui2 .hub-card:active { background: #F6F3E9; }
   .home-hero-title { font-size: 18px; }
   .sp-word { font-size: 24px; }
 }
+
+/* ===== UI 3.0 全站覆盖（模块二）===== */
+
+/* 页头 */
+body.ui2 .page-head { padding-top: 16px; }
+body.ui2 .page-head .book-title { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; }
+body.ui2 .page-head .book-sub { color: var(--u2-ink2); font-size: 13px; margin-top: 2px; }
+
+/* 单元头部与返回 */
+body.ui2 .unit-head { border-bottom: none; }
+body.ui2 .btn-back {
+  background: var(--u2-surface); border: 1px solid var(--u2-line);
+  border-radius: 10px; color: var(--u2-ink2);
+}
+body.ui2 .unit-head-emoji { font-size: 30px; }
+
+/* 学习 tab 页（单元/知识点/语法）胶囊标签 */
+body.ui2 .tabs { gap: 7px; }
+body.ui2 .tabs .tab {
+  background: var(--u2-surface); border: 1px solid var(--u2-line);
+  border-radius: 999px; color: var(--u2-ink2); font-weight: 600;
+}
+body.ui2 .tabs .tab.active {
+  background: var(--u2-ink); border-color: var(--u2-ink);
+  color: #F6F4EC;
+}
+
+/* 单元知识点入口卡 */
+body.ui2 .kn-entry {
+  background: linear-gradient(135deg, #EAF5F1, #F0FAF5);
+  border-color: #BFDFD3;
+}
+body.ui2 .kn-entry-title { color: var(--u2-accent); }
+body.ui2 .kn-entry-bar { background: var(--u2-line-soft); }
+body.ui2 .kn-entry-bar > span { background: linear-gradient(90deg, var(--u2-accent), var(--u2-mint)); }
+
+/* 单词卡 */
+body.ui2 .word-card {
+  background: var(--u2-surface); border: 1px solid var(--u2-line-soft);
+  border-radius: var(--u2-r-card);
+}
+body.ui2 .word-en { font-size: 16.5px; color: var(--u2-ink); }
+body.ui2 .word-zh { color: var(--u2-ink2); }
+body.ui2 .ex-zh { color: var(--u2-ink2); }
+body.ui2 .word-card .icon-btn { color: var(--u2-accent); }
+body.ui2 .icon-btn.is-playing { background: var(--u2-accent-soft); color: var(--u2-accent); }
+
+/* 句型卡 */
+body.ui2 .sent-card {
+  background: var(--u2-surface); border: 1px solid var(--u2-line-soft);
+  border-radius: var(--u2-r-card);
+}
+body.ui2 .sent-en { color: var(--u2-ink); }
+body.ui2 .sent-zh { color: var(--u2-ink2); }
+
+/* 知识点（k-*）*/
+body.ui2 .k-tab {
+  background: var(--u2-surface); border-color: var(--u2-line); color: var(--u2-ink);
+}
+body.ui2 .k-tab-n { background: var(--u2-accent-soft); color: var(--u2-accent); }
+body.ui2 .k-letter { background: var(--u2-accent-soft); color: var(--u2-accent); }
+body.ui2 .k-phonetic { color: #0F7A6E; }
+body.ui2 .k-formula {
+  background: var(--u2-accent-soft); color: #0C5B52;
+  border-radius: 10px;
+}
+body.ui2 .k-tip { background: #EFFAF4; color: #147A4D; border-radius: 9px; }
+body.ui2 .k-special { background: #FEF6E7; color: #9A6A1B; border-radius: 9px; }
+body.ui2 .k-word-chip {
+  border-color: #BFDFD3; color: var(--u2-accent); background: #fff;
+}
+body.ui2 .k-word-chip:active { background: var(--u2-accent-soft); }
+body.ui2 .k-badge-learned { background: #EAF9F1; color: #199A5C; }
+body.ui2 .k-badge-review { background: #FEF3D9; color: #B07714; }
+body.ui2 .k-badge-mastered { background: #E3F2EF; color: #0F7A6E; }
+body.ui2 .k-mark.on.k-learned { background: var(--u2-mint); }
+body.ui2 .k-mark.on.k-review { background: var(--u2-amber); }
+body.ui2 .k-mark.on.k-mastered { background: var(--u2-accent); }
+body.ui2 .k-table th { background: var(--u2-accent-soft); color: #0C5B52; }
+body.ui2 .k-table tr:nth-child(even) td { background: #F7FBF7; }
+body.ui2 .k-bubble-a { background: #EAF5F1; }
+body.ui2 .k-bubble-b { background: #FBF3E4; }
+body.ui2 .k-gram-title { color: var(--u2-ink); }
+
+/* 语法专项 */
+body.ui2 .gram-card {
+  background: var(--u2-surface); border: 1px solid var(--u2-line-soft);
+}
+body.ui2 .gram-card.is-mastered { border-color: rgba(61,220,151,.5); background: #F2FBF7; }
+body.ui2 .gram-card.is-review { border-color: rgba(242,169,59,.45); background: #FDFAF2; }
+body.ui2 .rule-card { border-color: var(--u2-line-soft); }
+body.ui2 .formula {
+  background: var(--u2-accent-soft); color: #0C5B52; border-radius: 10px;
+}
+body.ui2 .grammar-guide-steps span {
+  background: var(--u2-accent-soft); color: #0C5B52; border-radius: 999px;
+}
+body.ui2 .grammar-read-note { color: var(--u2-ink2); }
+body.ui2 .gex-en { color: var(--u2-ink); }
+body.ui2 .gex-zh { color: var(--u2-ink2); }
+
+/* 练习页 */
+body.ui2 .cat-tabs .cat-tab {
+  background: var(--u2-surface); border: 1px solid var(--u2-line); color: var(--u2-ink2);
+  border-radius: 999px;
+}
+body.ui2 .cat-tabs .cat-tab.active {
+  background: var(--u2-ink); color: #F6F4EC; border-color: var(--u2-ink);
+}
+body.ui2 .quiz-card { border-color: var(--u2-line-soft); }
+body.ui2 .fb-banner.fb-correct { background: #EAF9F1; color: #147A4D; border-radius: 12px; }
+body.ui2 .fb-banner.fb-wrong { background: #FDEEEE; color: #B42318; border-radius: 12px; }
+body.ui2 .fb-explain { color: var(--u2-ink2); }
+body.ui2 .score-card { border-color: var(--u2-line-soft); }
+body.ui2 .ans-input,
+body.ui2 #ans-input {
+  background: var(--u2-surface); border: 1.5px solid var(--u2-line);
+  border-radius: 12px; color: var(--u2-ink); font-size: 17px;
+}
+body.ui2 .ans-input:focus { outline: none; border-color: var(--u2-accent); }
+body.ui2 .listen-btn { color: var(--u2-accent); }
+body.ui2 .dl-line { border-bottom: 1px dashed var(--u2-line-soft); }
+
+/* 看图默写 */
+body.ui2 .dict-card { border-color: var(--u2-line-soft); }
+body.ui2 .fb-banner { border-radius: 12px; }
+body.ui2 .fb-line.fb-ans { color: var(--u2-accent); }
+
+/* 阅读 */
+body.ui2 .article-body { color: var(--u2-ink); }
+body.ui2 .sent { border-radius: 6px; transition: background .15s; }
+body.ui2 .sent:hover { background: var(--u2-accent-soft); }
+body.ui2 .sent.playing { background: var(--u2-accent-soft); box-shadow: 0 1px 0 var(--u2-accent); }
+body.ui2 .para-zh { color: var(--u2-ink2); }
+body.ui2 .av-word { color: var(--u2-accent); }
+body.ui2 .rd-meta { color: var(--u2-ink2); }
+body.ui2 .quiz-item { border-color: var(--u2-line-soft); }
+
+/* 错题本 */
+body.ui2 .wrong-filter .chip-scope {
+  background: var(--u2-surface); border: 1px solid var(--u2-line); color: var(--u2-ink2);
+  border-radius: 999px;
+}
+body.ui2 .wrong-filter .chip-scope.on { background: var(--u2-ink); color: #F6F4EC; border-color: var(--u2-ink); }
+body.ui2 .q-type-badge { background: var(--u2-accent-soft); color: var(--u2-accent); }
+body.ui2 .wi-stem { color: var(--u2-ink); }
+
+/* 进度 */
+body.ui2 .hero-card { background: var(--u2-surface); border: 1px solid var(--u2-line-soft); }
+body.ui2 .hero-num { color: var(--u2-accent); }
+body.ui2 .hero-label { color: var(--u2-ink2); }
+body.ui2 .chart .bar-col { background: var(--u2-accent); border-radius: 4px 4px 0 0; }
+body.ui2 .bar-tip { color: var(--u2-ink2); }
+body.ui2 .pu-name { color: var(--u2-ink); }
+body.ui2 .pu-acc { color: var(--u2-ink2); }
+
+/* 今日任务/推荐 */
+body.ui2 .task-done-badge { background: #EAF9F1; color: #199A5C; border-radius: 8px; }
+body.ui2 .rec-row { border-bottom: 1px dashed var(--u2-line-soft); }
+body.ui2 .rec-title { color: var(--u2-ink); font-weight: 700; }
+
+/* 设置 */
+body.ui2 .kv-row { border-bottom: 1px dashed var(--u2-line-soft); }
+body.ui2 .chip-scope {
+  background: var(--u2-surface); border: 1px solid var(--u2-line); color: var(--u2-ink2);
+  border-radius: 999px;
+}
+body.ui2 .chip-scope.on { background: var(--u2-accent); color: #fff; border-color: var(--u2-accent); }
+
+/* 资料库 */
+body.ui2 .lib-tabs .tab { background: var(--u2-surface); border: 1px solid var(--u2-line); color: var(--u2-ink2); }
+body.ui2 .lib-tabs .tab.active { background: var(--u2-ink); color: #F6F4EC; }
+body.ui2 .lib-item, body.ui2 .lib-job { border: 1px solid var(--u2-line-soft); }
+body.ui2 .lib-search { background: var(--u2-surface); border: 1.5px solid var(--u2-line); color: var(--u2-ink); }
+body.ui2 .lib-select { background: var(--u2-surface); border: 1.5px solid var(--u2-line); color: var(--u2-ink); }
+
+/* 学习/我的聚合页标题 */
+body.ui2 .home-page-head { padding-top: 16px; }
+
+/* Toast / 空态 / 滚动条 */
+body.ui2 .toast {
+  background: var(--u2-ink); color: #F6F4EC;
+  border-radius: 10px; box-shadow: 0 4px 14px rgba(26,35,51,.18);
+}
+body.ui2 .toast-warn { background: #B45309; }
+body.ui2 .empty-card { color: var(--u2-ink2); background: var(--u2-surface); border: 1px dashed var(--u2-line); }
+body.ui2 ::-webkit-scrollbar { width: 8px; height: 8px; }
+body.ui2 ::-webkit-scrollbar-thumb { background: var(--u2-line); border-radius: 4px; }
