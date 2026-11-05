@@ -153,7 +153,9 @@
       var self = this;
 
       /* 通道 1：预生成语音包（豆包同款音色） */
-      var url = global.AudioPack ? AudioPack.lookup(text) : null;
+      /* 中文讲解不走英文预生成音频包，直接使用设备对应语言的语音合成 */
+      var allowPack = !opts.lang || /^en(?:[-_]|$)/i.test(opts.lang);
+      var url = allowPack && global.AudioPack ? AudioPack.lookup(text) : null;
       if (url) {
         var done = false;
         var finishAudio = function (fallback) {
@@ -209,11 +211,21 @@
         try { synth.cancel(); } catch (e) { /* 忽略 */ }
       }
       var u = new window.SpeechSynthesisUtterance(text);
-      if (this.voice) {
-        u.voice = this.voice;
-        u.lang = this.voice.lang;
+      var targetLang = opts.lang || 'en-US';
+      var selectedVoice = null;
+      if (opts.lang) {
+        var availableVoices = synth.getVoices() || [];
+        selectedVoice = availableVoices.filter(function (v) {
+          return v.lang && v.lang.toLowerCase().indexOf(targetLang.toLowerCase()) === 0;
+        })[0] || null;
       } else {
-        u.lang = 'en-US';
+        selectedVoice = this.voice;
+      }
+      if (selectedVoice) {
+        u.voice = selectedVoice;
+        u.lang = selectedVoice.lang;
+      } else {
+        u.lang = targetLang;
       }
       u.rate = opts.rate || (global.Store && Store.data.settings.rate) || 0.9;
       u.pitch = opts.pitch != null ? opts.pitch : 1;
@@ -342,6 +354,8 @@
           self._queueRetry = { token: token, run: speakCurrent };
           var ch = self._speakWithToken(token, texts[idx], {
             pitch: opts.pitchFn ? opts.pitchFn(idx) : undefined,
+            lang: opts.lang,
+            rate: opts.rate,
             onend: advance
           });
           if (firstChannel === null) firstChannel = ch;

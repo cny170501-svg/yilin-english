@@ -208,7 +208,9 @@
         var head = bk.rows[0];
         var thead = '<tr>' + head.map(function (h) { return '<th>' + esc(h) + '</th>'; }).join('') + '</tr>';
         var tbody = bk.rows.slice(1).map(function (row) {
-          return '<tr>' + row.map(function (c) { return '<td>' + esc(c) + '</td>'; }).join('') + '</tr>';
+          return '<tr>' + row.map(function (c, ci) {
+            return '<td data-label="' + esc(head[ci] || ('第' + (ci + 1) + '项')) + '">' + esc(c) + '</td>';
+          }).join('') + '</tr>';
         }).join('');
         return '<div class="k-table-wrap"><table class="k-table"><thead>' + thead + '</thead><tbody>' + tbody + '</tbody></table></div>';
       }
