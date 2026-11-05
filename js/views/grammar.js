@@ -93,6 +93,24 @@
     actions: {}
   };
 
+  function topicChineseTexts(topic) {
+    var out = [];
+    function add(value) {
+      if (typeof value === 'string' && /[\u4e00-\u9fff]/.test(value)) {
+        var v = value.trim();
+        if (v && out.indexOf(v) < 0) out.push(v);
+      }
+    }
+    add(topic.scene);
+    (topic.rules || []).forEach(function (r) {
+      add(r.title); add(r.explain); add(r.formula); add(r.tip);
+      if (r.wrong) { add(r.wrong.bad); add(r.wrong.good); add(r.wrong.why); }
+      (r.examples || []).forEach(function (e) { add(e.zh); });
+      if (r.quiz) { add(r.quiz.stemZh); add(r.quiz.explain); }
+    });
+    return out;
+  }
+
   /* ---------- 知识点讲解页 ---------- */
 
   var GrammarTopicView = {
@@ -160,11 +178,19 @@
         '</header>' +
         '<div class="unit-unit-chips">' + units + '</div>' +
 
-        '<div class="toolbar">' +
+        '<div class="toolbar grammar-toolbar">' +
         '<button class="btn btn-mini" data-action="gt:toggleZh">' + (st.showZh ? '🙈 隐藏中文' : '🐵 显示中文') + '</button>' +
         '<button class="mark-btn mark-ok' + (stat.state === 'mastered' ? ' on' : '') + '" data-action="gt:state" data-s="mastered">✓ 已掌握</button>' +
         '<button class="mark-btn mark-review' + (stat.state === 'review' ? ' on' : '') + '" data-action="gt:state" data-s="review">↻ 需复习</button>' +
         '</div>' +
+        '<section class="card grammar-guide-card"><div class="card-title">🧭 建议学习顺序</div>' +
+        '<div class="grammar-guide-steps"><span>① 先看使用场景</span><span>② 理解规则和结构</span><span>③ 听读例句、比较易错点</span><span>④ 完成随堂小练习</span></div>' +
+        '<div class="grammar-read-toolbar">' +
+        '<button class="btn btn-mini btn-primary" data-action="gt:readZh">🔊 朗读中文讲解</button>' +
+        '<button class="btn btn-mini" data-action="gt:pause">⏸ 暂停</button>' +
+        '<button class="btn btn-mini" data-action="gt:resume">▶ 继续</button>' +
+        '<button class="btn btn-mini" data-action="gt:stop">■ 停止</button>' +
+        '</div><div class="muted small grammar-read-note">中文讲解使用设备中文语音；具体音色取决于浏览器和设备已安装的语音。</div></section>'
 
         '<section class="card scene-card"><div class="card-title">🎯 什么时候用</div>' +
         '<div class="rule-explain">' + esc(t.scene) + '</div></section>' +
@@ -191,6 +217,20 @@
 
     actions: {
       'gt:play': function (d, el) { Util.speakWithState(d.text, el); },
+      'gt:readZh': function () {
+        var t = topicById(App.state.topicId);
+        var texts = t ? topicChineseTexts(t) : [];
+        if (!texts.length) { Util.toast('本主题暂无可朗读的中文讲解', 'warn'); return; }
+        if (!Speaker.supported) { Util.toast('当前设备或浏览器不支持中文语音合成', 'warn'); return; }
+        Speaker.speakQueue(texts, { lang: 'zh-CN', rate: 0.92, gap: 450 });
+      },
+      'gt:pause': function () {
+        if (!Speaker.pause()) Util.toast('当前浏览器暂不支持暂停', 'warn');
+      },
+      'gt:resume': function () {
+        if (!Speaker.resume()) Util.toast('当前浏览器暂不支持继续朗读', 'warn');
+      },
+      'gt:stop': function () { Speaker.stop(); },
       'gt:toggleZh': function () {
         App.grammarUI.showZh = !App.grammarUI.showZh;
         App.rerender();
