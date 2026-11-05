@@ -15,8 +15,10 @@
   <!-- Tailwind Typography 排版层（prose）：构建方式见 tw/ 目录，必须在 style.css 之前引入 -->
   <link rel="stylesheet" href="css/tw-typography.css">
   <link rel="stylesheet" href="css/style.css">
+  <!-- UI 2.0 设计系统（SentencePop 白天模式），叠加于 style.css -->
+  <link rel="stylesheet" href="css/ui2.css">
 </head>
-<body class="fs-m">
+<body class="ui2 fs-m">
   <div id="banner" class="banner hidden"></div>
 
   <main id="app" class="app">
@@ -27,21 +29,18 @@
     <button class="nav-btn" data-nav="#/home" type="button">
       <span class="nav-icon">🏠</span><span class="nav-label">首页</span>
     </button>
+    <button class="nav-btn" data-nav="#/learn" type="button">
+      <span class="nav-icon">📖</span><span class="nav-label">学习</span>
+    </button>
     <button class="nav-btn" data-nav="#/practice" type="button">
       <span class="nav-icon">✏️</span><span class="nav-label">练习</span>
     </button>
     <button class="nav-btn" data-nav="#/wrong" type="button">
-      <span class="nav-icon">📕</span><span class="nav-label">错题本</span>
+      <span class="nav-icon">📕</span><span class="nav-label">错题</span>
       <span id="wrong-badge" class="nav-badge" style="display:none">0</span>
     </button>
-    <button class="nav-btn" data-nav="#/reading" type="button">
-      <span class="nav-icon">📖</span><span class="nav-label">阅读</span>
-    </button>
-    <button class="nav-btn" data-nav="#/progress" type="button">
-      <span class="nav-icon">📊</span><span class="nav-label">进度</span>
-    </button>
-    <button class="nav-btn" data-nav="#/settings" type="button">
-      <span class="nav-icon">⚙️</span><span class="nav-label">设置</span>
+    <button class="nav-btn" data-nav="#/me" type="button">
+      <span class="nav-icon">👤</span><span class="nav-label">我的</span>
     </button>
   </nav>
 
@@ -71,6 +70,7 @@
   <script src="js/views/unit.js"></script>
   <script src="js/views/knowledge.js"></script>
   <script src="js/views/library.js"></script>
+  <script src="js/views/hub.js"></script>
   <script src="js/views/practice.js"></script>
   <script src="js/views/wrong.js"></script>
   <script src="js/views/reading.js"></script>

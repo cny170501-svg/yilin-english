@@ -36,6 +36,8 @@
         libraryDetail: global.LibraryView,
         libraryReview: global.LibraryView,
         librarySettings: global.LibraryView,
+        learn: global.LearnHubView,
+        me: global.MeHubView,
         practice: global.PracticeView,
         wrong: global.WrongView,
         reading: global.ReadingView,
@@ -118,6 +120,8 @@
         this.state.knowledgeUnitId = seg[1];
         return { route: 'knowledge' };
       }
+      if (seg[0] === 'learn') return { route: 'learn' };
+      if (seg[0] === 'me') return { route: 'me' };
       /* 我的资料库（V3.0） */
       if (seg[0] === 'library') {
         if (seg[1] === 'upload') return { route: 'libraryUpload' };
@@ -159,11 +163,22 @@
     },
 
     updateNav: function () {
+      /* UI 2.0 五导航：路由 → 导航项映射 */
+      var TAB_FOR = {
+        home: 'home',
+        learn: 'learn', unit: 'learn', knowledge: 'learn', gtopic: 'learn',
+        grammar: 'learn', reading: 'learn', read: 'learn',
+        practice: 'practice', dictation: 'practice',
+        wrong: 'wrong',
+        me: 'me', progress: 'me', library: 'me', libraryUpload: 'me',
+        libraryDetail: 'me', libraryReview: 'me', librarySettings: 'me',
+        settings: 'me'
+      };
+      var currentTab = TAB_FOR[this.route] || 'home';
       var btns = document.querySelectorAll('.nav-btn');
       for (var i = 0; i < btns.length; i++) {
         var target = (btns[i].getAttribute('data-nav') || '').replace('#/', '');
-        var on = target === this.route ||
-          (target === 'home' && this.route === 'unit');
+        var on = target === currentTab;
         btns[i].classList.toggle('active', on);
         btns[i].setAttribute('aria-current', on ? 'page' : 'false');
       }

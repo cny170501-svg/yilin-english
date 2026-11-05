@@ -23,6 +23,23 @@
       '<span class="home-feature-arrow">›</span></button>';
   }
 
+  /* 近 7 天学习打卡（真实日志数据） */
+  function weekDots() {
+    var DAY = ['日', '一', '二', '三', '四', '五', '六'];
+    var out = [];
+    for (var i = 6; i >= 0; i--) {
+      var d = new Date();
+      d.setDate(d.getDate() - i);
+      var key = d.getFullYear() + '-' + Util.pad2(d.getMonth() + 1) + '-' + Util.pad2(d.getDate());
+      var rec = Store.data.log[key];
+      var active = !!(rec && (rec.sessions > 0 || rec.plays > 0 || rec.reads > 0));
+      out.push('<div class="home2-day' + (active ? ' on' : '') + (i === 0 ? ' today' : '') + '">' +
+        '<div class="home2-dot">' + (active ? '✓' : '') + '</div>' +
+        DAY[d.getDay()] + '</div>');
+    }
+    return '<div class="home2-week">' + out.join('') + '</div>';
+  }
+
   var HomeView = {
     render: function () {
       var c = Content.data;
@@ -104,22 +121,30 @@
       if (!recs.length) recs.push('<div class="muted small home-empty">完成几组练习后，这里会出现适合你的复习建议。</div>');
 
       return '' +
-        '<header class="page-head home-page-head">' +
-        '<div class="book-title">' + esc(c.title) + '</div>' +
-        '<div class="book-sub">四年级上册 · 课程学习、专项练习与复习巩固</div>' +
+        '<header class="home2-top">' +
+        '  <div class="home2-avatar">🦖</div>' +
+        '  <div class="home2-hello"><div class="home2-hello-title">你好呀 👋</div>' +
+        '  <div class="home2-hello-sub">' + esc(c.title) + ' · 课程学习与复习巩固</div></div>' +
+        '  <button class="home2-gear" data-nav="#/settings" aria-label="设置">⚙️</button>' +
         '</header>' +
 
         '<section class="card hero-card home-hero">' +
-        '<div class="home-hero-top"><div><div class="home-eyebrow">MY LEARNING JOURNEY</div>' +
+        '<div class="home2-eyebrow">MY LEARNING JOURNEY</div>' +
         '<div class="home-hero-title">今天也来进步一点点！</div>' +
-        '<div class="home-hero-sub">连续学习 ' + (streak.days || 0) + ' 天 🔥</div></div>' +
-        '<div class="home-hero-progress"><strong>' + pct + '%</strong><span>单词掌握</span></div></div>' +
-        '<div class="progress-track home-hero-track"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
-        '<div class="hero-stats">' +
-        '<div class="hero-stat"><div class="hero-num">' + mastered + '<small>/' + totalWords + '</small></div><div class="hero-label">已掌握单词</div></div>' +
+        '<div class="home-hero-sub">连续学习 ' + (streak.days || 0) + ' 天 🔥 · 已掌握 ' + mastered + '/' + totalWords + ' 词</div>' +
+        '<div class="progress-track home-hero-track" style="margin-top:10px"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
+        '<div class="hero-stats" style="margin-top:12px">' +
+        '<div class="hero-stat"><div class="hero-num">' + pct + '<small>%</small></div><div class="hero-label">掌握进度</div></div>' +
         '<div class="hero-stat"><div class="hero-num">' + stats.sentences + '</div><div class="hero-label">句型内容</div></div>' +
         '<div class="hero-stat"><div class="hero-num">' + (global.READING_CONTENT ? READING_CONTENT.articles.length : 0) + '</div><div class="hero-label">阅读文章</div></div>' +
-        '</div></section>' +
+        '</div>' +
+        '<button class="btn btn-primary btn-block" style="margin-top:12px" data-nav="#/unit/' + currentUnit + '">▶ 继续学习：Unit ' + (Content.unitById(currentUnit) || { no: 1 }).no + '</button>' +
+        '</section>' +
+
+        '<section class="home2-streak">' +
+        '<span class="home2-streak-fire">🔥 <b>' + (streak.days || 0) + '</b> 天</span>' +
+        weekDots() +
+        '</section>' +
 
         '<section class="home-section">' +
         '<div class="home-section-head"><div><div class="home-section-title">📚 课程学习</div><div class="home-section-desc">按学习目标选择内容</div></div></div>' +
