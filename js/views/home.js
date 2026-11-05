@@ -70,7 +70,8 @@
         { nav: '#/practice', icon: '🎧', label: '听力练习' },
         { nav: '#/practice', icon: '✍️', label: '读写练习', cat: 'write' },
         { nav: '#/reading', icon: '📖', label: '课外阅读' },
-        { nav: '#/practice', icon: '🏆', label: '综合测试', cat: 'mix' }
+        { nav: '#/practice', icon: '🏆', label: '综合测试', cat: 'mix' },
+        { nav: '#/library', icon: '📚', label: '我的资料库' }
       ].map(function (q) {
         return '<button class="quick-btn" data-nav="' + q.nav + '"' +
           (q.cat ? ' data-quickcat="' + q.cat + '"' : '') + '>' +
@@ -149,6 +150,7 @@
         (global.GRAMMAR_CONTENT
           ? '<button class="btn btn-block grammar-entry" data-nav="#/grammar">📘 语法用法与讲解 · ' + GRAMMAR_CONTENT.topics.length + ' 个主题，讲一点练一点</button>'
           : '') +
+        '<button class="btn btn-block library-entry" data-nav="#/library">📚 我的资料库 · 上传自己的教材试卷，AI 帮你整理成学习内容</button>' +
         '  </div>' +
         '</section>' +
 

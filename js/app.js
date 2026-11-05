@@ -5,8 +5,9 @@
 
   var App = {
     route: 'home',
-    state: { unitId: null, knowledgeUnitId: null, unitTab: 'words', articleId: null, showZh: true, wrongShowAll: false },
+    state: { unitId: null, knowledgeUnitId: null, unitTab: 'words', articleId: null, showZh: true, wrongShowAll: false, libraryId: null },
     knState: { showZh: true, phraseFilter: 'all' },
+    libState: null,
     session: null,
     practiceCfg: { scope: 'all', cat: 'listen', preset: 'listenAll' },
     readingState: null,
@@ -30,6 +31,11 @@
         home: global.HomeView,
         unit: global.UnitView,
         knowledge: global.KnowledgeView,
+        library: global.LibraryView,
+        libraryUpload: global.LibraryView,
+        libraryDetail: global.LibraryView,
+        libraryReview: global.LibraryView,
+        librarySettings: global.LibraryView,
         practice: global.PracticeView,
         wrong: global.WrongView,
         reading: global.ReadingView,
@@ -112,6 +118,14 @@
         this.state.knowledgeUnitId = seg[1];
         return { route: 'knowledge' };
       }
+      /* 我的资料库（V3.0） */
+      if (seg[0] === 'library') {
+        if (seg[1] === 'upload') return { route: 'libraryUpload' };
+        if (seg[1] === 'settings') return { route: 'librarySettings' };
+        if (seg[1] === 'detail' && seg[2]) { this.state.libraryId = seg[2]; return { route: 'libraryDetail' }; }
+        if (seg[1] === 'review' && seg[2]) { this.state.libraryId = seg[2]; return { route: 'libraryReview' }; }
+        return { route: 'library' };
+      }
       if (seg[0] === 'read' && seg[1]) {
         this.state.articleId = seg[1];
         return { route: 'read' };
@@ -127,7 +141,7 @@
       var parsed = this.parseHash();
       this.route = this.views[parsed.route] ? parsed.route : 'home';
       /* 页面/文章/单元/语法主题切换时停止朗读；答题反馈等局部重渲染不打断播放 */
-      var sig = this.route + '|' + this.state.unitId + '|' + this.state.unitTab + '|' + this.state.articleId + '|' + this.state.topicId + '|' + this.state.knowledgeUnitId;
+      var sig = this.route + '|' + this.state.unitId + '|' + this.state.unitTab + '|' + this.state.articleId + '|' + this.state.topicId + '|' + this.state.knowledgeUnitId + '|' + this.state.libraryId;
       if (sig !== this._sig) {
         Speaker.stop();
         this._sig = sig;

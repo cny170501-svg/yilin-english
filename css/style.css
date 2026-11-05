@@ -1164,3 +1164,58 @@ button:focus-visible, a:focus-visible, input:focus-visible {
   .k-item-en { font-size: 14.5px; }
   .k-table { font-size: 12px; }
 }
+
+/* ===== 我的资料库（V3.0）===== */
+.lib-tabs { margin-bottom: 10px; }
+.lib-stats { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin: 8px 2px; font-size: 13px; color: var(--text-2); }
+.lib-warn { color: #b45309; background: #fef3c7; border-radius: 6px; padding: 1px 8px; font-weight: 700; }
+.lib-toolbar { display: flex; gap: 8px; margin: 10px 0; flex-wrap: wrap; }
+.lib-search { flex: 1; min-width: 160px; padding: 9px 12px; border: 1.5px solid var(--line); border-radius: 11px; font-size: 14px; background: var(--card); }
+.lib-select { padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--card); font-size: 13px; max-width: 150px; }
+.lib-list { display: flex; flex-direction: column; gap: 8px; }
+.lib-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
+.lib-item-err { border-color: #f5c2c2; }
+.lib-item-main { flex: 1; display: flex; align-items: center; gap: 10px; min-width: 0; background: none; border: none; padding: 0; cursor: pointer; text-align: left; }
+.lib-item-icon { font-size: 26px; }
+.lib-item-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lib-item-title { font-weight: 700; font-size: 14.5px; word-break: break-all; }
+.lib-item-meta { font-size: 12px; color: var(--text-2); }
+.lib-item-err-text { font-size: 12px; color: #b45309; }
+.lib-item-ops { display: flex; gap: 6px; flex: 0 0 auto; }
+.lib-drop { text-align: center; padding: 34px 16px; border: 2.5px dashed #b9cdf6; cursor: pointer; transition: background .15s; }
+.lib-drop.dragging, .lib-drop:hover { background: #f0f5ff; border-color: var(--primary); }
+.lib-drop-icon { font-size: 40px; }
+.lib-drop-title { font-size: 16px; font-weight: 800; margin-top: 8px; }
+.lib-drop-sub { font-size: 12.5px; color: var(--text-2); margin-top: 6px; line-height: 1.7; }
+.lib-up-result { padding: 7px 4px; font-size: 13.5px; border-bottom: 1px dashed var(--line); display: flex; flex-direction: column; gap: 2px; }
+.lib-up-result:last-child { border-bottom: none; }
+.lib-up-fail { color: #b45309; }
+.lib-detail-ops { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.lib-preview-img { max-width: 100%; border-radius: 10px; }
+.lib-preview-frame { width: 100%; height: 60vh; border: none; border-radius: 10px; }
+.lib-job { display: flex; align-items: center; gap: 10px; padding: 10px 13px; flex-wrap: wrap; font-size: 13.5px; }
+.lib-job-status { font-weight: 800; }
+.lib-job-status.done { color: var(--green); }
+.lib-job-status.failed { color: var(--red); }
+.lib-job-status.running { color: var(--primary); }
+.lib-job-bar { flex: 1; min-width: 90px; height: 7px; border-radius: 4px; background: var(--line); overflow: hidden; }
+.lib-job-bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--primary), #6ea0ff); }
+.lib-items { max-height: 420px; overflow-y: auto; padding: 4px 0; }
+.lib-line { display: flex; gap: 8px; padding: 5px 12px; border-bottom: 1px dashed var(--line); font-size: 13.5px; align-items: baseline; }
+.lib-line:last-child { border-bottom: none; }
+.lib-line-sec { flex: 0 0 auto; color: var(--text-2); font-size: 12px; min-width: 72px; }
+.lib-line-text { word-break: break-word; line-height: 1.6; }
+.lib-review-ops { display: flex; gap: 8px; flex-wrap: wrap; }
+.lib-review-list { display: flex; flex-direction: column; gap: 8px; }
+.lib-review-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; }
+.lib-review-check { padding-top: 8px; }
+.lib-review-check input { width: 17px; height: 17px; }
+.lib-review-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.lib-review-edit { width: 100%; padding: 8px 10px; border: 1.5px solid var(--line); border-radius: 9px; font-size: 14px; background: var(--card); }
+.lib-review-edit:focus { outline: none; border-color: var(--primary); }
+.lib-pending { color: #b45309; }
+.library-entry { background: linear-gradient(135deg, #eaf3ff, #eef8ff); color: var(--primary-dark); font-weight: 700; }
+@media (max-width: 480px) {
+  .lib-item-icon { font-size: 22px; }
+  .lib-drop { padding: 26px 12px; }
+}
