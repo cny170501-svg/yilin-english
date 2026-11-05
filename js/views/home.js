@@ -140,6 +140,7 @@
         '<div class="home-feature-grid home-feature-grid-compact">' +
         feature('#/dictation', '🖼️', '看图默写', '单词、短语与句子听写') +
         feature('#/wrong', '📕', '错题本', '回顾错题并进行针对训练') +
+        feature('#/practice', '🏆', '综合测试', '混合题型，检验学习成果', 'mix') +
         '</div></section>' +
 
         '<section class="home-section card home-task-card">' +
