@@ -221,6 +221,7 @@
         var t = topicById(App.state.topicId);
         var texts = t ? topicChineseTexts(t) : [];
         if (!texts.length) { Util.toast('本主题暂无可朗读的中文讲解', 'warn'); return; }
+        if (!Speaker.supported) { Util.toast('当前设备或浏览器不支持中文语音合成', 'warn'); return; }
         Speaker.speakQueue(texts, { lang: 'zh-CN', rate: 0.92, gap: 450 });
       },
       'gt:pause': function () {
