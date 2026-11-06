@@ -40,6 +40,7 @@
         me: global.MeHubView,
         iword: global.ImmersiveWordView,
         isentence: global.ImmersiveSentenceView,
+        igrammar: global.ImmersiveGrammarView,
         practice: global.PracticeView,
         wrong: global.WrongView,
         reading: global.ReadingView,
@@ -124,9 +125,10 @@
       }
       if (seg[0] === 'learn') return { route: 'learn' };
       if (seg[0] === 'me') return { route: 'me' };
-      if ((seg[0] === 'iword' || seg[0] === 'isentence') && seg[1]) {
+      if ((seg[0] === 'iword' || seg[0] === 'isentence' || seg[0] === 'igrammar') && seg[1]) {
         this.state.immUnit = seg[1];
         this.state.immIdx = Math.max(0, parseInt(seg[2] || '0', 10) || 0);
+        if (seg[0] === 'igrammar') this.state.igTopic = seg[1];
         return { route: seg[0] };
       }
       /* 我的资料库（V3.0） */
@@ -175,7 +177,7 @@
         home: 'home',
         learn: 'learn', unit: 'learn', knowledge: 'learn', gtopic: 'learn',
         grammar: 'learn', reading: 'learn', read: 'learn',
-        iword: 'learn', isentence: 'learn',
+        iword: 'learn', isentence: 'learn', igrammar: 'learn',
         practice: 'practice', dictation: 'practice',
         wrong: 'wrong',
         me: 'me', progress: 'me', library: 'me', libraryUpload: 'me',

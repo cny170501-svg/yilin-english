@@ -72,26 +72,29 @@
       var self = this;
       if (this._unlocked) return;
       var unlock = function () {
-        if (self._unlocked) return;
-        self._unlocked = true;
-        /* 音频元素：静音播放一次即解锁后续的编程播放 */
-        try {
-          var a = self._ensureAudio();
-          a.muted = true;
-          a.src = SILENT_WAV;
-          var p = a.play();
-          if (p && p.then) p.then(function () { a.muted = false; a.removeAttribute('src'); }).catch(function () { a.muted = false; });
-        } catch (e) { /* 忽略 */ }
-        try {
-          /* volume=0 的静音合成在部分 iOS 版本不解锁，用近无声的 0.01 */
-          var u = new window.SpeechSynthesisUtterance(' ');
-          u.volume = 0.01;
-          u.rate = 1;
-          u.onend = function () { self._unlockingAt = 0; };
-          self._keep(u);
-          self._unlockingAt = Date.now();
-          synth.speak(u);
-        } catch (e) { /* 忽略 */ }
+      if (self._unlocked) return;
+      self._unlocked = true;
+      try {
+        /* 独立临时元素解锁：不占用主播放元素，避免与首次真实播放竞争
+           （首次点击无声/回退的根因） */
+        var ua = new Audio();
+        ua.muted = true;
+        ua.src = SILENT_WAV;
+        var up = ua.play();
+        if (up && up.then) {
+          up.then(function () { ua.removeAttribute('src'); }).catch(function () { ua.removeAttribute('src'); });
+        }
+      } catch (e) { /* 忽略 */ }
+      try {
+        /* volume=0 的静音合成在部分 iOS 版本不解锁，用近无声的 0.01 */
+        var u = new window.SpeechSynthesisUtterance(' ');
+        u.volume = 0.01;
+        u.rate = 1;
+        u.onend = function () { self._unlockingAt = 0; };
+        self._keep(u);
+        self._unlockingAt = Date.now();
+        synth.speak(u);
+      } catch (e) { /* 忽略 */ }
         document.removeEventListener('pointerdown', unlock);
         document.removeEventListener('touchend', unlock);
         document.removeEventListener('click', unlock);
@@ -126,7 +129,8 @@
       if (!this._audioEl) return;
       try {
         this._audioEl.pause();
-        this._audioEl.currentTime = 0;
+        /* 换源会自动归零，不再显式 currentTime=0（省一次 iOS 同步 seek，
+           连续点击卡顿的根因之一） */
       } catch (e) { /* 忽略 */ }
       this._audioMode = false;
     },
@@ -179,8 +183,18 @@
         try {
           var p = a.play();
           if (p && p.then) {
-            p.catch(function () {
-              /* 播放被拒绝：若令牌仍有效则回退设备语音 */
+            p.catch(function (err) {
+              /* pause/play 竞争（AbortError）：令牌仍有效则 250ms 后重试一次；
+                 其他拒绝（如自动播放策略拦截）→ 回退设备语音 */
+              var name = err && err.name || '';
+              if (name.indexOf('Abort') === 0 && token === self._token) {
+                setTimeout(function () {
+                  if (done || token !== self._token) return;
+                  var p2 = a.play();
+                  if (p2 && p2.catch) p2.catch(function () { finishAudio(true); });
+                }, 250);
+                return;
+              }
               finishAudio(true);
             });
           }

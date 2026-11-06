@@ -188,6 +188,148 @@
     }
   };
 
+  /* ================= 沉浸式语法 ================= */
+  function grammarTopic() {
+    var fn = global.GrammarTopicView && global.GrammarTopicView.topicById;
+    return fn ? fn(App.state.igTopic) : null;
+  }
+  function ruleZhTexts(rule) {
+    var out = [];
+    function add(v) {
+      if (typeof v === 'string' && /[\u4e00-\u9fff]/.test(v)) {
+        var s = v.trim();
+        if (s && out.indexOf(s) < 0) out.push(s);
+      }
+    }
+    add(rule.title); add(rule.explain); add(rule.formula); add(rule.tip);
+    if (rule.wrong) { add(rule.wrong.bad); add(rule.wrong.good); add(rule.wrong.why); }
+    (rule.examples || []).forEach(function (e) { add(e.zh); });
+    return out;
+  }
+
+  var ImmersiveGrammarView = {
+    render: function () {
+      var t = grammarTopic();
+      if (!t) return '<div class="card">未找到语法主题 <button class="btn btn-mini" data-nav="#/grammar">返回</button></div>';
+      var rules = t.rules || [];
+      var idx = Math.min(Math.max(App.state.igIdx || 0, 0), Math.max(rules.length - 1, 0));
+      var rule = rules[idx];
+      var showZh = App.state.showZh !== false;
+
+      var html = '<header class="sp-top">' +
+        '<button class="btn btn-back" data-nav="#/grammar/' + t.id + '">' + Util.icon('left', 15) + ' 返回主题</button>' +
+        '<div class="sp-top-title">' + esc(t.title) + '</div>' +
+        '<div class="sp-pos">' + (idx + 1) + '/' + rules.length + '</div>' +
+        '</header>' +
+        '<div class="progress-track" style="height:4px;border-radius:2px;background:var(--u2-line-soft);margin:0 2px">' +
+        '<div class="progress-fill" style="width:' + Math.round((idx + 1) * 100 / rules.length) + '%"></div></div>' +
+        '<div class="sp-stage">' +
+        '  <div class="sp-pos-line">' + esc(t.emoji || '🧠') + ' 规则 ' + (idx + 1) + ' / ' + rules.length + '</div>' +
+        (idx === 0 && t.scene ? '  <div class="sp-zh">🎯 什么时候用：' + esc(t.scene) + '</div>' : '') +
+        '  <div class="sp-rule-title">' + esc(rule.title) + '</div>' +
+        (rule.formula ? '  <div class="sp-formula">' + esc(rule.formula) + '</div>' : '') +
+        (rule.explain ? '  <div class="sp-explain">' + esc(rule.explain) + '</div>' : '') +
+        '</div>';
+
+      /* 例句（逐条：大字逐词 + 点读 + 中文）*/
+      (rule.examples || []).forEach(function (e, ei) {
+        var tokens = String(e.en || '').split(' ').filter(Boolean);
+        html += '<div class="sp-exlist-item">' +
+          '<div class="sp-words">' +
+          tokens.map(function (tk) {
+            var punct = /^[,.!?;:]+/.test(tk);
+            return '<span class="sp-word' + (punct ? ' punct' : '') + '" data-action="ig:playEx" data-ei="' + ei + '">' + esc(tk) + '</span>';
+          }).join('') +
+          '</div>' +
+          (showZh && e.zh ? '<div class="sp-ex-zh-center">' + esc(e.zh) + '</div>' : '') +
+          '</div>';
+      });
+
+      /* 易错对比 */
+      if (rule.wrong) {
+        html += '<div class="sp-wrong">' +
+          '<div class="sp-wrong-bad">❌ ' + esc(rule.wrong.bad) + '</div>' +
+          '<div class="sp-wrong-good">✅ ' + esc(rule.wrong.good) + '</div>' +
+          (rule.wrong.why ? '<div class="sp-wrong-why">' + esc(rule.wrong.why) + '</div>' : '') +
+          '</div>';
+      }
+      if (rule.tip) html += '<div class="sp-tip">💡 ' + esc(rule.tip) + '</div>';
+
+      /* 面板 + 操作 */
+      var isLast = idx === rules.length - 1;
+      html += '<div class="sp-panel">' +
+        '  <div class="sp-panel-head">🗣 中文讲解</div>' +
+        '  <div class="sp-panel-body">「🗣 中文讲解」用设备中文语音朗读本条规则；英文例句用 Tina 语音包播放。</div>' +
+        '</div>' +
+        '<div class="sp-actions">' +
+        pill('ig:prev', '‹ 上一条') +
+        pill('ig:playEn', '🔊 例句朗读') +
+        pill('ig:readZh', '🗣 中文讲解') +
+        pill('ig:stop', '■ 停止') +
+        pill('ig:next', '下一条 ›') +
+        '</div>' +
+        (isLast ? '<div class="sp-actions"><button class="btn btn-primary btn-block" data-action="ig:practice" style="max-width:420px">✏️ 学完了，开始主题练习</button></div>' : '');
+
+      return html;
+    },
+
+    after: function () {
+      if (App.immAuto) {
+        App.immAuto = false;
+        var t = grammarTopic();
+        var rule = t && (t.rules || [])[App.state.igIdx];
+        if (rule && rule.examples && rule.examples.length) {
+          var ens = rule.examples.map(function (e) { return e.en; });
+          Speaker.speakQueue(ens, { gap: 420 });
+        }
+      }
+    },
+
+    actions: {
+      'ig:playEx': function (d) {
+        var t = grammarTopic();
+        var rule = t && (t.rules || [])[App.state.immIdx];
+        var e = rule && (rule.examples || [])[+d.ei];
+        if (e) Speaker.speak(e.en);
+      },
+      'ig:playEn': function () {
+        var t = grammarTopic();
+        var rule = t && (t.rules || [])[App.state.igIdx];
+        if (!rule || !rule.examples || !rule.examples.length) return;
+        var ens = rule.examples.map(function (e) { return e.en; });
+        Speaker.speakQueue(ens, { gap: 420 });
+      },
+      'ig:readZh': function () {
+        var t = grammarTopic();
+        var rule = t && (t.rules || [])[App.state.igIdx];
+        if (!rule) return;
+        var texts = ruleZhTexts(rule);
+        if (!texts.length) { Util.toast('本条规则暂无可朗读的中文讲解', 'warn'); return; }
+        if (!Speaker.supported) { Util.toast('当前设备或浏览器不支持中文语音合成', 'warn'); return; }
+        Speaker.speakQueue(texts, { lang: 'zh-CN', rate: 0.92, gap: 450 });
+      },
+      'ig:stop': function () { Speaker.stop(); },
+      'ig:prev': function () {
+        var i = App.state.igIdx || 0;
+        if (i > 0) { App.immAuto = true; location.hash = '#/igrammar/' + App.state.igTopic + '/' + (i - 1); }
+        else Util.toast('已经是第一条规则了');
+      },
+      'ig:next': function () {
+        var t = grammarTopic();
+        var n = t ? (t.rules || []).length : 0;
+        var i = App.state.igIdx || 0;
+        if (i < n - 1) { App.immAuto = true; location.hash = '#/igrammar/' + App.state.igTopic + '/' + (i + 1); }
+        else Util.toast('已是最后一条，可开始主题练习');
+      },
+      'ig:practice': function () {
+        App.state.topicId = App.state.igTopic;
+        if (App.actions['gt:practice']) App.actions['gt:practice']();
+      }
+    }
+  };
+
+  global.ImmersiveGrammarView = ImmersiveGrammarView;
+
   function topBar(u, count) {
     var list = (u.words || u.sentences || []);
     var total = count != null ? count : list.length;

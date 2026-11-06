@@ -186,7 +186,8 @@
         '<section class="card grammar-guide-card"><div class="card-title">🧭 建议学习顺序</div>' +
         '<div class="grammar-guide-steps"><span>① 先看使用场景</span><span>② 理解规则和结构</span><span>③ 听读例句、比较易错点</span><span>④ 完成随堂小练习</span></div>' +
         '<div class="grammar-read-toolbar">' +
-        '<button class="btn btn-mini btn-primary" data-action="gt:readZh">🔊 朗读中文讲解</button>' +
+        '<button class="btn btn-mini btn-primary" data-nav="#/igrammar/' + t.id + '/0">🎯 沉浸式学规则</button>' +
+        '<button class="btn btn-mini" data-action="gt:readZh">🔊 朗读中文讲解</button>' +
         '<button class="btn btn-mini" data-action="gt:pause">⏸ 暂停</button>' +
         '<button class="btn btn-mini" data-action="gt:resume">▶ 继续</button>' +
         '<button class="btn btn-mini" data-action="gt:stop">■ 停止</button>' +
