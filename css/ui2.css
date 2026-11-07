@@ -46,6 +46,8 @@ body.ui2 {
   --u2-err: #B42318;
   --u2-err-bg: #FDEEEE;
   --u2-err-text: #B42318;
+  --u2-ok-border: rgba(20, 145, 134, 0.22);
+  --u2-err-border: rgba(180, 35, 24, 0.18);
 
   --u2-mint: #3DDC97;
   --u2-amber: #F2A93B;
@@ -97,6 +99,8 @@ html[data-theme="dark"] body.ui2 {
   --u2-err: #E8857D;
   --u2-err-bg: #2A1512;
   --u2-err-text: #E8857D;
+  --u2-ok-border: rgba(64, 201, 154, 0.3);
+  --u2-err-border: rgba(232, 133, 125, 0.32);
 
   --u2-mint: #3DDC97;
   --u2-amber: #F2A93B;
@@ -121,6 +125,14 @@ body.ui2 .book-sub,
 body.ui2 .unit-head-zh,
 body.ui2 .muted { color: var(--u2-ink2); }
 
+/* ---- 通用按钮（style.css 白底令牌化；置于 btn-primary 之前保证主按钮覆盖）---- */
+body.ui2 .btn {
+  background: var(--u2-surface); color: var(--u2-ink); border-color: var(--u2-line);
+}
+body.ui2 .btn-danger {
+  background: var(--u2-surface); color: var(--u2-err-text); border-color: var(--u2-err-border);
+}
+
 /* ---- 主按钮：品牌青绿 ---- */
 body.ui2 .btn-primary {
   background: var(--u2-accent);
@@ -143,47 +155,9 @@ body.ui2 .home-hero .progress-fill {
 
 /* ---- 掌握/复习标记 ---- */
 body.ui2 .mark-ok.on { background: var(--u2-mint); border-color: var(--u2-mint); color: #0F3B2C; }
-body.ui2 .mark-review.on { background: var(--u2-amber); border-color: var(--u2-amber); }
+body.ui2 .mark-review.on { background: var(--u2-amber); border-color: var(--u2-amber); color: #78350F; }
 body.ui2 .word-card.is-mastered { border-color: rgba(61, 220, 151, 0.4); background: var(--u2-ok-bg); }
 body.ui2 .word-card.is-review { border-color: rgba(242, 169, 59, 0.4); background: var(--u2-warn-bg); }
-
-/* ---- 页面与卡片 ---- */
-body.ui2 .card {
-  background: var(--u2-surface);
-  border: 1px solid var(--u2-line-soft);
-  border-radius: var(--u2-r-card);
-  box-shadow: 0 1px 2px rgba(26, 35, 51, 0.04);
-}
-body.ui2 .page-head .book-title,
-body.ui2 .unit-head-name { color: var(--u2-ink); }
-body.ui2 .book-sub,
-body.ui2 .unit-head-zh,
-body.ui2 .muted { color: var(--u2-ink2); }
-
-/* ---- 主按钮：青绿 ---- */
-body.ui2 .btn-primary {
-  background: var(--u2-accent);
-  border-color: var(--u2-accent);
-  color: #fff;
-}
-body.ui2 .btn-primary:active { background: #0F7A6E; }
-body.ui2 .btn,
-body.ui2 .btn-mini { border-radius: var(--u2-r-ctl); }
-
-/* ---- 进度条：青绿 ---- */
-body.ui2 .progress-fill,
-body.ui2 .progress-bar .progress-fill,
-body.ui2 .kn-entry-bar > span {
-  background: linear-gradient(90deg, var(--u2-accent), var(--u2-mint));
-}
-body.ui2 .progress-track,
-body.ui2 .progress-bar { background: var(--u2-line-soft); }
-
-/* ---- 掌握/复习标记 ---- */
-body.ui2 .mark-ok.on { background: var(--u2-mint); border-color: var(--u2-mint); }
-body.ui2 .mark-review.on { background: var(--u2-amber); border-color: var(--u2-amber); }
-body.ui2 .word-card.is-mastered { border-color: rgba(61, 220, 151, 0.5); background: #F2FBF7; }
-body.ui2 .word-card.is-review { border-color: rgba(242, 169, 59, 0.45); background: var(--u2-warn-bg2); }
 
 /* ---- 底部导航（5 项）---- */
 body.ui2 .nav {
@@ -386,7 +360,11 @@ body.ui2 .word-en { font-size: 16.5px; color: var(--u2-ink); }
 body.ui2 .word-zh { color: var(--u2-ink2); }
 body.ui2 .ex-zh { color: var(--u2-ink2); }
 body.ui2 .word-card .icon-btn { color: var(--u2-accent); }
+body.ui2 .icon-btn { background: var(--u2-accent-soft); color: var(--u2-accent); }
+body.ui2 .icon-btn:active { background: var(--u2-accent); color: #fff; }
 body.ui2 .icon-btn.is-playing { background: var(--u2-accent-soft); color: var(--u2-accent); }
+body.ui2 .word-card.playing,
+body.ui2 .sent-card.playing { border-color: var(--u2-accent); box-shadow: 0 0 0 3px var(--u2-accent-soft); }
 
 /* 句型卡 */
 body.ui2 .sent-card {
@@ -451,8 +429,8 @@ body.ui2 .cat-tabs .cat-tab.active {
   background: var(--u2-ink); color: #F6F4EC; border-color: var(--u2-ink);
 }
 body.ui2 .quiz-card { border-color: var(--u2-line-soft); }
-body.ui2 .fb-banner.fb-correct { background: var(--u2-ok-bg); color: var(--u2-ok-text); border-radius: 12px; }
-body.ui2 .fb-banner.fb-wrong { background: var(--u2-err-bg); color: var(--u2-err-text); border-radius: 12px; }
+body.ui2 .fb-banner.fb-correct { background: var(--u2-ok-bg); color: var(--u2-ok-text); border-color: var(--u2-ok-border); border-radius: 12px; }
+body.ui2 .fb-banner.fb-wrong { background: var(--u2-err-bg); color: var(--u2-err-text); border-color: var(--u2-err-border); border-radius: 12px; }
 body.ui2 .fb-explain { color: var(--u2-ink2); }
 body.ui2 .score-card { border-color: var(--u2-line-soft); }
 body.ui2 .ans-input,
@@ -492,7 +470,8 @@ body.ui2 .wi-stem { color: var(--u2-ink); }
 body.ui2 .hero-card { background: var(--u2-surface); border: 1px solid var(--u2-line-soft); }
 body.ui2 .hero-num { color: var(--u2-accent); }
 body.ui2 .hero-label { color: var(--u2-ink2); }
-body.ui2 .chart .bar-col { background: var(--u2-accent); border-radius: 4px 4px 0 0; }
+body.ui2 .chart .bar { background: var(--u2-accent); }
+body.ui2 .bar-label.today { color: var(--u2-accent); }
 body.ui2 .bar-tip { color: var(--u2-ink2); }
 body.ui2 .pu-name { color: var(--u2-ink); }
 body.ui2 .pu-acc { color: var(--u2-ink2); }
@@ -525,7 +504,7 @@ body.ui2 .toast {
   background: var(--u2-ink); color: #F6F4EC;
   border-radius: 10px; box-shadow: 0 4px 14px rgba(26,35,51,.18);
 }
-body.ui2 .toast-warn { background: #B45309; }
+body.ui2 .toast.toast-warn { background: #B45309; }
 body.ui2 .empty-card { color: var(--u2-ink2); background: var(--u2-surface); border: 1px dashed var(--u2-line); }
 body.ui2 ::-webkit-scrollbar { width: 8px; height: 8px; }
 body.ui2 ::-webkit-scrollbar-thumb { background: var(--u2-line); border-radius: 4px; }
@@ -559,7 +538,7 @@ body.ui2 .sp-rule-title {
 }
 body.ui2 .sp-formula {
   display: inline-block;
-  background: var(--u2-accent-soft); color: #0C5B52;
+  background: var(--u2-accent-soft); color: var(--u2-primary-text);
   font-size: 17px; font-weight: 800;
   border-radius: 12px; padding: 10px 18px;
   margin-bottom: 14px; line-height: 1.6;
@@ -580,17 +559,17 @@ body.ui2 .sp-ex-zh-center {
 }
 body.ui2 .sp-wrong {
   margin-top: 14px; padding: 12px 14px;
-  background: #FEF6F2; border: 1px solid rgba(180, 35, 24, 0.15);
+  background: var(--u2-err-bg); border: 1px solid var(--u2-err-border);
   border-radius: var(--u2-r-card);
 }
-body.ui2 .sp-wrong-bad { font-size: 14px; color: #B42318; font-weight: 700; }
-body.ui2 .sp-wrong-good { font-size: 14px; color: #147A4D; font-weight: 700; margin-top: 4px; }
+body.ui2 .sp-wrong-bad { font-size: 14px; color: var(--u2-err-text); font-weight: 700; }
+body.ui2 .sp-wrong-good { font-size: 14px; color: var(--u2-ok-text); font-weight: 700; margin-top: 4px; }
 body.ui2 .sp-wrong-why { font-size: 12.5px; color: var(--u2-ink2); margin-top: 6px; line-height: 1.7; }
 body.ui2 .sp-tip {
   margin-top: 14px; padding: 12px 14px;
-  background: #EFFAF4; border: 1px solid rgba(20, 145, 134, 0.2);
+  background: var(--u2-ok-bg2); border: 1px solid var(--u2-ok-border);
   border-radius: var(--u2-r-card);
-  font-size: 13.5px; line-height: 1.8; color: #147A4D;
+  font-size: 13.5px; line-height: 1.8; color: var(--u2-ok-text);
 }
 @media (max-width: 480px) {
   body.ui2 .sp-rule-title { font-size: 18px; }
@@ -600,6 +579,105 @@ body.ui2 .sp-tip {
 
 
 
+
+/* ============================================================
+   第二轮深色整改：style.css 浅色残留全面令牌化
+   （白底/语义状态组件 → 双主题令牌，浅色外观≈原样）
+   ============================================================ */
+/* 提示条与警示框 */
+body.ui2 .banner { background: var(--u2-warn-bg); color: var(--u2-warn-text); border-bottom: 1px solid var(--u2-warn-bg2); }
+body.ui2 .warn-box,
+body.ui2 .hint-text,
+body.ui2 .g-tip,
+body.ui2 .qi-evidence { background: var(--u2-warn-bg); color: var(--u2-warn-text); border-color: var(--u2-warn-bg2); }
+
+/* 选项 / 输入 / 标记按钮（答题族） */
+body.ui2 .opt { background: var(--u2-surface); border-color: var(--u2-line); color: var(--u2-ink); }
+body.ui2 .opt:active { background: var(--u2-accent-soft); border-color: var(--u2-accent); }
+body.ui2 .opt-key { background: var(--u2-line-soft); color: var(--u2-ink2); }
+body.ui2 .opt.correct { background: var(--u2-ok-bg); border-color: var(--u2-ok); }
+body.ui2 .opt.wrong { background: var(--u2-err-bg); border-color: var(--u2-err); }
+body.ui2 .input-box input,
+body.ui2 .search-input,
+body.ui2 .import-textarea { background: var(--u2-surface); color: var(--u2-ink); border-color: var(--u2-line); }
+body.ui2 .mark-btn { background: var(--u2-surface); border-color: var(--u2-line); color: var(--u2-ink2); }
+
+/* 反馈 / 成绩 / 默写 */
+body.ui2 .fb-explain { background: var(--u2-surface); color: var(--u2-warn-text); }
+body.ui2 .score-tip, body.ui2 .source-tip { background: var(--u2-line-soft); }
+body.ui2 .dict-diffs { background: var(--u2-surface); }
+body.ui2 .dict-diff { color: var(--u2-err-text); }
+
+/* 卡片家族（style.css var(--card)/白底漏出） */
+body.ui2 .unit-card,
+body.ui2 .practice-btn,
+body.ui2 .mode-card,
+body.ui2 .quick-btn,
+body.ui2 .rd-card,
+body.ui2 .article-body,
+body.ui2 .word-pop,
+body.ui2 .scene-card,
+body.ui2 .wrong-compare,
+body.ui2 .parent-card,
+body.ui2 .k-req,
+body.ui2 .k-mark,
+body.ui2 .k-table,
+body.ui2 .lib-review-edit { background: var(--u2-surface); }
+body.ui2 .parent-card { border-color: var(--u2-line); }
+body.ui2 .report-suggest { background: var(--u2-surface); color: var(--u2-ink); }
+body.ui2 .wrong-entry-card { border-color: var(--u2-err-border); }
+body.ui2 .k-table-wrap { border-color: var(--u2-line); }
+body.ui2 .unit-emoji, body.ui2 .gram-emoji { background: var(--u2-accent-soft); }
+body.ui2 .mode-card.on, body.ui2 .practice-btn.pb-mixed, body.ui2 .k-tab:active { background: var(--u2-accent-soft); }
+body.ui2 .chip { background: var(--u2-accent-soft); color: var(--u2-accent); border-color: var(--u2-accent-soft); }
+body.ui2 .chip.done { background: var(--u2-surface); color: var(--u2-ink); border-color: var(--u2-accent); }
+body.ui2 .lib-drop { border-color: var(--u2-line); }
+body.ui2 .lib-drop.dragging, body.ui2 .lib-drop:hover { background: var(--u2-accent-soft); }
+
+/* 文本 / 徽章 / 小控件 */
+body.ui2 .order-placeholder, body.ui2 .gram-go { color: var(--u2-ink2); }
+body.ui2 .wi-badge.ok, body.ui2 .rd-badge.ok { background: var(--u2-ok-bg); color: var(--u2-ok-text); }
+body.ui2 .wi-badge.bad { background: var(--u2-err-bg); color: var(--u2-err-text); }
+body.ui2 .fav-btn { background: var(--u2-line-soft); color: var(--u2-ink2); }
+body.ui2 .fav-btn.on { background: var(--u2-warn-bg2); color: var(--u2-warn); }
+body.ui2 .k-check { color: var(--u2-warn-text); background: var(--u2-warn-bg2); }
+body.ui2 .lib-warn { color: var(--u2-warn-text); background: var(--u2-warn-bg2); }
+body.ui2 .lib-item-err-text, body.ui2 .lib-pending, body.ui2 .lib-up-fail { color: var(--u2-warn-text); }
+body.ui2 .lib-item-err { border-color: var(--u2-err-border); }
+body.ui2 .hl-word { background: var(--u2-warn-bg); color: var(--u2-warn-text); }
+body.ui2 .wc-good { color: var(--u2-ok-text); }
+
+/* 听力 / 语法组件（蓝色系统一为品牌青绿） */
+body.ui2 .listen-btn { background: var(--u2-accent); color: #fff; box-shadow: 0 6px 18px rgba(20, 145, 134, 0.3); }
+body.ui2 .dl-who { background: var(--u2-accent-soft); color: var(--u2-accent); }
+body.ui2 .rule-no { background: var(--u2-accent); }
+body.ui2 .rule-head, body.ui2 .k-progress-num, body.ui2 .kn-entry-arrow,
+body.ui2 .score-num, body.ui2 .rd-cat, body.ui2 .mq-title, body.ui2 .ir-text,
+body.ui2 .home-eyebrow, body.ui2 .sk-val, body.ui2 .av-pos { color: var(--u2-accent); }
+body.ui2 .av-pos, body.ui2 .focus-chip { background: var(--u2-accent-soft); }
+body.ui2 .formula { background: var(--u2-accent-soft); color: var(--u2-primary-text); border: 1px dashed var(--u2-ok-border); }
+body.ui2 .mini-quiz { border-top-color: var(--u2-line); }
+body.ui2 .sent-zh { border-left-color: var(--u2-line); }
+body.ui2 .sent:active { background: var(--u2-accent-soft); }
+body.ui2 .para.playing { background: var(--u2-accent-soft); }
+body.ui2 .sent-zh.hidden-zh { background: var(--u2-line-soft); color: var(--u2-ink2); }
+
+/* 阅读正文 prose 变量（tw-typography 用 var(--text) 固定深字） */
+body.ui2 .article-body.prose {
+  --tw-prose-body: var(--u2-ink);
+  --tw-prose-bold: var(--u2-ink);
+  --tw-prose-quotes: var(--u2-ink2);
+  --tw-prose-counters: var(--u2-accent);
+  --tw-prose-bullets: var(--u2-accent);
+  --tw-prose-links: var(--u2-accent);
+  --tw-prose-hr: var(--u2-line);
+}
+
+/* 知识点条目状态（k-phrase/k-sent/k-rule/k-gram 的掌握/复习） */
+body.ui2 .k-phrase.is-mastered, body.ui2 .k-sent.is-mastered,
+body.ui2 .k-rule.is-mastered, body.ui2 .k-gram.is-mastered { border-color: var(--u2-ok-border); background: var(--u2-ok-bg2); }
+body.ui2 .k-phrase.is-review, body.ui2 .k-sent.is-review,
+body.ui2 .k-rule.is-review, body.ui2 .k-gram.is-review { border-color: rgba(242, 169, 59, 0.4); background: var(--u2-warn-bg2); }
 
 /* ============================================================
    深色主题 · 结构覆盖（浅色令牌化已自动覆盖大部分；
@@ -631,6 +709,38 @@ html[data-theme="dark"] body.ui2 .nav {
 }
 html[data-theme="dark"] body.ui2 .nav-badge {
   box-shadow: 0 0 0 2px #14191B;
+}
+
+/* ---- 深色专用：浅蓝灰容器与装饰渐变卡（浅色保持原样） ---- */
+html[data-theme="dark"] body.ui2 .tabs,
+html[data-theme="dark"] body.ui2 .cat-tabs { background: var(--u2-line-soft); }
+html[data-theme="dark"] body.ui2 .quiz-progress { background: var(--u2-line-soft); }
+html[data-theme="dark"] body.ui2 .k-tabs { background: var(--u2-bg); }
+html[data-theme="dark"] body.ui2 .opt-key,
+html[data-theme="dark"] body.ui2 .rd-badge,
+html[data-theme="dark"] body.ui2 .rd-m { background: var(--u2-line-soft); color: var(--u2-ink2); }
+html[data-theme="dark"] body.ui2 .fav-btn { background: var(--u2-line-soft); color: var(--u2-ink2); }
+html[data-theme="dark"] body.ui2 .fav-btn.on { background: var(--u2-warn-bg2); color: var(--u2-warn); }
+html[data-theme="dark"] body.ui2 .vocab-chip { background: var(--u2-line-soft); }
+html[data-theme="dark"] body.ui2 .vc-del { background: var(--u2-line); color: var(--u2-ink2); }
+html[data-theme="dark"] body.ui2 .grammar-entry {
+  background: var(--u2-accent-soft); border-color: var(--u2-line); color: var(--u2-primary-text);
+}
+html[data-theme="dark"] body.ui2 .dict-entry {
+  background: var(--u2-warn-bg); border-color: rgba(242, 169, 59, 0.35); color: var(--u2-warn-text);
+}
+html[data-theme="dark"] body.ui2 .grammar-guide-card {
+  background: var(--u2-surface); border-color: var(--u2-line);
+}
+html[data-theme="dark"] body.ui2 .library-entry {
+  background: var(--u2-accent-soft); color: var(--u2-primary-text);
+}
+html[data-theme="dark"] body.ui2 .evidence-hit {
+  background: var(--u2-warn-bg2) !important;
+  box-shadow: 0 0 0 2px rgba(242, 169, 59, 0.45);
+}
+html[data-theme="dark"] body.ui2 .home-hero-progress {
+  background: rgba(24, 30, 32, 0.72); color: var(--u2-primary-text);
 }
 
 /* ============================================================
