@@ -326,19 +326,32 @@
         '<div class="unit-body">' + body + '</div>';
     },
 
+    /* 平滑滚动到分类区块；部分环境禁用平滑滚动，350ms 未到位则直接定位 */
+    scrollToCat: function (el) {
+      if (!el) return;
+      var y = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - 56;
+      y = Math.max(0, y);
+      try { window.scrollTo({ top: y, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, y); }
+      setTimeout(function () {
+        var cur = el.getBoundingClientRect().top;
+        if (cur > 160 || cur < -40) window.scrollTo(0, y);
+      }, 350);
+    },
+
     after: function () {
-      /* 支持 ?cat=sounds 直达某分类 */
-      var m = (location.hash || '').match(/\?cat=(\w+)/);
-      if (m) {
-        var el = document.getElementById('cat-' + m[1]);
-        if (el) setTimeout(function () { el.scrollIntoView({ behavior: 'smooth' }); }, 150);
+      /* 支持 ?cat=sounds / ?cat=try-to-know 直达某分类（parseHash 已剥离查询参数） */
+      var cat = App.state.knowledgeCat;
+      if (cat === 'try-to-know') cat = 'extra';   /* 别名：区块 ID 为 cat-extra */
+      if (cat) {
+        var el = document.getElementById('cat-' + cat);
+        if (el) setTimeout(function () { KnowledgeView.scrollToCat(el); }, 120);
       }
     },
 
     actions: {
       'kn:jump': function (d) {
         var el = document.getElementById('cat-' + d.cat);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (el) KnowledgeView.scrollToCat(el);
       },
       'kn:toggleZh': function () {
         App.knState.showZh = App.knState.showZh === false ? true : false;

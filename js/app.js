@@ -113,6 +113,19 @@
 
     parseHash: function () {
       var h = (location.hash || '').replace(/^#\/?/, '');
+      /* 查询参数剥离：#/knowledge/u1?cat=sounds → 路径 knowledge/u1 + cat=sounds。
+         历史版本把整段当单元 ID，知识点交叉引用跳转会落到「未找到」。 */
+      this.state.knowledgeCat = '';
+      var qi = h.indexOf('?');
+      if (qi >= 0) {
+        var qs = h.slice(qi + 1);
+        h = h.slice(0, qi);
+        var self = this;
+        qs.split('&').forEach(function (kv) {
+          var p = kv.split('=');
+          if (p[0] === 'cat' && p[1]) self.state.knowledgeCat = decodeURIComponent(p[1]);
+        });
+      }
       var seg = h.split('/').filter(Boolean);
       if (!seg.length) return { route: 'home' };
       if (seg[0] === 'unit' && seg[1]) {
