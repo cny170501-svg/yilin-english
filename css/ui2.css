@@ -1,27 +1,151 @@
 /* ============================================================
-   UI 2.0 设计系统 · SentencePop 白天模式（米白纸感）
-   作用域：body.ui2 —— 叠加在 style.css 之上，不改动原文件
-   基准：sentencepop.com 浅色模式实测配色（oklch → hex）
+   UI 3.0 全站设计系统 · SentencePop 双主题（浅色 / 深色）
+   作用域：body.ui2（叠加在 style.css 之上，原文件零改动）
+   主题切换：html[data-theme="dark"] 覆盖令牌；缺省=浅色
+   主题管理：js/theme.js（跟随系统 / 浅色 / 深色，localStorage 持久化）
    ============================================================ */
 
+/* ---------- 主题令牌 · 浅色（默认，SentencePop 浅色截图基准）---------- */
 body.ui2 {
-  /* ---- 设计令牌 ---- */
-  --u2-bg: #FAF8F1;            /* 米白纸感底 oklch(0.982 0.008 92) */
-  --u2-surface: #FFFFFF;       /* 卡片面 */
-  --u2-ink: #1A2333;           /* 深藏青墨 oklch(0.23 0.02 215) */
-  --u2-ink2: #4E6379;          /* 灰蓝次要文字 oklch(0.45 0.018 210) */
-  --u2-accent: #149186;        /* 青绿强调 oklch(0.44 0.1 196) */
-  --u2-accent-soft: #E6F3F0;   /* 青绿浅底 */
-  --u2-mint: #3DDC97;          /* 薄荷绿（单词线/正确）*/
-  --u2-amber: #F2A93B;         /* 暖橙（连续学习/提醒）*/
-  --u2-line: rgba(26, 35, 51, 0.10);   /* 细线 */
-  --u2-line-soft: rgba(26, 35, 51, 0.06);
-  --u2-r-ctl: 8px;             /* 控件圆角（SentencePop 6px 微调）*/
-  --u2-r-card: 14px;           /* 卡片圆角 */
+  color-scheme: light;
 
+  --bg-page: #FBF9F3;
+  --bg-sidebar: #F3F0E9;
+  --bg-selected: #F3F4EE;
+  --color-border: #EAE8E1;
+  --u2-line: #EAE8E1;
+  --u2-line-soft: rgba(23, 43, 53, 0.08);
+  --u2-shadow-soft: 0 1px 2px rgba(23, 43, 53, 0.05);
+
+  --color-primary: #006264;
+  --color-primary-hover: #004E48;
+  --u2-accent: #006264;
+  --u2-accent-soft: #D5E8E5;
+  --u2-primary-soft: #D5E8E5;
+  --u2-primary-text: #0C5B52;
+
+  --color-text: #172B35;
+  --color-text-2: #52636A;
+  --color-muted: #879398;
+  --u2-ink: #172B35;
+  --u2-ink2: #52636A;
+  --u2-surface: #FEFDFA;
+  --u2-bg: #FBF9F3;
+
+  --u2-fill: #172B35;
+  --u2-on-fill: #F6F4EC;
+
+  --u2-ok: #199A5C;
+  --u2-ok-bg: #EAF9F1;
+  --u2-ok-bg2: #EFFAF4;
+  --u2-ok-text: #147A4D;
+  --u2-warn: #F2A93B;
+  --u2-warn-bg: #FEF6E7;
+  --u2-warn-bg2: #FEF3D9;
+  --u2-warn-text: #9A6A1B;
+  --u2-err: #B42318;
+  --u2-err-bg: #FDEEEE;
+  --u2-err-text: #B42318;
+
+  --u2-mint: #3DDC97;
+  --u2-amber: #F2A93B;
+  --u2-bubble-a: #EAF5F1;
+  --u2-bubble-b: #FBF3E4;
+
+  --u2-r-ctl: 8px;
+  --u2-r-card: 14px;
+}
+
+/* ---------- 主题令牌 · 深色（SentencePop 深色截图基准）---------- */
+html[data-theme="dark"] body.ui2 {
+  color-scheme: dark;
+
+  --bg-page: #101516;
+  --bg-sidebar: #14191B;
+  --bg-selected: #111919;
+  --color-border: #222B2C;
+  --u2-line: #222B2C;
+  --u2-line-soft: rgba(241, 243, 241, 0.08);
+  --u2-shadow-soft: none;
+
+  --color-primary: #3E9790;
+  --color-primary-hover: #4FAEA6;
+  --u2-accent: #3E9790;
+  --u2-accent-soft: #12352F;
+  --u2-primary-soft: #12352F;
+  --u2-primary-text: #40C99A;
+
+  --color-text: #F1F3F1;
+  --color-text-2: #C1CBC8;
+  --color-muted: #85928F;
+  --u2-ink: #F1F3F1;
+  --u2-ink2: #C1CBC8;
+  --u2-surface: #181E20;
+  --u2-bg: #101516;
+
+  --u2-fill: #3E9790;
+  --u2-on-fill: #0E1414;
+
+  --u2-ok: #40C99A;
+  --u2-ok-bg: #12352F;
+  --u2-ok-bg2: #0F2C27;
+  --u2-ok-text: #40C99A;
+  --u2-warn: #F2A93B;
+  --u2-warn-bg: #2A2313;
+  --u2-warn-bg2: #2A2313;
+  --u2-warn-text: #D9A53F;
+  --u2-err: #E8857D;
+  --u2-err-bg: #2A1512;
+  --u2-err-text: #E8857D;
+
+  --u2-mint: #3DDC97;
+  --u2-amber: #F2A93B;
+  --u2-bubble-a: #1A2320;
+  --u2-bubble-b: #251F17;
+}
+
+/* ---------- 基础 ---------- */
+body.ui2 {
   background: var(--u2-bg);
   color: var(--u2-ink);
 }
+body.ui2 .card {
+  background: var(--u2-surface);
+  border: 1px solid var(--u2-line-soft);
+  border-radius: var(--u2-r-card);
+  box-shadow: var(--u2-shadow-soft);
+}
+body.ui2 .page-head .book-title,
+body.ui2 .unit-head-name { color: var(--u2-ink); }
+body.ui2 .book-sub,
+body.ui2 .unit-head-zh,
+body.ui2 .muted { color: var(--u2-ink2); }
+
+/* ---- 主按钮：品牌青绿 ---- */
+body.ui2 .btn-primary {
+  background: var(--u2-accent);
+  border-color: var(--u2-accent);
+  color: #fff;
+}
+body.ui2 .btn-primary:active { background: var(--color-primary-hover); }
+body.ui2 .btn,
+body.ui2 .btn-mini { border-radius: var(--u2-r-ctl); }
+
+/* ---- 进度条 ---- */
+body.ui2 .progress-track,
+body.ui2 .progress-bar { background: var(--u2-line-soft); }
+body.ui2 .progress-fill,
+body.ui2 .progress-bar .progress-fill,
+body.ui2 .kn-entry-bar > span,
+body.ui2 .home-hero .progress-fill {
+  background: linear-gradient(90deg, var(--u2-accent), var(--u2-mint));
+}
+
+/* ---- 掌握/复习标记 ---- */
+body.ui2 .mark-ok.on { background: var(--u2-mint); border-color: var(--u2-mint); color: #0F3B2C; }
+body.ui2 .mark-review.on { background: var(--u2-amber); border-color: var(--u2-amber); }
+body.ui2 .word-card.is-mastered { border-color: rgba(61, 220, 151, 0.4); background: var(--u2-ok-bg); }
+body.ui2 .word-card.is-review { border-color: rgba(242, 169, 59, 0.4); background: var(--u2-warn-bg); }
 
 /* ---- 页面与卡片 ---- */
 body.ui2 .card {
@@ -469,6 +593,57 @@ body.ui2 .sp-tip {
   font-size: 13.5px; line-height: 1.8; color: #147A4D;
 }
 @media (max-width: 480px) {
+  body.ui2 .sp-rule-title { font-size: 18px; }
+  body.ui2 .sp-formula { font-size: 15px; padding: 8px 14px; }
+  body.ui2 .sp-exlist-item .sp-word { font-size: 17px; }
+}
+
+
+
+
+/* ============================================================
+   桌面端（≥1024px）：固定左侧导航 + 独立内容区
+   ============================================================ */
+@media (min-width: 1024px) {
+  body.ui2 .nav {
+    left: 0; top: 0; bottom: 0; right: auto;
+    width: 212px; height: 100vh;
+    flex-direction: column; align-items: stretch; justify-content: flex-start;
+    gap: 6px; padding: 20px 12px;
+    background: var(--bg-sidebar);
+    border-top: none; border-right: 1px solid var(--color-border);
+  }
+  body.ui2 .nav-btn {
+    flex-direction: row; justify-content: flex-start; align-items: center;
+    gap: 12px; width: 100%; padding: 12px 16px;
+    border-radius: 10px; font-size: 14px;
+  }
+  body.ui2 .nav-btn .nav-icon { font-size: 20px; }
+  body.ui2 .nav-btn .nav-label { font-size: 14px; font-weight: 600; }
+  body.ui2 .nav-btn.active {
+    background: var(--bg-selected); color: var(--u2-accent);
+  }
+  body.ui2 .app {
+    margin-left: 212px;
+    max-width: 860px;
+    padding-left: 28px; padding-right: 28px;
+  }
+  body.ui2 .unit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body.ui2 .home-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1280px) {
+  body.ui2 .app { max-width: 960px; }
+  body.ui2 .home-feature-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  body.ui2 .unit-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ---------- 移动端微调 ---------- */
+@media (max-width: 480px) {
+  body.ui2 .home2-avatar { width: 38px; height: 38px; }
+  body.ui2 .home-hero-title { font-size: 18px; }
+  body.ui2 .sp-word { font-size: 24px; }
+  body.ui2 .sp-word-big { font-size: 34px; }
   body.ui2 .sp-rule-title { font-size: 18px; }
   body.ui2 .sp-formula { font-size: 15px; padding: 8px 14px; }
   body.ui2 .sp-exlist-item .sp-word { font-size: 17px; }

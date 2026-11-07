@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#2f6fed">
+  <!-- 浏览器地址栏/状态栏颜色随主题（浅=主青绿，深=页面底色） -->
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#006264">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101516">
   <meta name="description" content="译林版小学英语四年级上册互动复习工具：单词点读、听力读写练习、课外双语阅读、错题本与学习进度">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -11,11 +13,21 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <!-- 主题防闪烁：样式表渲染前按用户偏好/系统主题设置 data-theme -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('yilin-ui-theme');
+        var dark = t === 'dark' || ((t !== 'light' && t !== 'dark') && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      } catch (e) { /* 忽略 */ }
+    })();
+  </script>
   <title>译林英语 · 四年级上册复习</title>
   <!-- Tailwind Typography 排版层（prose）：构建方式见 tw/ 目录，必须在 style.css 之前引入 -->
   <link rel="stylesheet" href="css/tw-typography.css">
   <link rel="stylesheet" href="css/style.css">
-  <!-- UI 2.0 设计系统（SentencePop 白天模式），叠加于 style.css -->
+  <!-- UI 3.0 设计系统（SentencePop 双主题，跟随系统/浅/深），叠加于 style.css -->
   <link rel="stylesheet" href="css/ui2.css">
 </head>
 <body class="ui2 fs-m">
@@ -80,6 +92,7 @@
   <script src="js/views/dictation.js"></script>
   <script src="js/views/progress.js"></script>
   <script src="js/views/settings.js"></script>
+  <script src="js/theme.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

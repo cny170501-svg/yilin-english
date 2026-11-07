@@ -105,7 +105,17 @@
         '  <div class="card-title">🔊 语音点读</div>' + voiceCard +
         '</section>' +
 
-        /* ---------- 显示 ---------- */
+        /* ---------- 显示：主题外观 ---------- */
+        '<section class="card">' +
+        '  <div class="card-title">🌗 主题外观</div>' +
+        '<div class="rate-row"><span class="muted small">界面主题：</span>' +
+        chip('settings:uiTheme', 'auto', (window.Theme ? Theme.current() : 'auto') === 'auto', '跟随系统') +
+        chip('settings:uiTheme', 'light', (window.Theme ? Theme.current() : '') === 'light', '☀️ 浅色') +
+        chip('settings:uiTheme', 'dark', (window.Theme ? Theme.current() : '') === 'dark', '🌙 深色') +
+        '</div>' +
+        '<div class="muted small">跟随系统时自动随设备日夜模式切换；选择会保存在本机浏览器。</div>' +
+        '</section>' +
+
         '<section class="card">' +
         '  <div class="card-title">🔤 显示与阅读舒适度</div>' +
         '<div class="rate-row"><span class="muted small">字体大小：</span>' +
@@ -198,6 +208,13 @@
         Store.data.settings.fontSize = d.v;
         Store.save();
         App.applyFontSize();
+        App.rerender();
+      },
+      'settings:uiTheme': function (d) {
+        if (window.Theme) {
+          Theme.set(d.v);   // auto=清除手动偏好恢复跟随系统；light/dark=手动固定
+          Util.toast(d.v === 'auto' ? '已恢复跟随系统主题' : (d.v === 'dark' ? '已切换深色主题' : '已切换浅色主题'));
+        }
         App.rerender();
       },
       'settings:zhMode': function (d) {

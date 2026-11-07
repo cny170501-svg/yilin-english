@@ -1,16 +1,18 @@
 /* Service Worker：应用离线缓存（PWA）
    更新任何资源文件时，请把 CACHE 版本号 +1（如 v5 → v6），用户下次打开会自动更新 */
-var CACHE = 'yilin-english-v37';
+var CACHE = 'yilin-english-v39';
 var ASSETS = [
   './',
   './index.html',
   './manifest.webmanifest',
   './css/style.css',
   './css/tw-typography.css',
+  './css/ui2.css',
   './js/util.js',
   './js/storage.js',
   './js/audio-pack.js',
   './js/tts.js',
+  './js/theme.js',
   './js/content.js',
   './js/exercise.js',
   './js/app.js',
