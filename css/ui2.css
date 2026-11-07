@@ -183,7 +183,7 @@ body.ui2 .progress-bar { background: var(--u2-line-soft); }
 body.ui2 .mark-ok.on { background: var(--u2-mint); border-color: var(--u2-mint); }
 body.ui2 .mark-review.on { background: var(--u2-amber); border-color: var(--u2-amber); }
 body.ui2 .word-card.is-mastered { border-color: rgba(61, 220, 151, 0.5); background: #F2FBF7; }
-body.ui2 .word-card.is-review { border-color: rgba(242, 169, 59, 0.45); background: #FDFAF2; }
+body.ui2 .word-card.is-review { border-color: rgba(242, 169, 59, 0.45); background: var(--u2-warn-bg2); }
 
 /* ---- 底部导航（5 项）---- */
 body.ui2 .nav {
@@ -291,7 +291,7 @@ body.ui2 .hub-card {
   background: var(--u2-surface); border: 1px solid var(--u2-line-soft);
   border-radius: var(--u2-r-card); padding: 13px 14px; cursor: pointer; text-align: left;
 }
-body.ui2 .hub-card:active { background: #F6F3E9; }
+body.ui2 .hub-card:active { background: var(--u2-line-soft); }
 .hub-icon {
   flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px;
   background: var(--u2-accent-soft); display: flex; align-items: center; justify-content: center;
@@ -370,8 +370,8 @@ body.ui2 .tabs .tab.active {
 
 /* 单元知识点入口卡 */
 body.ui2 .kn-entry {
-  background: linear-gradient(135deg, #EAF5F1, #F0FAF5);
-  border-color: #BFDFD3;
+  background: var(--u2-bubble-a);
+  border-color: var(--u2-accent-soft);
 }
 body.ui2 .kn-entry-title { color: var(--u2-accent); }
 body.ui2 .kn-entry-bar { background: var(--u2-line-soft); }
@@ -402,41 +402,41 @@ body.ui2 .k-tab {
 }
 body.ui2 .k-tab-n { background: var(--u2-accent-soft); color: var(--u2-accent); }
 body.ui2 .k-letter { background: var(--u2-accent-soft); color: var(--u2-accent); }
-body.ui2 .k-phonetic { color: #0F7A6E; }
+body.ui2 .k-phonetic { color: var(--u2-primary-text); }
 body.ui2 .k-formula {
-  background: var(--u2-accent-soft); color: #0C5B52;
+  background: var(--u2-accent-soft); color: var(--u2-primary-text);
   border-radius: 10px;
 }
-body.ui2 .k-tip { background: #EFFAF4; color: #147A4D; border-radius: 9px; }
-body.ui2 .k-special { background: #FEF6E7; color: #9A6A1B; border-radius: 9px; }
+body.ui2 .k-tip { background: var(--u2-ok-bg2); color: var(--u2-ok-text); border-radius: 9px; }
+body.ui2 .k-special { background: var(--u2-warn-bg); color: var(--u2-warn-text); border-radius: 9px; }
 body.ui2 .k-word-chip {
-  border-color: #BFDFD3; color: var(--u2-accent); background: #fff;
+  border-color: var(--u2-accent-soft); color: var(--u2-accent); background: var(--u2-surface);
 }
 body.ui2 .k-word-chip:active { background: var(--u2-accent-soft); }
-body.ui2 .k-badge-learned { background: #EAF9F1; color: #199A5C; }
-body.ui2 .k-badge-review { background: #FEF3D9; color: #B07714; }
-body.ui2 .k-badge-mastered { background: #E3F2EF; color: #0F7A6E; }
+body.ui2 .k-badge-learned { background: var(--u2-ok-bg); color: var(--u2-ok); }
+body.ui2 .k-badge-review { background: var(--u2-warn-bg2); color: var(--u2-warn-text); }
+body.ui2 .k-badge-mastered { background: var(--u2-accent-soft); color: var(--u2-primary-text); }
 body.ui2 .k-mark.on.k-learned { background: var(--u2-mint); }
 body.ui2 .k-mark.on.k-review { background: var(--u2-amber); }
 body.ui2 .k-mark.on.k-mastered { background: var(--u2-accent); }
-body.ui2 .k-table th { background: var(--u2-accent-soft); color: #0C5B52; }
-body.ui2 .k-table tr:nth-child(even) td { background: #F7FBF7; }
-body.ui2 .k-bubble-a { background: #EAF5F1; }
-body.ui2 .k-bubble-b { background: #FBF3E4; }
+body.ui2 .k-table th { background: var(--u2-accent-soft); color: var(--u2-primary-text); }
+body.ui2 .k-table tr:nth-child(even) td { background: var(--u2-line-soft); }
+body.ui2 .k-bubble-a { background: var(--u2-bubble-a); }
+body.ui2 .k-bubble-b { background: var(--u2-bubble-b); }
 body.ui2 .k-gram-title { color: var(--u2-ink); }
 
 /* 语法专项 */
 body.ui2 .gram-card {
   background: var(--u2-surface); border: 1px solid var(--u2-line-soft);
 }
-body.ui2 .gram-card.is-mastered { border-color: rgba(61,220,151,.5); background: #F2FBF7; }
-body.ui2 .gram-card.is-review { border-color: rgba(242,169,59,.45); background: #FDFAF2; }
+body.ui2 .gram-card.is-mastered { border-color: rgba(61,220,151,.5); background: var(--u2-ok-bg2); }
+body.ui2 .gram-card.is-review { border-color: rgba(242,169,59,.45); background: var(--u2-warn-bg2); }
 body.ui2 .rule-card { border-color: var(--u2-line-soft); }
 body.ui2 .formula {
-  background: var(--u2-accent-soft); color: #0C5B52; border-radius: 10px;
+  background: var(--u2-accent-soft); color: var(--u2-primary-text); border-radius: 10px;
 }
 body.ui2 .grammar-guide-steps span {
-  background: var(--u2-accent-soft); color: #0C5B52; border-radius: 999px;
+  background: var(--u2-accent-soft); color: var(--u2-primary-text); border-radius: 999px;
 }
 body.ui2 .grammar-read-note { color: var(--u2-ink2); }
 body.ui2 .gex-en { color: var(--u2-ink); }
@@ -451,8 +451,8 @@ body.ui2 .cat-tabs .cat-tab.active {
   background: var(--u2-ink); color: #F6F4EC; border-color: var(--u2-ink);
 }
 body.ui2 .quiz-card { border-color: var(--u2-line-soft); }
-body.ui2 .fb-banner.fb-correct { background: #EAF9F1; color: #147A4D; border-radius: 12px; }
-body.ui2 .fb-banner.fb-wrong { background: #FDEEEE; color: #B42318; border-radius: 12px; }
+body.ui2 .fb-banner.fb-correct { background: var(--u2-ok-bg); color: var(--u2-ok-text); border-radius: 12px; }
+body.ui2 .fb-banner.fb-wrong { background: var(--u2-err-bg); color: var(--u2-err-text); border-radius: 12px; }
 body.ui2 .fb-explain { color: var(--u2-ink2); }
 body.ui2 .score-card { border-color: var(--u2-line-soft); }
 body.ui2 .ans-input,
@@ -498,7 +498,7 @@ body.ui2 .pu-name { color: var(--u2-ink); }
 body.ui2 .pu-acc { color: var(--u2-ink2); }
 
 /* 今日任务/推荐 */
-body.ui2 .task-done-badge { background: #EAF9F1; color: #199A5C; border-radius: 8px; }
+body.ui2 .task-done-badge { background: var(--u2-ok-bg); color: var(--u2-ok); border-radius: 8px; }
 body.ui2 .rec-row { border-bottom: 1px dashed var(--u2-line-soft); }
 body.ui2 .rec-title { color: var(--u2-ink); font-weight: 700; }
 
@@ -602,18 +602,53 @@ body.ui2 .sp-tip {
 
 
 /* ============================================================
+   深色主题 · 结构覆盖（浅色令牌化已自动覆盖大部分；
+   此处处理「墨底反色」设计与固定浅色残留）
+   ============================================================ */
+/* 反色胶囊：深色下 ink=浅色，文字需翻转为深色（--u2-on-fill） */
+html[data-theme="dark"] body.ui2 .tabs .tab.active { color: var(--u2-on-fill); }
+html[data-theme="dark"] body.ui2 .cat-tabs .cat-tab.active { color: var(--u2-on-fill); }
+html[data-theme="dark"] body.ui2 .wrong-filter .chip-scope.on { color: var(--u2-on-fill); }
+html[data-theme="dark"] body.ui2 .lib-tabs .tab.active { color: var(--u2-on-fill); }
+
+/* 周打卡卡：浅色=墨底卡，深色=抬升面+描边（避免大面积白卡） */
+html[data-theme="dark"] body.ui2 .home2-streak {
+  background: #1D2629; color: var(--u2-ink);
+  border: 1px solid var(--u2-line-soft);
+}
+html[data-theme="dark"] body.ui2 .home2-day { color: rgba(241, 243, 241, 0.62); }
+html[data-theme="dark"] body.ui2 .home2-dot { border-color: rgba(241, 243, 241, 0.32); }
+
+/* Toast：深色抬升面 */
+html[data-theme="dark"] body.ui2 .toast {
+  background: #2A3438; color: var(--u2-ink);
+  border: 1px solid var(--u2-line-soft);
+}
+
+/* 移动端底部导航栏（桌面 1024 块会以侧边栏样式覆盖回来） */
+html[data-theme="dark"] body.ui2 .nav {
+  background: rgba(20, 25, 27, 0.96);
+}
+html[data-theme="dark"] body.ui2 .nav-badge {
+  box-shadow: 0 0 0 2px #14191B;
+}
+
+/* ============================================================
    桌面端（≥1024px）：固定左侧导航 + 独立内容区
    ============================================================ */
 @media (min-width: 1024px) {
   body.ui2 .nav {
     left: 0; top: 0; bottom: 0; right: auto;
-    width: 212px; height: 100vh;
+    transform: none;                 /* 重置 style.css ≥900px 的 translateX(-50%) */
+    width: 212px; height: 100vh; max-width: none;
+    border-radius: 0; box-shadow: none; overflow-y: auto;
     flex-direction: column; align-items: stretch; justify-content: flex-start;
     gap: 6px; padding: 20px 12px;
     background: var(--bg-sidebar);
     border-top: none; border-right: 1px solid var(--color-border);
   }
   body.ui2 .nav-btn {
+    flex: 0 0 auto;                  /* 重置基础样式的 flex:1 均分拉伸 */
     flex-direction: row; justify-content: flex-start; align-items: center;
     gap: 12px; width: 100%; padding: 12px 16px;
     border-radius: 10px; font-size: 14px;
@@ -623,10 +658,15 @@ body.ui2 .sp-tip {
   body.ui2 .nav-btn.active {
     background: var(--bg-selected); color: var(--u2-accent);
   }
+  body.ui2 .nav-badge {
+    top: 50%; right: 10px; transform: translateY(-50%);
+    box-shadow: 0 0 0 2px var(--bg-sidebar);
+  }
   body.ui2 .app {
     margin-left: 212px;
     max-width: 860px;
     padding-left: 28px; padding-right: 28px;
+    padding-bottom: 40px;   /* 重置移动端底部导航预留的 110px */
   }
   body.ui2 .unit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   body.ui2 .home-feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
