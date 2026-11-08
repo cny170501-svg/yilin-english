@@ -76,9 +76,26 @@
         var u = unit();
         var w = u && (u.words || [])[App.state.immIdx];
         if (w && el && el.classList) {
+          var exBtn = document.querySelector('.sp-ex-row .icon-btn.is-playing');   // 先清理例句接管状态
+          if (exBtn) exBtn.classList.remove('is-playing');
           Speaker.speak(w.en);
           el.classList.add('sp-word-playing');
           setTimeout(function () { el.classList.remove('sp-word-playing'); }, 1200);
+        }
+      },
+
+      'iw:playEx': function (d, el) {
+        var u = unit();
+        var w = u && (u.words || [])[App.state.immIdx];
+        if (w && w.exEn && el && el.classList) {
+          el.classList.add('is-playing');                        // 先置状态：同步 onend 时终态正确
+          try {
+            Speaker.speak(w.exEn, {
+              onend: function () { el.classList.remove('is-playing'); }
+            });
+          } catch (e) {
+            el.classList.remove('is-playing');                   // speak 外部异常兜底
+          }
         }
       },
       'iw:prev': function () {
@@ -181,6 +198,7 @@
           onDone: function () { Util.toast('本单元句型连续播放完成'); }
         });
       },
+      'is:stop': function () { Speaker.stop(); },
       'is:toggleZh': function () {
         App.state.showZh = App.state.showZh === false;
         App.rerender();
