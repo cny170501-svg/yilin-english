@@ -230,7 +230,9 @@
       var t = grammarTopic();
       if (!t) return '<div class="card">未找到语法主题 <button class="btn btn-mini" data-nav="#/grammar">返回</button></div>';
       var rules = t.rules || [];
+      if (!rules.length) return '<div class="card">本主题暂无规则 <button class="btn btn-mini" data-nav="#/grammar/' + t.id + '">返回主题</button></div>';
       var idx = Math.min(Math.max(App.state.igIdx || 0, 0), Math.max(rules.length - 1, 0));
+      App.state.igIdx = idx;   /* 钳制后回写：显示/播放/翻页统一消费同一有效索引（越界 URL 恢复） */
       var rule = rules[idx];
       var showZh = App.state.showZh !== false;
 
