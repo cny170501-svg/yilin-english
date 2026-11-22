@@ -141,7 +141,12 @@
       if ((seg[0] === 'iword' || seg[0] === 'isentence' || seg[0] === 'igrammar') && seg[1]) {
         this.state.immUnit = seg[1];
         this.state.immIdx = Math.max(0, parseInt(seg[2] || '0', 10) || 0);
-        if (seg[0] === 'igrammar') this.state.igTopic = seg[1];
+        if (seg[0] === 'igrammar') {
+          this.state.igTopic = seg[1];
+          /* 语法视图读 igIdx（render/after/prev/next/playEn/readZh）；此前只写 immIdx
+             导致直接开第 N 条、翻页、刷新全部失效——索引状态统一到 igIdx */
+          this.state.igIdx = Math.max(0, parseInt(seg[2] || '0', 10) || 0);
+        }
         return { route: seg[0] };
       }
       /* 我的资料库（V3.0） */

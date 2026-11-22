@@ -306,7 +306,7 @@
     actions: {
       'ig:playEx': function (d) {
         var t = grammarTopic();
-        var rule = t && (t.rules || [])[App.state.immIdx];
+        var rule = t && (t.rules || [])[App.state.igIdx];   /* 与渲染/翻页同键：此前误用 immIdx（单词页索引）导致例句播错规则 */
         var e = rule && (rule.examples || [])[+d.ei];
         if (e) Speaker.speak(e.en);
       },
